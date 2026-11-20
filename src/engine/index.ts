@@ -1,13 +1,31 @@
-import type { Commune, CreditOptions, Evaluation, Property, SearchCriteria, UserProfile } from "../types";
+import type {
+  Commune,
+  CreditOptions,
+  Evaluation,
+  MarketData,
+  Property,
+  SearchCriteria,
+  UserProfile,
+  ZonageData,
+} from "../types";
 import { aidRules } from "../config";
 import communesData from "../data/communes.mel.json";
 import biensData from "../data/biens.demo.json";
+import zonageData from "../data/zonage.abc.json";
+import marcheData from "../data/marche.dvf.json";
 import { estimateTravaux, evaluate } from "./evaluate";
 import { defaultCreditOptions } from "./finance";
 import { matchesCriteria, sortEvaluations } from "./search";
-import { parseCommunes, parseProperties } from "../schemas";
+export { sortBy, TRI_LABELS } from "./search";
+import { parseCommunes, parseMarket, parseProperties, parseZonage } from "../schemas";
 
-export const communes: Commune[] = parseCommunes(communesData);
+/** Sources de données ouvertes (zonage ABC : ministère ; DVF : DGFiP/Etalab), validées au chargement. */
+export const zonage: ZonageData = parseZonage(zonageData);
+export const communes: Commune[] = parseCommunes(communesData, zonage);
+export const marche: MarketData = parseMarket(
+  marcheData,
+  communes.map((c) => c.insee),
+);
 export const biens: Property[] = parseProperties(biensData, communes);
 
 export const defaultProfile: UserProfile = {
@@ -29,6 +47,23 @@ export const defaultCriteria: SearchCriteria = {
 
 export const defaultCredit: CreditOptions = defaultCreditOptions(aidRules);
 
+/** Évalue des biens précis (favoris, comparaison), indépendamment des critères de recherche. */
+export function evaluateByIds(
+  ids: string[],
+  profile: UserProfile,
+  years: number,
+  credit: CreditOptions = defaultCredit,
+): Evaluation[] {
+  const byId = new Map(communes.map((c) => [c.id, c]));
+  const out: Evaluation[] = [];
+  for (const id of ids) {
+    const bien = biens.find((b) => b.id === id);
+    const commune = bien && byId.get(bien.communeId);
+    if (bien && commune) out.push(evaluate(bien, commune, profile, aidRules, years, credit, marche));
+  }
+  return out;
+}
+
 export function runSearch(
   profile: UserProfile,
   criteria: SearchCriteria,
@@ -43,7 +78,7 @@ export function runSearch(
     const commune = byId.get(bien.communeId);
     if (!commune) continue;
     if (!matchesCriteria(bien, commune, centre, criteria, estimateTravaux(bien, aidRules))) continue;
-    results.push(evaluate(bien, commune, profile, aidRules, years, credit));
+    results.push(evaluate(bien, commune, profile, aidRules, years, credit, marche));
   }
   return sortEvaluations(results);
 }

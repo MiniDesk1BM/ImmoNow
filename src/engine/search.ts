@@ -1,4 +1,4 @@
-import type { Commune, Evaluation, Property, SearchCriteria } from "../types";
+import type { Commune, Evaluation, Property, SearchCriteria, TriKey } from "../types";
 
 /** Distance à vol d'oiseau (haversine), en km. */
 export function distanceKm(a: Commune, b: Commune): number {
@@ -25,9 +25,48 @@ export function matchesCriteria(
 
 const ORDRE = { vert: 0, orange: 1, rouge: 2 } as const;
 
-/** Tri : statut, puis score décroissant, puis prix croissant. */
+/** Tri : statut, puis score décroissant, puis prix croissant, puis identifiant (ordre déterministe). */
 export function sortEvaluations(evals: Evaluation[]): Evaluation[] {
   return [...evals].sort(
-    (a, b) => ORDRE[a.statut] - ORDRE[b.statut] || b.scorePct - a.scorePct || a.bien.prix - b.bien.prix,
+    (a, b) =>
+      ORDRE[a.statut] - ORDRE[b.statut] ||
+      b.scorePct - a.scorePct ||
+      a.bien.prix - b.bien.prix ||
+      a.bien.id.localeCompare(b.bien.id),
   );
+}
+
+export const TRI_LABELS: Record<TriKey, string> = {
+  pertinence: "Pertinence (faisabilité, puis score)",
+  score: "Score décroissant",
+  prixAsc: "Prix croissant",
+  prixDesc: "Prix décroissant",
+  prixM2: "Prix au m² croissant",
+  mensualite: "Mensualité croissante",
+  resteAVivre: "Reste à vivre décroissant",
+  ecartMarche: "Écart au marché (le moins cher d'abord)",
+};
+
+/** Valeur numérique triée par ordre croissant ; `null` = absent, toujours classé en dernier. */
+const CLES: Record<Exclude<TriKey, "pertinence">, (e: Evaluation) => number | null> = {
+  score: (e) => -e.scorePct,
+  prixAsc: (e) => e.bien.prix,
+  prixDesc: (e) => -e.bien.prix,
+  prixM2: (e) => e.bien.prix / e.bien.surface,
+  mensualite: (e) => e.mensualitePhase1,
+  resteAVivre: (e) => -e.resteAVivre,
+  ecartMarche: (e) => e.marche?.ecartPct ?? null,
+};
+
+/** Tri choisi par l'utilisateur ; égalités départagées par prix puis identifiant (ordre stable et déterministe). */
+export function sortBy(evals: Evaluation[], key: TriKey): Evaluation[] {
+  if (key === "pertinence") return sortEvaluations(evals);
+  const val = CLES[key];
+  return [...evals].sort((a, b) => {
+    const va = val(a);
+    const vb = val(b);
+    if (va === null && vb !== null) return 1;
+    if (vb === null && va !== null) return -1;
+    return (va ?? 0) - (vb ?? 0) || a.bien.prix - b.bien.prix || a.bien.id.localeCompare(b.bien.id);
+  });
 }

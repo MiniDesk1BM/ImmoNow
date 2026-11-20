@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { AidRules, Commune, Property } from "./types";
+import type { AidRules, Commune, MarketData, Property, SavedState, Zone, ZonageData } from "./types";
 
 /**
  * Validation à l'exécution des fichiers JSON (règles d'aides, communes, biens).
@@ -41,6 +41,12 @@ const aidRulesSchema = z
       chargesAlerteParM2Mensuel: montant,
       ecartOrange: rate,
     }),
+    marche: z.strictObject({
+      seuilSousMarche: z.number().min(-1).max(0),
+      seuilAuDessus: z.number().min(0).max(1),
+      minTransactions: z.number().int().min(1),
+    }),
+
     score: z.strictObject({
       poids: z.strictObject({ financement: rate, endettement: rate, resteAVivre: rate, apport: rate }),
       margeEndettementCible: rate.positive().lt(1),
@@ -129,13 +135,47 @@ const aidRulesSchema = z
     }
   });
 
+const inseeCode = z.string().regex(/^(\d{5}|2[AB]\d{3})$/);
+
+/** Commune telle que stockée dans communes.mel.json : SANS zone (elle vient du zonage ABC par code INSEE). */
 const communeSchema = z.strictObject({
   id: z.string().regex(/^[a-z0-9-]+$/),
+  insee: inseeCode,
   nom: z.string().min(1),
   codePostal: z.string().regex(/^\d{5}$/),
-  zone,
   lat: z.number().min(-90).max(90),
   lng: z.number().min(-180).max(180),
+});
+
+const sourceSchema = z.strictObject({
+  nom: z.string().min(1),
+  page: z.url({ protocol: /^https$/ }),
+  licence: z.string().min(1),
+  misAJour: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  perimetre: z.string().optional(),
+  url: z.url({ protocol: /^https$/ }).optional(),
+});
+
+const zonageSchema = z.strictObject({
+  source: sourceSchema,
+  zones: z.record(inseeCode, zone),
+});
+
+const stats = z
+  .strictObject({
+    n: z.number().int().positive(),
+    mediane: z.number().positive(),
+    q1: z.number().positive(),
+    q3: z.number().positive(),
+  })
+  .refine((s) => s.q1 <= s.mediane && s.mediane <= s.q3, "q1 ≤ médiane ≤ q3 attendu");
+const bucket = z.strictObject({ ancien: stats.nullable(), neuf: stats.nullable() });
+const marketEntry = z.strictObject({ appartement: bucket, maison: bucket });
+const marketSchema = z.strictObject({
+  source: sourceSchema,
+  annees: z.array(z.number().int().min(2000).max(2100)).min(1),
+  agglo: marketEntry,
+  communes: z.record(inseeCode, marketEntry),
 });
 
 const propertySchema = z.strictObject({
@@ -172,10 +212,37 @@ export function parseAidRules(data: unknown): AidRules {
   return parseOrThrow(aidRulesSchema, data, "règles d'aides");
 }
 
-export function parseCommunes(data: unknown): Commune[] {
-  const communes = parseOrThrow(z.array(communeSchema).min(1), data, "communes");
-  assertUniqueIds(communes, "communes");
-  return communes;
+export function parseZonage(data: unknown): ZonageData {
+  return parseOrThrow(zonageSchema, data, "zonage ABC");
+}
+
+/** Valide les données de marché (DVF) ; chaque code INSEE de commune doit exister dans `communes` si fourni. */
+export function parseMarket(data: unknown, insee?: string[]): MarketData {
+  const m = parseOrThrow(marketSchema, data, "marché DVF");
+  if (insee) {
+    const known = new Set(insee);
+    for (const code of Object.keys(m.communes)) {
+      if (!known.has(code)) throw new Error(`Données invalides (marché DVF) : code INSEE inconnu « ${code} ».`);
+    }
+  }
+  return m;
+}
+
+/**
+ * Valide les communes et leur affecte la zone ABC par code INSEE (zonage officiel).
+ * Toute commune absente du zonage est une erreur : pas de zone « par défaut ».
+ */
+export function parseCommunes(data: unknown, zonage: ZonageData): Commune[] {
+  const parsed = parseOrThrow(z.array(communeSchema).min(1), data, "communes");
+  assertUniqueIds(parsed, "communes");
+  const seen = new Set<string>();
+  return parsed.map((c) => {
+    if (seen.has(c.insee)) throw new Error(`Données invalides (communes) : code INSEE en double « ${c.insee} ».`);
+    seen.add(c.insee);
+    const zone: Zone | undefined = zonage.zones[c.insee];
+    if (!zone) throw new Error(`Données invalides (communes) : ${c.nom} (${c.insee}) absente du zonage ABC.`);
+    return { ...c, zone };
+  });
 }
 
 /** Valide les biens, y compris l'existence de leur commune et la cohérence BRS. */
@@ -190,4 +257,52 @@ export function parseProperties(data: unknown, communes: Commune[]): Property[] 
     }
   }
   return biens;
+}
+
+const tri = z.enum(["pertinence", "score", "prixAsc", "prixDesc", "prixM2", "mensualite", "resteAVivre", "ecartMarche"]);
+const entier = (min: number, max: number) => z.number().int().min(min).max(max);
+const reel = (min: number, max: number) => z.number().min(min).max(max);
+
+/** Même bornes que les champs du formulaire : une valeur hors bornes (stockage modifié à la main) est rejetée. */
+const savedStateSchema = z.strictObject({
+  profile: z.strictObject({
+    foyer: z.strictObject({ adultes: entier(1, 4), enfants: entier(0, 6) }),
+    primoAccedant: z.boolean(),
+    salariePrive: z.boolean(),
+    finances: z.strictObject({
+      revenusNetsMensuels: reel(0, 100000),
+      rfrN2: reel(0, 1000000),
+      apport: reel(0, 1000000),
+      mensualitesCredits: reel(0, 50000),
+    }),
+  }),
+  criteria: z.strictObject({
+    communeCentreId: z.string().min(1).max(64),
+    rayonKm: reel(1, 30),
+    types: z.array(z.enum(["maison", "appartement"])).max(2),
+    surfaceMin: reel(0, 500),
+    chambresMin: entier(0, 10),
+    categories: z.array(categorie).max(4),
+    accepteTravaux: z.boolean(),
+  }),
+  years: entier(1, 40),
+  credit: z.strictObject({ ajustementTaux: reel(-0.05, 0.1), garantie }),
+  tri,
+  favoris: z.array(z.string().max(64)).max(200),
+  comparaison: z.array(z.string().max(64)).max(3),
+});
+
+/**
+ * Valide un état relu depuis le stockage local. Ne lève jamais : une donnée absente, corrompue ou
+ * modifiée à la main renvoie `null` (l'application repart alors des valeurs par défaut).
+ * `communeIds` / `bienIds` écartent les références obsolètes (données mises à jour entre deux visites).
+ */
+export function parseSavedState(raw: unknown, communeIds: string[], bienIds: string[]): SavedState | null {
+  const res = savedStateSchema.safeParse(raw);
+  if (!res.success) return null;
+  const s = res.data;
+  if (!communeIds.includes(s.criteria.communeCentreId)) return null;
+  const biens = new Set(bienIds);
+  const garde = (ids: string[]) => [...new Set(ids)].filter((id) => biens.has(id));
+  return { ...s, favoris: garde(s.favoris), comparaison: garde(s.comparaison) };
 }

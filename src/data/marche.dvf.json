@@ -1,0 +1,455 @@
+{
+  "source": {
+    "nom": "Demandes de valeurs foncières géolocalisées (DVF)",
+    "page": "https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres-geolocalisees",
+    "licence": "Licence Ouverte 2.0",
+    "perimetre": "Métropole Européenne de Lille (95 communes), ventes de logements, prix au m² bâti"
+  },
+  "annees": [
+    2023,
+    2024,
+    2025
+  ],
+  "agglo": {
+    "appartement": {
+      "ancien": {
+        "n": 15610,
+        "mediane": 3095,
+        "q1": 2295,
+        "q3": 3947
+      },
+      "neuf": {
+        "n": 819,
+        "mediane": 4134,
+        "q1": 3444,
+        "q3": 4691
+      }
+    },
+    "maison": {
+      "ancien": {
+        "n": 25097,
+        "mediane": 2523,
+        "q1": 1879,
+        "q3": 3250
+      },
+      "neuf": {
+        "n": 25,
+        "mediane": 2827,
+        "q1": 2472,
+        "q3": 3260
+      }
+    }
+  },
+  "communes": {
+    "59009": {
+      "appartement": {
+        "ancien": {
+          "n": 539,
+          "mediane": 2507,
+          "q1": 2014,
+          "q3": 3185
+        },
+        "neuf": {
+          "n": 65,
+          "mediane": 4462,
+          "q1": 4167,
+          "q3": 4889
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 994,
+          "mediane": 3023,
+          "q1": 2531,
+          "q3": 3689
+        },
+        "neuf": {
+          "n": 2,
+          "mediane": 4357,
+          "q1": 4316,
+          "q3": 4398
+        }
+      }
+    },
+    "59017": {
+      "appartement": {
+        "ancien": {
+          "n": 296,
+          "mediane": 1911,
+          "q1": 1520,
+          "q3": 2254
+        },
+        "neuf": {
+          "n": 51,
+          "mediane": 3284,
+          "q1": 2970,
+          "q3": 3791
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 736,
+          "mediane": 1883,
+          "q1": 1482,
+          "q3": 2254
+        },
+        "neuf": {
+          "n": 2,
+          "mediane": 1848,
+          "q1": 1845,
+          "q3": 1852
+        }
+      }
+    },
+    "59163": {
+      "appartement": {
+        "ancien": {
+          "n": 353,
+          "mediane": 2594,
+          "q1": 2123,
+          "q3": 3231
+        },
+        "neuf": {
+          "n": 50,
+          "mediane": 4477,
+          "q1": 3669,
+          "q3": 5210
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 588,
+          "mediane": 2559,
+          "q1": 1903,
+          "q3": 3336
+        },
+        "neuf": null
+      }
+    },
+    "59286": {
+      "appartement": {
+        "ancien": {
+          "n": 182,
+          "mediane": 2369,
+          "q1": 1880,
+          "q3": 2955
+        },
+        "neuf": {
+          "n": 27,
+          "mediane": 3985,
+          "q1": 3610,
+          "q3": 4523
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 351,
+          "mediane": 2234,
+          "q1": 1861,
+          "q3": 2631
+        },
+        "neuf": null
+      }
+    },
+    "59328": {
+      "appartement": {
+        "ancien": {
+          "n": 410,
+          "mediane": 3107,
+          "q1": 2627,
+          "q3": 3549
+        },
+        "neuf": {
+          "n": 9,
+          "mediane": 5562,
+          "q1": 4239,
+          "q3": 5667
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 762,
+          "mediane": 3604,
+          "q1": 3000,
+          "q3": 4469
+        },
+        "neuf": null
+      }
+    },
+    "59350": {
+      "appartement": {
+        "ancien": {
+          "n": 7229,
+          "mediane": 3753,
+          "q1": 2989,
+          "q3": 4514
+        },
+        "neuf": {
+          "n": 103,
+          "mediane": 3388,
+          "q1": 2484,
+          "q3": 4271
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 2653,
+          "mediane": 2844,
+          "q1": 2204,
+          "q3": 3517
+        },
+        "neuf": {
+          "n": 6,
+          "mediane": 2377,
+          "q1": 2071,
+          "q3": 2964
+        }
+      }
+    },
+    "59360": {
+      "appartement": {
+        "ancien": {
+          "n": 361,
+          "mediane": 2680,
+          "q1": 2250,
+          "q3": 3080
+        },
+        "neuf": {
+          "n": 52,
+          "mediane": 4061,
+          "q1": 3717,
+          "q3": 4560
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 375,
+          "mediane": 2323,
+          "q1": 1809,
+          "q3": 2841
+        },
+        "neuf": null
+      }
+    },
+    "59368": {
+      "appartement": {
+        "ancien": {
+          "n": 746,
+          "mediane": 3221,
+          "q1": 2655,
+          "q3": 3800
+        },
+        "neuf": {
+          "n": 43,
+          "mediane": 5153,
+          "q1": 4516,
+          "q3": 5523
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 407,
+          "mediane": 3603,
+          "q1": 2858,
+          "q3": 4513
+        },
+        "neuf": {
+          "n": 1,
+          "mediane": 4166,
+          "q1": 4166,
+          "q3": 4166
+        }
+      }
+    },
+    "59378": {
+      "appartement": {
+        "ancien": {
+          "n": 689,
+          "mediane": 3438,
+          "q1": 2884,
+          "q3": 4032
+        },
+        "neuf": {
+          "n": 60,
+          "mediane": 5454,
+          "q1": 4542,
+          "q3": 6275
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 922,
+          "mediane": 4106,
+          "q1": 3308,
+          "q3": 4870
+        },
+        "neuf": null
+      }
+    },
+    "59410": {
+      "appartement": {
+        "ancien": {
+          "n": 310,
+          "mediane": 1714,
+          "q1": 1489,
+          "q3": 2132
+        },
+        "neuf": {
+          "n": 5,
+          "mediane": 3930,
+          "q1": 3736,
+          "q3": 3980
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 362,
+          "mediane": 2938,
+          "q1": 2312,
+          "q3": 3550
+        },
+        "neuf": null
+      }
+    },
+    "59512": {
+      "appartement": {
+        "ancien": {
+          "n": 721,
+          "mediane": 1926,
+          "q1": 1483,
+          "q3": 2387
+        },
+        "neuf": {
+          "n": 18,
+          "mediane": 3669,
+          "q1": 3178,
+          "q3": 4795
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 1540,
+          "mediane": 1413,
+          "q1": 1000,
+          "q3": 1923
+        },
+        "neuf": {
+          "n": 3,
+          "mediane": 2474,
+          "q1": 2473,
+          "q3": 2517
+        }
+      }
+    },
+    "59560": {
+      "appartement": {
+        "ancien": {
+          "n": 99,
+          "mediane": 2750,
+          "q1": 2458,
+          "q3": 3049
+        },
+        "neuf": {
+          "n": 12,
+          "mediane": 3375,
+          "q1": 3150,
+          "q3": 3506
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 339,
+          "mediane": 2364,
+          "q1": 1929,
+          "q3": 2888
+        },
+        "neuf": null
+      }
+    },
+    "59599": {
+      "appartement": {
+        "ancien": {
+          "n": 1187,
+          "mediane": 1750,
+          "q1": 1391,
+          "q3": 2240
+        },
+        "neuf": {
+          "n": 85,
+          "mediane": 3942,
+          "q1": 3359,
+          "q3": 4225
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 2204,
+          "mediane": 1812,
+          "q1": 1411,
+          "q3": 2275
+        },
+        "neuf": {
+          "n": 3,
+          "mediane": 3176,
+          "q1": 2965,
+          "q3": 3218
+        }
+      }
+    },
+    "59646": {
+      "appartement": {
+        "ancien": {
+          "n": 177,
+          "mediane": 3190,
+          "q1": 2828,
+          "q3": 3490
+        },
+        "neuf": {
+          "n": 2,
+          "mediane": 4887,
+          "q1": 4655,
+          "q3": 5118
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 533,
+          "mediane": 3216,
+          "q1": 2500,
+          "q3": 3941
+        },
+        "neuf": null
+      }
+    },
+    "59650": {
+      "appartement": {
+        "ancien": {
+          "n": 154,
+          "mediane": 1920,
+          "q1": 1502,
+          "q3": 2279
+        },
+        "neuf": {
+          "n": 20,
+          "mediane": 3276,
+          "q1": 3067,
+          "q3": 3601
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 1030,
+          "mediane": 1910,
+          "q1": 1519,
+          "q3": 2371
+        },
+        "neuf": {
+          "n": 5,
+          "mediane": 2862,
+          "q1": 2827,
+          "q3": 2950
+        }
+      }
+    }
+  }
+}

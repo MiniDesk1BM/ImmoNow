@@ -28,6 +28,8 @@ export interface SearchCriteria {
 
 export interface Commune {
   id: string;
+  /** Code INSEE de la commune (clé de jointure zonage ABC / DVF) */
+  insee: string;
   nom: string;
   codePostal: string;
   zone: Zone;
@@ -76,6 +78,15 @@ export interface AidRules {
     chargesAlerteParM2Mensuel: number;
     ecartOrange: number;
   };
+  /** Comparaison au marché (DVF) : seuils de verdict et taille minimale d'échantillon */
+  marche: {
+    /** Écart (négatif) sous lequel le bien est « sous le marché », ex. -0.1 */
+    seuilSousMarche: number;
+    /** Écart (positif) au-dessus duquel le bien est « au-dessus du marché », ex. 0.1 */
+    seuilAuDessus: number;
+    /** Nombre minimal de ventes pour utiliser la médiane d'une commune */
+    minTransactions: number;
+  };
   /** Score de faisabilité 0-100 : moyenne pondérée de 4 composantes notées de 0 à 1 */
   score: {
     /** Poids des composantes, somme = 1 */
@@ -111,6 +122,84 @@ export interface AidRules {
     };
   };
   aideLocale: { libelle: string; montant: number; dpeEligibles: Dpe[] };
+}
+
+/** Statistiques de prix au m² (DVF) sur un échantillon de ventes. */
+export interface Stats {
+  n: number;
+  mediane: number;
+  q1: number;
+  q3: number;
+}
+export interface MarketBucket {
+  ancien: Stats | null;
+  /** Ventes en l'état futur d'achèvement (VEFA) */
+  neuf: Stats | null;
+}
+export interface MarketEntry {
+  appartement: MarketBucket;
+  maison: MarketBucket;
+}
+/** Provenance d'un jeu de données ouvertes (affichée dans l'interface). */
+export interface SourceInfo {
+  nom: string;
+  page: string;
+  licence: string;
+  /** Date de mise à jour de la ressource source (AAAA-MM-JJ) */
+  misAJour?: string;
+  perimetre?: string;
+}
+export interface ZonageData {
+  source: SourceInfo;
+  /** Code INSEE → zone ABC */
+  zones: Record<string, Zone>;
+}
+export interface MarketData {
+  source: SourceInfo;
+  annees: number[];
+  agglo: MarketEntry;
+  /** Clé : code INSEE */
+  communes: Record<string, MarketEntry>;
+}
+
+export type MarcheVerdict = "sous" | "dans" | "au-dessus";
+export interface MarcheComparaison {
+  type: TypeBien;
+  regime: "ancien" | "neuf";
+  /** « commune » si assez de ventes locales, sinon repli sur l'agglomération */
+  niveau: "commune" | "agglo";
+  annees: number[];
+  prixM2: number;
+  reference: Stats;
+  /** (prix au m² du bien / médiane) − 1 */
+  ecartPct: number;
+  /** Écart en euros sur le prix total du bien (positif = au-dessus du marché) */
+  ecartEur: number;
+  verdict: MarcheVerdict;
+}
+
+export type TriKey =
+  | "pertinence"
+  | "score"
+  | "prixAsc"
+  | "prixDesc"
+  | "prixM2"
+  | "mensualite"
+  | "resteAVivre"
+  | "ecartMarche";
+
+
+/** État sauvegardé dans le navigateur (localStorage). Aucune donnée n'est envoyée à un serveur. */
+export interface SavedState {
+  profile: UserProfile;
+  criteria: SearchCriteria;
+  years: number;
+  credit: CreditOptions;
+  tri: TriKey;
+  /** Identifiants des biens mis en favori */
+  favoris: string[];
+  /** Biens sélectionnés pour la comparaison (2 à 3 côte à côte) */
+  comparaison: string[];
 }
 
 export type AideId = "ptz" | "actionLogement" | "ecoPtz" | "maPrimeRenov" | "aideLocale" | "brs";
@@ -169,6 +258,8 @@ export interface Evaluation {
   /** Prix + notaire + travaux + frais de crédit */
   coutTotal: number;
   scoreDetail: ScoreDetail;
+  /** Comparaison au marché (DVF) ; null si non comparable (BRS, échantillon insuffisant) */
+  marche: MarcheComparaison | null;
   aides: Aide[];
   financement: {
     apport: number;

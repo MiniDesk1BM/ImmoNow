@@ -5,6 +5,7 @@ import type {
   CreditOptions,
   Evaluation,
   LignePret,
+  MarketData,
   Property,
   Statut,
   UserProfile,
@@ -21,6 +22,7 @@ import {
   peakMonthly,
   pmt,
 } from "./finance";
+import { compareToMarket } from "./marche";
 import { computeScore } from "./score";
 
 const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
@@ -52,6 +54,7 @@ export function evaluate(
   rules: AidRules,
   years: number,
   opts: CreditOptions = defaultCreditOptions(rules),
+  market?: MarketData,
 ): Evaluation {
   const travaux = estimateTravaux(bien, rules);
   const fraisNotaire = Math.round(bien.prix * rules.fraisNotaire[bien.categorie]);
@@ -160,6 +163,19 @@ export function evaluate(
   if (chargesM2 > rules.seuils.chargesAlerteParM2Mensuel) {
     alertes.push({ niveau: "warning", message: `Charges de copropriété élevées : ${chargesM2.toFixed(1)} €/m²/mois.` });
   }
+  const marche = market ? compareToMarket(bien, commune, market, rules) : null;
+  if (marche?.verdict === "au-dessus") {
+    alertes.push({
+      niveau: "warning",
+      message: `Prix au m² supérieur de ${Math.round(marche.ecartPct * 100)} % au marché local (${eur(marche.prixM2)}/m² contre ${eur(marche.reference.mediane)}/m² médian, DVF).`,
+    });
+  } else if (marche?.verdict === "sous") {
+    alertes.push({
+      niveau: "info",
+      message: `Prix au m² inférieur de ${Math.abs(Math.round(marche.ecartPct * 100))} % au marché local : vérifier l'état du bien et la copropriété.`,
+    });
+  }
+
   if (bien.categorie === "hlm") {
     alertes.push({ niveau: "info", message: "Vente HLM : priorité aux locataires du parc et gardiens, délais de purge." });
   }
@@ -193,6 +209,7 @@ export function evaluate(
     tauxCredit: creditRate(years, rules, opts.ajustementTaux),
     coutTotal,
     scoreDetail: score.detail,
+    marche,
     aides,
     financement: { apport, subventions, ptz, actionLogement: al, ecoPtz: eco, pretBancaire, capaciteBancaire, manque },
     prets,

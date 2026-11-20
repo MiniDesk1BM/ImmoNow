@@ -12,7 +12,19 @@ flowchart LR
   A --> R[(config/aides.AAAA.json)]
   F --> R
   S --> D[(data/*.json<br/>communes MEL, biens démo)]
+  V --> M[marche.ts<br/>comparaison DVF, informatif]
+  M --> O[(zonage.abc.json<br/>marche.dvf.json)]
+  ETL[scripts/fetch-open-data.ts<br/>npm run data:fetch] -->|data.gouv.fr| O
+  UI --> ST[storage.ts<br/>localStorage, zod]
 ```
+
+Les données ouvertes (zonage ABC du ministère, DVF de la DGFiP) n'envoient pas d'en-têtes CORS : elles sont
+téléchargées par un script Node (`npm run data:fetch`), agrégées (médiane et quartiles du prix au m² par commune,
+type et ancien/VEFA) puis livrées en JSON. La zone ABC d'une commune vient du zonage officiel (jointure par code INSEE),
+jamais d'une saisie manuelle. La comparaison au marché est un **repère** : elle n'entre ni dans le score ni dans le statut.
+
+Sauvegarde locale : profil, critères, durée, taux, tri, favoris et biens comparés sont écrits dans le `localStorage`
+(`immonow.v1`), validés par zod à la relecture (donnée invalide = valeurs par défaut) ; rien n'est envoyé à un serveur.
 
 MVP 100 % front (React + TypeScript + Vite). Le moteur (`src/engine`) est du TypeScript pur, sans dépendance
 à React, donc directement portable vers un backend (Node ou FastAPI) : seule l'interface
@@ -69,4 +81,6 @@ Extrait des règles (PTZ) : plafonds par zone et taille du foyer, 4 tranches de 
 ## Limites connues
 
 Barèmes **indicatifs et simplifiés** (millésime 2025) : à faire valider avant tout usage réel. Pas de temps de trajet
-(rayon à vol d'oiseau), pas de PSLA, pas de zonage fin PTZ, pas de persistance ni d'authentification dans le MVP.
+(rayon à vol d'oiseau), pas de PSLA, pas d'authentification ni de synchronisation entre appareils (sauvegarde locale seulement).
+Les données DVF et le zonage sont un instantané (régénéré à la demande) ; le prix au m² DVF peut inclure un garage et
+les petits échantillons (VEFA en particulier) retombent sur la moyenne de l'agglomération.

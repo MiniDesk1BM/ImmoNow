@@ -4,92 +4,302 @@
   "credit": {
     "tauxEndettementMax": 0.35,
     "assuranceAnnuelle": 0.0034,
-    "tauxParDuree": { "10": 0.0290, "15": 0.0300, "20": 0.0315, "25": 0.0335 },
+    "tauxParDuree": {
+      "10": 0.029,
+      "15": 0.03,
+      "20": 0.0315,
+      "25": 0.0335
+    },
     "dureeMinAns": 10,
     "dureeMaxAns": 25,
-    "fraisDossier": { "pct": 0.01, "min": 500, "max": 1500 },
-    "garantie": { "defaut": "caution", "pct": { "caution": 0.011, "hypotheque": 0.016 } },
+    "fraisDossier": {
+      "pct": 0.01,
+      "min": 500,
+      "max": 1500
+    },
+    "garantie": {
+      "defaut": "caution",
+      "pct": {
+        "caution": 0.011,
+        "hypotheque": 0.016
+      }
+    },
     "ajustementTauxMin": -0.01,
     "ajustementTauxMax": 0.02
   },
-  "fraisNotaire": { "neuf": 0.025, "brs": 0.025, "ancien": 0.08, "hlm": 0.08 },
-  "travauxParM2Dpe": { "A": 0, "B": 0, "C": 50, "D": 150, "E": 450, "F": 800, "G": 1100 },
+  "fraisNotaire": {
+    "neuf": 0.025,
+    "brs": 0.025,
+    "ancien": 0.08,
+    "hlm": 0.08
+  },
+  "travauxParM2Dpe": {
+    "A": 0,
+    "B": 0,
+    "C": 50,
+    "D": 150,
+    "E": 450,
+    "F": 800,
+    "G": 1100
+  },
   "seuils": {
-    "resteAVivre": { "premierAdulte": 800, "adulteSupp": 400, "enfant": 300 },
+    "resteAVivre": {
+      "premierAdulte": 800,
+      "adulteSupp": 400,
+      "enfant": 300
+    },
     "taxeFonciereAlerteAnnuelle": 2000,
     "chargesAlerteParM2Mensuel": 3.5,
     "ecartOrange": 0.1
   },
+  "marche": {
+    "seuilSousMarche": -0.1,
+    "seuilAuDessus": 0.1,
+    "minTransactions": 30
+  },
   "score": {
-    "poids": { "financement": 0.4, "endettement": 0.25, "resteAVivre": 0.25, "apport": 0.1 },
+    "poids": {
+      "financement": 0.4,
+      "endettement": 0.25,
+      "resteAVivre": 0.25,
+      "apport": 0.1
+    },
     "margeEndettementCible": 0.3,
     "resteAVivreCibleRatio": 2,
     "apportCiblePct": 0.1
   },
   "ptz": {
     "plafondsRessources": {
-      "Abis": [49000, 73500, 88200, 102900, 117600],
-      "A": [49000, 73500, 88200, 102900, 117600],
-      "B1": [34500, 51750, 62100, 72450, 82800],
-      "B2": [31500, 47250, 56700, 66150, 75600],
-      "C": [28500, 42750, 51300, 59850, 68400]
+      "Abis": [
+        49000,
+        73500,
+        88200,
+        102900,
+        117600
+      ],
+      "A": [
+        49000,
+        73500,
+        88200,
+        102900,
+        117600
+      ],
+      "B1": [
+        34500,
+        51750,
+        62100,
+        72450,
+        82800
+      ],
+      "B2": [
+        31500,
+        47250,
+        56700,
+        66150,
+        75600
+      ],
+      "C": [
+        28500,
+        42750,
+        51300,
+        59850,
+        68400
+      ]
     },
     "plafondsOperation": {
-      "Abis": [150000, 210000, 255000, 300000, 345000],
-      "A": [150000, 210000, 255000, 300000, 345000],
-      "B1": [135000, 189000, 230000, 270000, 310000],
-      "B2": [110000, 154000, 187000, 220000, 253000],
-      "C": [100000, 140000, 170000, 200000, 230000]
+      "Abis": [
+        150000,
+        210000,
+        255000,
+        300000,
+        345000
+      ],
+      "A": [
+        150000,
+        210000,
+        255000,
+        300000,
+        345000
+      ],
+      "B1": [
+        135000,
+        189000,
+        230000,
+        270000,
+        310000
+      ],
+      "B2": [
+        110000,
+        154000,
+        187000,
+        220000,
+        253000
+      ],
+      "C": [
+        100000,
+        140000,
+        170000,
+        200000,
+        230000
+      ]
     },
-    "ratiosTranches": [0.51, 0.64, 0.76, 1.0],
+    "ratiosTranches": [
+      0.51,
+      0.64,
+      0.76,
+      1
+    ],
     "quotites": {
-      "neufCollectif": [0.5, 0.4, 0.3, 0.2],
-      "neufMaison": [0.4, 0.3, 0.2, 0.1],
-      "ancien": [0.4, 0.3, 0.2, 0.1]
+      "neufCollectif": [
+        0.5,
+        0.4,
+        0.3,
+        0.2
+      ],
+      "neufMaison": [
+        0.4,
+        0.3,
+        0.2,
+        0.1
+      ],
+      "ancien": [
+        0.4,
+        0.3,
+        0.2,
+        0.1
+      ]
     },
     "tranches": [
-      { "dureeTotaleAns": 25, "differeAns": 15 },
-      { "dureeTotaleAns": 22, "differeAns": 10 },
-      { "dureeTotaleAns": 20, "differeAns": 5 },
-      { "dureeTotaleAns": 20, "differeAns": 0 }
+      {
+        "dureeTotaleAns": 25,
+        "differeAns": 15
+      },
+      {
+        "dureeTotaleAns": 22,
+        "differeAns": 10
+      },
+      {
+        "dureeTotaleAns": 20,
+        "differeAns": 5
+      },
+      {
+        "dureeTotaleAns": 20,
+        "differeAns": 0
+      }
     ],
-    "ancienZonesEligibles": ["B2", "C"],
+    "ancienZonesEligibles": [
+      "B2",
+      "C"
+    ],
     "ancienTravauxMinRatio": 0.25
   },
   "brs": {
     "plafondsRessources": {
-      "Abis": [41000, 61000, 73000, 87000, 99000],
-      "A": [38000, 57000, 68000, 81000, 92000],
-      "B1": [34000, 45000, 54000, 65000, 77000],
-      "B2": [31000, 41000, 49000, 59000, 70000],
-      "C": [28000, 37000, 44000, 53000, 63000]
+      "Abis": [
+        41000,
+        61000,
+        73000,
+        87000,
+        99000
+      ],
+      "A": [
+        38000,
+        57000,
+        68000,
+        81000,
+        92000
+      ],
+      "B1": [
+        34000,
+        45000,
+        54000,
+        65000,
+        77000
+      ],
+      "B2": [
+        31000,
+        41000,
+        49000,
+        59000,
+        70000
+      ],
+      "C": [
+        28000,
+        37000,
+        44000,
+        53000,
+        63000
+      ]
     }
   },
   "actionLogement": {
     "montantMax": 40000,
     "taux": 0.01,
     "dureeAns": 20,
-    "categories": ["neuf", "brs", "ancien"]
+    "categories": [
+      "neuf",
+      "brs",
+      "ancien"
+    ]
   },
   "ecoPtz": {
     "montantMax": 50000,
     "dureeAns": 20,
-    "dpeEligibles": ["D", "E", "F", "G"]
+    "dpeEligibles": [
+      "D",
+      "E",
+      "F",
+      "G"
+    ]
   },
   "maPrimeRenov": {
-    "dpeEligibles": ["E", "F", "G"],
+    "dpeEligibles": [
+      "E",
+      "F",
+      "G"
+    ],
     "plafondTravaux": 40000,
-    "taux": { "tresModeste": 0.5, "modeste": 0.4, "intermediaire": 0.3 },
+    "taux": {
+      "tresModeste": 0.5,
+      "modeste": 0.4,
+      "intermediaire": 0.3
+    },
     "plafondsRevenus": {
-      "tresModeste": [17363, 25392, 30540, 35678, 40835],
-      "modeste": [22259, 32553, 39148, 45735, 52348],
-      "intermediaire": [31185, 45842, 55196, 64550, 73907],
-      "parPersonneSupp": { "tresModeste": 5151, "modeste": 6598, "intermediaire": 9357 }
+      "tresModeste": [
+        17363,
+        25392,
+        30540,
+        35678,
+        40835
+      ],
+      "modeste": [
+        22259,
+        32553,
+        39148,
+        45735,
+        52348
+      ],
+      "intermediaire": [
+        31185,
+        45842,
+        55196,
+        64550,
+        73907
+      ],
+      "parPersonneSupp": {
+        "tresModeste": 5151,
+        "modeste": 6598,
+        "intermediaire": 9357
+      }
     }
   },
   "aideLocale": {
     "libelle": "Aide locale rénovation MEL (indicatif)",
     "montant": 2000,
-    "dpeEligibles": ["E", "F", "G"]
+    "dpeEligibles": [
+      "E",
+      "F",
+      "G"
+    ]
   }
 }

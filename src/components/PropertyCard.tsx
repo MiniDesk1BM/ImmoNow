@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Evaluation } from "../types";
 import { eur, pct } from "../format";
 import { BudgetBar, PaymentChart, STATUT_LABEL } from "./Charts";
+import { MarketDetail } from "./MarketDetail";
 
 const SCORE_LABELS: [keyof Evaluation["scoreDetail"], string][] = [
   ["financement", "Financement"],
@@ -10,7 +11,18 @@ const SCORE_LABELS: [keyof Evaluation["scoreDetail"], string][] = [
   ["apport", "Apport"],
 ];
 
-export function PropertyCard({ e, years }: { e: Evaluation; years: number }) {
+interface Props {
+  e: Evaluation;
+  years: number;
+  favori: boolean;
+  comparaison: boolean;
+  /** Vrai si 3 biens sont déjà comparés et que celui-ci n'en fait pas partie */
+  comparaisonPleine: boolean;
+  onFavori: (id: string) => void;
+  onComparaison: (id: string) => void;
+}
+
+export function PropertyCard({ e, years, favori, comparaison, comparaisonPleine, onFavori, onComparaison }: Props) {
   const [open, setOpen] = useState(false);
   const f = e.financement;
   return (
@@ -27,6 +39,22 @@ export function PropertyCard({ e, years }: { e: Evaluation; years: number }) {
           <span>{STATUT_LABEL[e.statut]}</span>
         </div>
       </header>
+
+      <div className="actions">
+        <button type="button" className={favori ? "toggle on" : "toggle"} aria-pressed={favori} onClick={() => onFavori(e.bien.id)}>
+          {favori ? "★ Favori" : "☆ Mettre en favori"}
+        </button>
+        <button
+          type="button"
+          className={comparaison ? "toggle on" : "toggle"}
+          aria-pressed={comparaison}
+          disabled={!comparaison && comparaisonPleine}
+          title={!comparaison && comparaisonPleine ? "3 biens maximum : retirez-en un d'abord" : undefined}
+          onClick={() => onComparaison(e.bien.id)}
+        >
+          {comparaison ? "✓ Comparé" : "Comparer"}
+        </button>
+      </div>
 
       <dl className="kpis">
         <div><dt>Prix</dt><dd>{eur(e.bien.prix)}</dd></div>
@@ -46,7 +74,7 @@ export function PropertyCard({ e, years }: { e: Evaluation; years: number }) {
       )}
 
       <button type="button" className="link" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
-        {open ? "Masquer le détail" : "Voir le détail du financement"}
+        {open ? "Masquer le détail" : "Voir le détail (financement, marché local)"}
       </button>
 
       {open && (
@@ -88,6 +116,7 @@ export function PropertyCard({ e, years }: { e: Evaluation; years: number }) {
               </li>
             ))}
           </ul>
+          <MarketDetail m={e.marche} zone={e.commune.zone} commune={e.commune.nom} />
         </div>
       )}
     </article>

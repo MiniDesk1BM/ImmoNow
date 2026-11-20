@@ -52,3 +52,30 @@ input[type=range] { width:100%; }
 .score-detail meter { width:100%; }
 .score-detail span:last-child { text-align:right; }
 tr.muted td { color:var(--muted); font-size:12px; }
+
+/* Tri, favoris, comparaison, marché local */
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.privacy { margin:.25rem 0 .5rem; }
+.privacy .link { display:inline; padding:0; text-decoration:underline; }
+.sort { display:flex; align-items:center; gap:.5rem; margin:0 0 1rem; max-width:420px; }
+.sort select { flex:1; }
+.actions { display:flex; gap:.5rem; flex-wrap:wrap; }
+.toggle { font:inherit; font-size:12px; border:1px solid var(--border); background:var(--surface); padding:.25rem .6rem; border-radius:6px; cursor:pointer; }
+.toggle.on { border-color:var(--accent); color:var(--accent); font-weight:600; }
+.toggle:disabled { opacity:.5; cursor:not-allowed; }
+.market { margin-top:.75rem; border-top:1px solid var(--border); padding-top:.5rem; }
+.market h4 { margin:.25rem 0; font-size:13px; }
+.market table { width:100%; border-collapse:collapse; margin:.25rem 0 .5rem; }
+.market td { padding:.2rem 0; border-bottom:1px solid var(--border); } .market td:last-child { text-align:right; }
+.market .chart { width:100%; max-width:360px; height:auto; display:block; }
+.compare { margin:0 0 1rem; }
+.compare-head { display:flex; justify-content:space-between; align-items:center; gap:.5rem; }
+.compare-head h2 { margin:0; }
+.table-scroll { overflow-x:auto; }
+.compare table { width:100%; border-collapse:collapse; min-width:420px; }
+.compare th, .compare td { padding:.35rem .5rem; border-bottom:1px solid var(--border); text-align:right; vertical-align:top; }
+.compare thead th { text-align:left; font-weight:600; }
+.compare tbody th { text-align:left; font-weight:400; color:var(--muted); }
+.compare td.best { background:#e8f6ee; color:#14693a; font-weight:600; }
+.badge-inline { display:inline-block; margin:.2rem 0; padding:0 .4rem; border-radius:4px; color:#fff; font-size:12px; }
+.badge-inline.vert { background:var(--vert); } .badge-inline.orange { background:var(--orange); } .badge-inline.rouge { background:var(--rouge); }

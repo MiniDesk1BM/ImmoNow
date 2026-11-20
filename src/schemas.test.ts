@@ -1,17 +1,26 @@
 import { describe, expect, it } from "vitest";
-import { parseAidRules, parseCommunes, parseProperties } from "./schemas";
+import { parseAidRules, parseCommunes, parseMarket, parseProperties, parseZonage } from "./schemas";
 import rawRules from "./config/aides.2025.json";
 import rawCommunes from "./data/communes.mel.json";
 import rawBiens from "./data/biens.demo.json";
+import rawZonage from "./data/zonage.abc.json";
+import rawMarche from "./data/marche.dvf.json";
 
 const clone = <T,>(x: T): T => structuredClone(x);
+const zonage = () => parseZonage(rawZonage);
 const rules = () => clone(rawRules) as Record<string, any>;
 
 describe("schémas : fichiers livrés", () => {
   it("les règles 2025, les communes et les biens de démo sont valides", () => {
     expect(() => parseAidRules(rawRules)).not.toThrow();
-    const communes = parseCommunes(rawCommunes);
+    const communes = parseCommunes(rawCommunes, zonage());
     expect(() => parseProperties(rawBiens, communes)).not.toThrow();
+    expect(() =>
+      parseMarket(
+        rawMarche,
+        communes.map((c) => c.insee),
+      ),
+    ).not.toThrow();
   });
 });
 
@@ -72,21 +81,33 @@ describe("schémas : règles d'aides", () => {
 });
 
 describe("schémas : communes et biens", () => {
-  const communes = () => parseCommunes(rawCommunes);
+  const communes = () => parseCommunes(rawCommunes, zonage());
   const biens = () => clone(rawBiens) as Record<string, any>[];
 
-  it("rejette une zone inconnue ou un code postal invalide", () => {
+  it("rejette une zone codée à la main, un code postal ou un INSEE invalide", () => {
     const c = clone(rawCommunes) as Record<string, any>[];
-    c[0]!.zone = "D";
-    expect(() => parseCommunes(c)).toThrow();
+    c[0]!.zone = "B1";
+    expect(() => parseCommunes(c, zonage())).toThrow();
     const c2 = clone(rawCommunes) as Record<string, any>[];
     c2[0]!.codePostal = "5900";
-    expect(() => parseCommunes(c2)).toThrow();
+    expect(() => parseCommunes(c2, zonage())).toThrow();
+    const c3 = clone(rawCommunes) as Record<string, any>[];
+    c3[0]!.insee = "5935";
+    expect(() => parseCommunes(c3, zonage())).toThrow();
   });
   it("rejette des ids de communes en double", () => {
     const c = clone(rawCommunes) as Record<string, any>[];
     c.push({ ...c[0]! });
-    expect(() => parseCommunes(c)).toThrow(/double/);
+    expect(() => parseCommunes(c, zonage())).toThrow(/double/);
+  });
+  it("rejette une commune absente du zonage ABC (pas de zone par défaut)", () => {
+    const c = clone(rawCommunes) as Record<string, any>[];
+    c[0]!.insee = "99999";
+    expect(() => parseCommunes(c, zonage())).toThrow(/absente du zonage/);
+  });
+  it("chaque commune reçoit la zone du zonage ABC officiel (par code INSEE)", () => {
+    const z = zonage();
+    for (const c of parseCommunes(rawCommunes, z)) expect(c.zone).toBe(z.zones[c.insee]);
   });
   it("rejette un bien dont la commune n'existe pas", () => {
     const b = biens();
@@ -111,5 +132,31 @@ describe("schémas : communes et biens", () => {
     const b = biens();
     b.push({ ...b[0]! });
     expect(() => parseProperties(b, communes())).toThrow(/double/);
+  });
+});
+
+describe("schémas : zonage ABC et marché DVF", () => {
+  it("rejette une zone inconnue dans le zonage", () => {
+    const z = clone(rawZonage) as Record<string, any>;
+    z.zones["59350"] = "D";
+    expect(() => parseZonage(z)).toThrow();
+  });
+  it("rejette une source non HTTPS", () => {
+    const z = clone(rawZonage) as Record<string, any>;
+    z.source.page = "http://example.org";
+    expect(() => parseZonage(z)).toThrow();
+  });
+  it("rejette des statistiques incohérentes (q1 > médiane)", () => {
+    const m = clone(rawMarche) as Record<string, any>;
+    m.agglo.appartement.ancien = { n: 10, mediane: 2000, q1: 3000, q3: 4000 };
+    expect(() => parseMarket(m)).toThrow(/q1/);
+  });
+  it("rejette une commune de marché inconnue", () => {
+    expect(() => parseMarket(rawMarche, ["59350"])).toThrow(/INSEE inconnu/);
+  });
+  it("rejette une clé inconnue dans les règles « marche »", () => {
+    const r = rules();
+    r.marche.seuilBizarre = 1;
+    expect(() => parseAidRules(r)).toThrow();
   });
 });
