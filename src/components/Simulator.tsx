@@ -1,6 +1,7 @@
 import type { CreditOptions, Garantie, SearchCriteria, UserProfile } from "../types";
 import { aidRules } from "../config";
 import { creditRate, summarizeBudget } from "../engine/finance";
+import { RAYON_MAX_KM } from "../engine/search";
 import { eur, pct } from "../format";
 
 interface Props {
@@ -57,7 +58,7 @@ export function Simulator({ profile, criteria, years, credit, onYears, onProfile
         ))}
       </fieldset>
       <label>Rayon de recherche : {criteria.rayonKm} km
-        <input type="range" min={1} max={30} value={criteria.rayonKm} onChange={(e) => onCriteria({ ...criteria, rayonKm: Number(e.target.value) })} />
+        <input type="range" min={1} max={RAYON_MAX_KM} value={criteria.rayonKm} onChange={(e) => onCriteria({ ...criteria, rayonKm: Number(e.target.value) })} />
       </label>
 
       <h3>Votre capacité</h3>

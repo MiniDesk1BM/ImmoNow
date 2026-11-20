@@ -18,15 +18,17 @@ flowchart LR
   UI --> ST[storage.ts<br/>localStorage, zod]
 ```
 
-Les données ouvertes (zonage ABC du ministère, DVF de la DGFiP) n'envoient pas d'en-têtes CORS : elles sont
-téléchargées par un script Node (`npm run data:fetch`), agrégées (médiane et quartiles du prix au m² par commune,
-type et ancien/VEFA) puis livrées en JSON. La zone ABC d'une commune vient du zonage officiel (jointure par code INSEE),
+Les données ouvertes (communes et intercommunalités de geo.api.gouv.fr, zonage ABC du ministère, DVF de la DGFiP)
+n'envoient pas d'en-têtes CORS : elles sont téléchargées par un script Node (`npm run data:fetch`) pour le Nord et
+le Pas-de-Calais (1 534 communes), agrégées (médiane et quartiles du prix au m² par type et ancien/VEFA, à trois
+mailles : commune, intercommunalité, département) puis livrées en JSON. La comparaison utilise la maille la plus fine
+dont l'échantillon atteint `marche.minTransactions` ventes. La zone ABC d'une commune vient du zonage officiel (jointure par code INSEE),
 jamais d'une saisie manuelle. La comparaison au marché est un **repère** : elle n'entre ni dans le score ni dans le statut.
 
 Sauvegarde locale : profil, critères, durée, taux, tri, favoris et biens comparés sont écrits dans le `localStorage`
 (`immonow.v1`), validés par zod à la relecture (donnée invalide = valeurs par défaut) ; rien n'est envoyé à un serveur.
 
-MVP 100 % front (React + TypeScript + Vite). Le moteur (`src/engine`) est du TypeScript pur, sans dépendance
+MVP 100 % front (React + TypeScript + Vite). Les données (≈ 300 Ko, 57 Ko gzip) sont dans un chunk séparé (`vite.config.ts`). Le moteur (`src/engine`) est du TypeScript pur, sans dépendance
 à React, donc directement portable vers un backend (Node ou FastAPI) : seule l'interface
 `runSearch(profile, criteria, years)` est à exposer en API.
 
@@ -81,6 +83,8 @@ Extrait des règles (PTZ) : plafonds par zone et taille du foyer, 4 tranches de 
 ## Limites connues
 
 Barèmes **indicatifs et simplifiés** (millésime 2025) : à faire valider avant tout usage réel. Pas de temps de trajet
-(rayon à vol d'oiseau), pas de PSLA, pas d'authentification ni de synchronisation entre appareils (sauvegarde locale seulement).
+(rayon à vol d'oiseau, 150 km maximum), pas de PSLA, pas d'authentification ni de synchronisation entre appareils (sauvegarde locale seulement).
 Les données DVF et le zonage sont un instantané (régénéré à la demande) ; le prix au m² DVF peut inclure un garage et
-les petits échantillons (VEFA en particulier) retombent sur la moyenne de l'agglomération.
+les petits échantillons (VEFA en particulier) retombent sur la maille supérieure (intercommunalité, puis département).
+L'aide locale de rénovation n'existe que dans la Métropole Européenne de Lille ; les autres territoires n'ont pas
+d'équivalent modélisé. Les biens restent des annonces de démonstration.

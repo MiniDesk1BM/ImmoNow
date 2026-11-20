@@ -1,12 +1,12 @@
-import type { MarcheComparaison, MarcheVerdict, MarketData, MarketEntry, Property, Stats, Commune, AidRules } from "../types";
+import type { AidRules, Commune, MarcheComparaison, MarcheVerdict, MarketData, MarketEntry, Property, Stats } from "../types";
 
 /**
- * Compare le prix au m² d'un bien à la médiane des ventes DVF comparables
- * (même type de bien, même régime ancien/neuf, même commune ; repli sur l'agglomération
- * si la commune a moins de `marche.minTransactions` ventes).
+ * Compare le prix au m² d'un bien à la médiane des ventes DVF comparables (même type de bien, même
+ * régime ancien/neuf). Référence = la commune si elle a au moins `marche.minTransactions` ventes, sinon
+ * son intercommunalité (EPCI), sinon son département : la maille la plus fine qui soit significative.
  *
  * Non comparable (null) : BRS (le prix exclut le foncier, redevance en sus), vente HLM (décote
- * réglementée), ou aucun échantillon suffisant.
+ * réglementée), ou aucun échantillon suffisant à aucune maille.
  */
 export function compareToMarket(
   bien: Property,
@@ -19,17 +19,15 @@ export function compareToMarket(
   const min = rules.marche.minTransactions;
 
   const pick = (entry: MarketEntry | undefined): Stats | null => entry?.[bien.type][regime] ?? null;
-  const local = pick(market.communes[commune.insee]);
-  const agglo = pick(market.agglo);
-  let reference: Stats | null = null;
-  let niveau: "commune" | "agglo" = "commune";
-  if (local && local.n >= min) reference = local;
-  else if (agglo && agglo.n >= min) {
-    reference = agglo;
-    niveau = "agglo";
-  }
-  if (!reference || bien.surface <= 0) return null;
+  const niveaux = [
+    { niveau: "commune", stats: pick(market.communes[commune.insee]), nom: commune.nom },
+    { niveau: "epci", stats: pick(market.epci[commune.epci]), nom: market.noms.epci[commune.epci] ?? "intercommunalité" },
+    { niveau: "departement", stats: pick(market.departements[commune.departement]), nom: market.noms.departements[commune.departement] ?? "département" },
+  ] as const;
+  const retenu = niveaux.find((n) => n.stats !== null && n.stats.n >= min);
+  if (!retenu?.stats || bien.surface <= 0) return null;
 
+  const reference = retenu.stats;
   const prixM2 = bien.prix / bien.surface;
   const ecartPct = prixM2 / reference.mediane - 1;
   const verdict: MarcheVerdict =
@@ -37,7 +35,8 @@ export function compareToMarket(
   return {
     type: bien.type,
     regime,
-    niveau,
+    niveau: retenu.niveau,
+    referenceNom: retenu.nom,
     annees: market.annees,
     prixM2: Math.round(prixM2),
     reference,

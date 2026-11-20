@@ -40,33 +40,44 @@ export function extractSales(csv: string, communes: ReadonlySet<string>): Sale[]
   const iType = col("type_local");
   const iSurf = col("surface_reelle_bati");
 
-  const groups = new Map<string, string[][]>();
+  // Seules les 6 colonnes utiles sont conservées par ligne : sur un département entier, garder les
+  // ~40 colonnes de chaque ligne ferait exploser la mémoire.
+  interface Row {
+    disp: string;
+    nat: string;
+    type: string;
+    valeur: string;
+    surface: string;
+    insee: string;
+  }
+  const groups = new Map<string, Row[]>();
   for (const r of it) {
     const insee = r[iCom] ?? "";
     if (!communes.has(insee)) continue;
-    const nat = r[iNat];
+    const nat = r[iNat] ?? "";
     if (nat !== "Vente" && nat !== VEFA) continue;
+    const row: Row = { disp: r[iDisp] ?? "", nat, type: r[iType] ?? "", valeur: r[iVal] ?? "", surface: r[iSurf] ?? "", insee };
     const key = r[iMut] ?? "";
     const g = groups.get(key);
-    if (g) g.push(r);
-    else groups.set(key, [r]);
+    if (g) g.push(row);
+    else groups.set(key, [row]);
   }
 
   const sales: Sale[] = [];
   for (const rows of groups.values()) {
-    if (new Set(rows.map((r) => r[iDisp])).size > 1) continue;
-    const locaux = rows.filter((r) => r[iType] === "Appartement" || r[iType] === "Maison");
+    if (new Set(rows.map((r) => r.disp)).size > 1) continue;
+    const locaux = rows.filter((r) => r.type === "Appartement" || r.type === "Maison");
     const local = locaux[0];
     if (locaux.length !== 1 || !local) continue;
-    const valeur = Number.parseFloat(local[iVal] ?? "");
-    const surface = Number.parseFloat(local[iSurf] ?? "");
+    const valeur = Number.parseFloat(local.valeur);
+    const surface = Number.parseFloat(local.surface);
     if (!(valeur > 0) || !(surface >= BORNES.surfaceMin) || surface > BORNES.surfaceMax) continue;
     const prixM2 = valeur / surface;
     if (prixM2 < BORNES.prixM2Min || prixM2 > BORNES.prixM2Max) continue;
     sales.push({
-      insee: local[iCom] ?? "",
-      type: local[iType] === "Maison" ? "maison" : "appartement",
-      regime: local[iNat] === VEFA ? "neuf" : "ancien",
+      insee: local.insee,
+      type: local.type === "Maison" ? "maison" : "appartement",
+      regime: local.nat === VEFA ? "neuf" : "ancien",
       prixM2,
     });
   }
@@ -102,4 +113,36 @@ function bucket(sales: Sale[], type: TypeLocal): MarketBucket {
 
 export function buildEntry(sales: Sale[]): MarketEntry {
   return { appartement: bucket(sales, "appartement"), maison: bucket(sales, "maison") };
+}
+
+/**
+ * Écarte les statistiques portant sur moins de `minN` ventes (inexploitables, et elles alourdiraient
+ * inutilement le fichier livré). Renvoie null si plus rien ne subsiste.
+ */
+export function pruneEntry(e: MarketEntry, minN: number): MarketEntry | null {
+  const keep = (s: Stats | null): Stats | null => (s && s.n >= minN ? s : null);
+  const out: MarketEntry = {
+    appartement: { ancien: keep(e.appartement.ancien), neuf: keep(e.appartement.neuf) },
+    maison: { ancien: keep(e.maison.ancien), neuf: keep(e.maison.neuf) },
+  };
+  const vide = Object.values(out).every((b) => b.ancien === null && b.neuf === null);
+  return vide ? null : out;
+}
+
+/** Agrège les ventes par clé (commune, EPCI, département…) ; les groupes sans statistique exploitable sont omis. */
+export function buildGroups(sales: Sale[], keyOf: (s: Sale) => string | undefined, minN: number): Record<string, MarketEntry> {
+  const groups = new Map<string, Sale[]>();
+  for (const s of sales) {
+    const k = keyOf(s);
+    if (k === undefined) continue;
+    const g = groups.get(k);
+    if (g) g.push(s);
+    else groups.set(k, [s]);
+  }
+  const out: Record<string, MarketEntry> = {};
+  for (const k of [...groups.keys()].sort()) {
+    const e = pruneEntry(buildEntry(groups.get(k) ?? []), minN);
+    if (e) out[k] = e;
+  }
+  return out;
 }

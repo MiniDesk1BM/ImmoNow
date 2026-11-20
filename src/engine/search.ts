@@ -1,5 +1,8 @@
 import type { Commune, Evaluation, Property, SearchCriteria, TriKey } from "../types";
 
+/** Rayon de recherche maximal (km) : couvre le Nord et le Pas-de-Calais depuis n'importe quelle commune de référence. */
+export const RAYON_MAX_KM = 150;
+
 /** Distance à vol d'oiseau (haversine), en km. */
 export function distanceKm(a: Commune, b: Commune): number {
   const rad = (d: number) => (d * Math.PI) / 180;

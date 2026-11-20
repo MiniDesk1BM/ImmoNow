@@ -30,6 +30,10 @@ export interface Commune {
   id: string;
   /** Code INSEE de la commune (clé de jointure zonage ABC / DVF) */
   insee: string;
+  /** Code SIREN de l'intercommunalité (EPCI) : maille intermédiaire du repli de marché et périmètre de l'aide locale */
+  epci: string;
+  /** Code du département (2 premiers caractères du code INSEE) */
+  departement: string;
   nom: string;
   codePostal: string;
   zone: Zone;
@@ -121,7 +125,13 @@ export interface AidRules {
       parPersonneSupp: { tresModeste: number; modeste: number; intermediaire: number };
     };
   };
-  aideLocale: { libelle: string; montant: number; dpeEligibles: Dpe[] };
+  aideLocale: {
+    libelle: string;
+    montant: number;
+    dpeEligibles: Dpe[];
+    /** Intercommunalités (codes EPCI) où le dispositif existe ; ailleurs l'aide n'est pas proposée */
+    epci: string[];
+  };
 }
 
 /** Statistiques de prix au m² (DVF) sur un échantillon de ventes. */
@@ -157,17 +167,24 @@ export interface ZonageData {
 export interface MarketData {
   source: SourceInfo;
   annees: number[];
-  agglo: MarketEntry;
+  /** Clé : code du département */
+  departements: Record<string, MarketEntry>;
+  /** Clé : code EPCI (SIREN) */
+  epci: Record<string, MarketEntry>;
   /** Clé : code INSEE */
   communes: Record<string, MarketEntry>;
+  /** Libellés d'affichage des départements et des EPCI */
+  noms: { departements: Record<string, string>; epci: Record<string, string> };
 }
 
 export type MarcheVerdict = "sous" | "dans" | "au-dessus";
 export interface MarcheComparaison {
   type: TypeBien;
   regime: "ancien" | "neuf";
-  /** « commune » si assez de ventes locales, sinon repli sur l'agglomération */
-  niveau: "commune" | "agglo";
+  /** Maille de la référence : la commune si assez de ventes, sinon repli sur son intercommunalité puis son département */
+  niveau: "commune" | "epci" | "departement";
+  /** Nom du territoire de référence (commune, intercommunalité ou département) */
+  referenceNom: string;
   annees: number[];
   prixM2: number;
   reference: Stats;

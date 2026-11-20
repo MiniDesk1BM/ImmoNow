@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { parseAidRules, parseCommunes, parseMarket, parseProperties, parseZonage } from "./schemas";
 import rawRules from "./config/aides.2025.json";
-import rawCommunes from "./data/communes.mel.json";
+import rawCommunes from "./data/communes.json";
 import rawBiens from "./data/biens.demo.json";
 import rawZonage from "./data/zonage.abc.json";
 import rawMarche from "./data/marche.dvf.json";
@@ -15,12 +15,7 @@ describe("schémas : fichiers livrés", () => {
     expect(() => parseAidRules(rawRules)).not.toThrow();
     const communes = parseCommunes(rawCommunes, zonage());
     expect(() => parseProperties(rawBiens, communes)).not.toThrow();
-    expect(() =>
-      parseMarket(
-        rawMarche,
-        communes.map((c) => c.insee),
-      ),
-    ).not.toThrow();
+    expect(() => parseMarket(rawMarche, communes)).not.toThrow();
   });
 });
 
@@ -148,11 +143,35 @@ describe("schémas : zonage ABC et marché DVF", () => {
   });
   it("rejette des statistiques incohérentes (q1 > médiane)", () => {
     const m = clone(rawMarche) as Record<string, any>;
-    m.agglo.appartement.ancien = { n: 10, mediane: 2000, q1: 3000, q3: 4000 };
+    m.departements["59"].appartement.ancien = { n: 10, mediane: 2000, q1: 3000, q3: 4000 };
     expect(() => parseMarket(m)).toThrow(/q1/);
   });
   it("rejette une commune de marché inconnue", () => {
-    expect(() => parseMarket(rawMarche, ["59350"])).toThrow(/INSEE inconnu/);
+    expect(() => parseMarket(rawMarche, [{ insee: "59350", epci: "200093201", departement: "59" }])).toThrow(/INSEE inconnu/);
+  });
+  it("rejette un marché dont un EPCI ou un département n'a pas de nom d'affichage", () => {
+    const coms = parseCommunes(rawCommunes, zonage());
+    const m = clone(rawMarche) as Record<string, any>;
+    delete m.noms.epci[Object.keys(m.epci)[0]!];
+    expect(() => parseMarket(m, coms)).toThrow(/nom manquant/);
+    const m2 = clone(rawMarche) as Record<string, any>;
+    delete m2.noms.departements["62"];
+    expect(() => parseMarket(m2, coms)).toThrow(/nom manquant/);
+  });
+  it("rejette un EPCI ou un département de marché absent des communes", () => {
+    const coms = parseCommunes(rawCommunes, zonage());
+    const m = clone(rawMarche) as Record<string, any>;
+    m.epci["999999999"] = m.epci[Object.keys(m.epci)[0]!];
+    m.noms.epci["999999999"] = "Fantôme";
+    expect(() => parseMarket(m, coms)).toThrow(/EPCI inconnu/);
+  });
+  it("rejette une aide locale sans intercommunalité ou avec un code EPCI invalide", () => {
+    const r1 = rules();
+    r1.aideLocale.epci = [];
+    expect(() => parseAidRules(r1)).toThrow();
+    const r2 = rules();
+    r2.aideLocale.epci = ["MEL"];
+    expect(() => parseAidRules(r2)).toThrow();
   });
   it("rejette une clé inconnue dans les règles « marche »", () => {
     const r = rules();

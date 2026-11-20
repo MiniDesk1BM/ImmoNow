@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { RAYON_MAX_KM } from "./engine/search";
 import type { AidRules, Commune, MarketData, Property, SavedState, Zone, ZonageData } from "./types";
 
 /**
@@ -11,6 +12,8 @@ const zone = z.enum(["Abis", "A", "B1", "B2", "C"]);
 const dpe = z.enum(["A", "B", "C", "D", "E", "F", "G"]);
 const categorie = z.enum(["neuf", "ancien", "brs", "hlm"]);
 const garantie = z.enum(["caution", "hypotheque"]);
+const epciCode = z.string().regex(/^\d{9}$/);
+const departementCode = z.string().regex(/^(\d{2}|2[AB]|97\d)$/);
 
 const rate = z.number().min(0).max(1);
 const montant = z.number().min(0);
@@ -87,7 +90,7 @@ const aidRulesSchema = z
         parPersonneSupp: z.strictObject({ tresModeste: montant, modeste: montant, intermediaire: montant }),
       }),
     }),
-    aideLocale: z.strictObject({ libelle: z.string().min(1), montant, dpeEligibles: z.array(dpe) }),
+    aideLocale: z.strictObject({ libelle: z.string().min(1), montant, dpeEligibles: z.array(dpe), epci: z.array(epciCode).min(1) }),
   })
   .superRefine((r, ctx) => {
     const fail = (message: string, path: (string | number)[]) => ctx.addIssue({ code: "custom", message, path });
@@ -137,10 +140,14 @@ const aidRulesSchema = z
 
 const inseeCode = z.string().regex(/^(\d{5}|2[AB]\d{3})$/);
 
-/** Commune telle que stockée dans communes.mel.json : SANS zone (elle vient du zonage ABC par code INSEE). */
+/**
+ * Commune telle que stockée dans communes.json : SANS zone (elle vient du zonage ABC par code INSEE)
+ * et sans département (déduit du code INSEE).
+ */
 const communeSchema = z.strictObject({
   id: z.string().regex(/^[a-z0-9-]+$/),
   insee: inseeCode,
+  epci: epciCode,
   nom: z.string().min(1),
   codePostal: z.string().regex(/^\d{5}$/),
   lat: z.number().min(-90).max(90),
@@ -174,8 +181,13 @@ const marketEntry = z.strictObject({ appartement: bucket, maison: bucket });
 const marketSchema = z.strictObject({
   source: sourceSchema,
   annees: z.array(z.number().int().min(2000).max(2100)).min(1),
-  agglo: marketEntry,
+  departements: z.record(departementCode, marketEntry),
+  epci: z.record(epciCode, marketEntry),
   communes: z.record(inseeCode, marketEntry),
+  noms: z.strictObject({
+    departements: z.record(departementCode, z.string().min(1)),
+    epci: z.record(epciCode, z.string().min(1)),
+  }),
 });
 
 const propertySchema = z.strictObject({
@@ -216,13 +228,29 @@ export function parseZonage(data: unknown): ZonageData {
   return parseOrThrow(zonageSchema, data, "zonage ABC");
 }
 
-/** Valide les données de marché (DVF) ; chaque code INSEE de commune doit exister dans `communes` si fourni. */
-export function parseMarket(data: unknown, insee?: string[]): MarketData {
+/**
+ * Valide les données de marché (DVF). Si `communes` est fourni, chaque clé (commune, EPCI, département)
+ * doit correspondre à une commune connue, et chaque territoire ayant des statistiques doit avoir un nom
+ * d'affichage (sinon l'interface afficherait un libellé générique).
+ */
+export function parseMarket(data: unknown, communes?: Pick<Commune, "insee" | "epci" | "departement">[]): MarketData {
   const m = parseOrThrow(marketSchema, data, "marché DVF");
-  if (insee) {
-    const known = new Set(insee);
+  if (communes) {
+    const connus = {
+      insee: new Set(communes.map((c) => c.insee)),
+      epci: new Set(communes.map((c) => c.epci)),
+      departements: new Set(communes.map((c) => c.departement)),
+    };
     for (const code of Object.keys(m.communes)) {
-      if (!known.has(code)) throw new Error(`Données invalides (marché DVF) : code INSEE inconnu « ${code} ».`);
+      if (!connus.insee.has(code)) throw new Error(`Données invalides (marché DVF) : code INSEE inconnu « ${code} ».`);
+    }
+    for (const code of Object.keys(m.epci)) {
+      if (!connus.epci.has(code)) throw new Error(`Données invalides (marché DVF) : EPCI inconnu « ${code} ».`);
+      if (!m.noms.epci[code]) throw new Error(`Données invalides (marché DVF) : nom manquant pour l'EPCI ${code}.`);
+    }
+    for (const code of Object.keys(m.departements)) {
+      if (!connus.departements.has(code)) throw new Error(`Données invalides (marché DVF) : département inconnu « ${code} ».`);
+      if (!m.noms.departements[code]) throw new Error(`Données invalides (marché DVF) : nom manquant pour le département ${code}.`);
     }
   }
   return m;
@@ -241,7 +269,7 @@ export function parseCommunes(data: unknown, zonage: ZonageData): Commune[] {
     seen.add(c.insee);
     const zone: Zone | undefined = zonage.zones[c.insee];
     if (!zone) throw new Error(`Données invalides (communes) : ${c.nom} (${c.insee}) absente du zonage ABC.`);
-    return { ...c, zone };
+    return { ...c, zone, departement: c.insee.slice(0, 2) };
   });
 }
 
@@ -278,7 +306,7 @@ const savedStateSchema = z.strictObject({
   }),
   criteria: z.strictObject({
     communeCentreId: z.string().min(1).max(64),
-    rayonKm: reel(1, 30),
+    rayonKm: reel(1, RAYON_MAX_KM),
     types: z.array(z.enum(["maison", "appartement"])).max(2),
     surfaceMin: reel(0, 500),
     chambresMin: entier(0, 10),

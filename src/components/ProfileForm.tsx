@@ -1,5 +1,6 @@
 import type { Categorie, SearchCriteria, TypeBien, UserProfile } from "../types";
-import { communes } from "../engine";
+import { communes, RAYON_MAX_KM } from "../engine";
+import { CommuneSelect } from "./CommuneSelect";
 
 interface Props {
   profile: UserProfile;
@@ -59,15 +60,9 @@ export function ProfileForm({ profile, criteria, onProfile, onCriteria }: Props)
 
       <fieldset>
         <legend>Critères du bien</legend>
-        <label>Ville de référence
-          <select value={criteria.communeCentreId} onChange={(e) => onCriteria({ ...criteria, communeCentreId: e.target.value })}>
-            {communes.map((c) => (
-              <option key={c.id} value={c.id}>{c.nom} ({c.codePostal})</option>
-            ))}
-          </select>
-        </label>
+        <CommuneSelect communes={communes} value={criteria.communeCentreId} onChange={(id) => onCriteria({ ...criteria, communeCentreId: id })} />
         <label>Rayon : {criteria.rayonKm} km
-          <input type="range" min={1} max={30} value={criteria.rayonKm} onChange={(e) => onCriteria({ ...criteria, rayonKm: num(e.target.value, 1, 30) })} />
+          <input type="range" min={1} max={RAYON_MAX_KM} value={criteria.rayonKm} onChange={(e) => onCriteria({ ...criteria, rayonKm: num(e.target.value, 1, RAYON_MAX_KM) })} />
         </label>
         <label>Surface minimale (m²)
           <input type="number" min={0} max={500} step={5} value={criteria.surfaceMin} onChange={(e) => onCriteria({ ...criteria, surfaceMin: num(e.target.value, 0, 500) })} />

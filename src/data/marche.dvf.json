@@ -3,44 +3,798 @@
     "nom": "Demandes de valeurs foncières géolocalisées (DVF)",
     "page": "https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres-geolocalisees",
     "licence": "Licence Ouverte 2.0",
-    "perimetre": "Métropole Européenne de Lille (95 communes), ventes de logements, prix au m² bâti"
+    "perimetre": "Nord et Pas-de-Calais (1534 communes), ventes de logements, prix au m² bâti"
   },
   "annees": [
     2023,
     2024,
     2025
   ],
-  "agglo": {
-    "appartement": {
-      "ancien": {
-        "n": 15610,
-        "mediane": 3095,
-        "q1": 2295,
-        "q3": 3947
+  "departements": {
+    "59": {
+      "appartement": {
+        "ancien": {
+          "n": 21150,
+          "mediane": 2750,
+          "q1": 1935,
+          "q3": 3689
+        },
+        "neuf": {
+          "n": 1054,
+          "mediane": 3978,
+          "q1": 3242,
+          "q3": 4493
+        }
       },
-      "neuf": {
-        "n": 819,
-        "mediane": 4134,
-        "q1": 3444,
-        "q3": 4691
+      "maison": {
+        "ancien": {
+          "n": 57940,
+          "mediane": 1924,
+          "q1": 1332,
+          "q3": 2659
+        },
+        "neuf": {
+          "n": 33,
+          "mediane": 2846,
+          "q1": 2474,
+          "q3": 3176
+        }
       }
     },
-    "maison": {
-      "ancien": {
-        "n": 25097,
-        "mediane": 2523,
-        "q1": 1879,
-        "q3": 3250
+    "62": {
+      "appartement": {
+        "ancien": {
+          "n": 7106,
+          "mediane": 2358,
+          "q1": 1615,
+          "q3": 3867
+        },
+        "neuf": {
+          "n": 243,
+          "mediane": 4091,
+          "q1": 3529,
+          "q3": 4741
+        }
       },
-      "neuf": {
-        "n": 25,
-        "mediane": 2827,
-        "q1": 2472,
-        "q3": 3260
+      "maison": {
+        "ancien": {
+          "n": 33001,
+          "mediane": 1670,
+          "q1": 1248,
+          "q3": 2154
+        },
+        "neuf": {
+          "n": 31,
+          "mediane": 3244,
+          "q1": 2375,
+          "q3": 3845
+        }
+      }
+    }
+  },
+  "epci": {
+    "200018083": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 541,
+          "mediane": 1679,
+          "q1": 1290,
+          "q3": 2072
+        },
+        "neuf": null
+      }
+    },
+    "200030633": {
+      "appartement": {
+        "ancien": {
+          "n": 96,
+          "mediane": 1183,
+          "q1": 1056,
+          "q3": 1357
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 1778,
+          "mediane": 1054,
+          "q1": 787,
+          "q3": 1404
+        },
+        "neuf": null
+      }
+    },
+    "200033579": {
+      "appartement": {
+        "ancien": {
+          "n": 1066,
+          "mediane": 2438,
+          "q1": 2064,
+          "q3": 2841
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 2263,
+          "mediane": 1980,
+          "q1": 1607,
+          "q3": 2359
+        },
+        "neuf": null
+      }
+    },
+    "200035442": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 660,
+          "mediane": 1291,
+          "q1": 987,
+          "q3": 1667
+        },
+        "neuf": null
+      }
+    },
+    "200040947": {
+      "appartement": {
+        "ancien": {
+          "n": 300,
+          "mediane": 2537,
+          "q1": 2016,
+          "q3": 2967
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 2459,
+          "mediane": 1989,
+          "q1": 1500,
+          "q3": 2500
+        },
+        "neuf": null
+      }
+    },
+    "200040954": {
+      "appartement": {
+        "ancien": {
+          "n": 42,
+          "mediane": 2273,
+          "q1": 1876,
+          "q3": 2819
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 1220,
+          "mediane": 1866,
+          "q1": 1429,
+          "q3": 2360
+        },
+        "neuf": null
+      }
+    },
+    "200041960": {
+      "appartement": {
+        "ancien": {
+          "n": 239,
+          "mediane": 2846,
+          "q1": 2131,
+          "q3": 3342
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 2477,
+          "mediane": 2530,
+          "q1": 1984,
+          "q3": 3077
+        },
+        "neuf": null
+      }
+    },
+    "200042190": {
+      "appartement": {
+        "ancien": {
+          "n": 130,
+          "mediane": 1494,
+          "q1": 1300,
+          "q3": 1841
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 3698,
+          "mediane": 1367,
+          "q1": 1019,
+          "q3": 1809
+        },
+        "neuf": null
+      }
+    },
+    "200043263": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 675,
+          "mediane": 1143,
+          "q1": 833,
+          "q3": 1500
+        },
+        "neuf": null
+      }
+    },
+    "200043321": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 1048,
+          "mediane": 1386,
+          "q1": 1045,
+          "q3": 1884
+        },
+        "neuf": null
+      }
+    },
+    "200043396": {
+      "appartement": {
+        "ancien": {
+          "n": 340,
+          "mediane": 969,
+          "q1": 778,
+          "q3": 1154
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 2482,
+          "mediane": 1194,
+          "q1": 868,
+          "q3": 1574
+        },
+        "neuf": null
+      }
+    },
+    "200043404": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 560,
+          "mediane": 1076,
+          "q1": 789,
+          "q3": 1455
+        },
+        "neuf": null
+      }
+    },
+    "200044030": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 641,
+          "mediane": 1325,
+          "q1": 1033,
+          "q3": 1726
+        },
+        "neuf": null
+      }
+    },
+    "200044048": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 1099,
+          "mediane": 1625,
+          "q1": 1216,
+          "q3": 2056
+        },
+        "neuf": null
+      }
+    },
+    "200044618": {
+      "appartement": {
+        "ancien": {
+          "n": 711,
+          "mediane": 1553,
+          "q1": 1231,
+          "q3": 1987
+        },
+        "neuf": {
+          "n": 47,
+          "mediane": 2300,
+          "q1": 2137,
+          "q3": 2514
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 3188,
+          "mediane": 1562,
+          "q1": 1200,
+          "q3": 1970
+        },
+        "neuf": null
+      }
+    },
+    "200068500": {
+      "appartement": {
+        "ancien": {
+          "n": 417,
+          "mediane": 1690,
+          "q1": 1367,
+          "q3": 2107
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 2056,
+          "mediane": 1376,
+          "q1": 1000,
+          "q3": 1739
+        },
+        "neuf": null
+      }
+    },
+    "200069029": {
+      "appartement": {
+        "ancien": {
+          "n": 2074,
+          "mediane": 4318,
+          "q1": 3221,
+          "q3": 7362
+        },
+        "neuf": {
+          "n": 168,
+          "mediane": 4261,
+          "q1": 3974,
+          "q3": 4964
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 2340,
+          "mediane": 2823,
+          "q1": 2111,
+          "q3": 4000
+        },
+        "neuf": null
+      }
+    },
+    "200069037": {
+      "appartement": {
+        "ancien": {
+          "n": 227,
+          "mediane": 1726,
+          "q1": 1325,
+          "q3": 2225
+        },
+        "neuf": {
+          "n": 33,
+          "mediane": 3219,
+          "q1": 3062,
+          "q3": 3475
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 2305,
+          "mediane": 1598,
+          "q1": 1242,
+          "q3": 1968
+        },
+        "neuf": null
+      }
+    },
+    "200069235": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 356,
+          "mediane": 1273,
+          "q1": 973,
+          "q3": 1737
+        },
+        "neuf": null
+      }
+    },
+    "200069482": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 627,
+          "mediane": 1494,
+          "q1": 1154,
+          "q3": 1960
+        },
+        "neuf": null
+      }
+    },
+    "200069672": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 812,
+          "mediane": 1138,
+          "q1": 869,
+          "q3": 1516
+        },
+        "neuf": null
+      }
+    },
+    "200072460": {
+      "appartement": {
+        "ancien": {
+          "n": 570,
+          "mediane": 1523,
+          "q1": 1250,
+          "q3": 1908
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 6371,
+          "mediane": 1481,
+          "q1": 1098,
+          "q3": 1922
+        },
+        "neuf": null
+      }
+    },
+    "200072478": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 523,
+          "mediane": 1706,
+          "q1": 1304,
+          "q3": 2103
+        },
+        "neuf": null
+      }
+    },
+    "200090751": {
+      "appartement": {
+        "ancien": {
+          "n": 660,
+          "mediane": 1958,
+          "q1": 1628,
+          "q3": 2422
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 2478,
+          "mediane": 1671,
+          "q1": 1305,
+          "q3": 2079
+        },
+        "neuf": null
+      }
+    },
+    "200093201": {
+      "appartement": {
+        "ancien": {
+          "n": 15609,
+          "mediane": 3095,
+          "q1": 2296,
+          "q3": 3947
+        },
+        "neuf": {
+          "n": 819,
+          "mediane": 4134,
+          "q1": 3444,
+          "q3": 4691
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 25097,
+          "mediane": 2523,
+          "q1": 1879,
+          "q3": 3250
+        },
+        "neuf": null
+      }
+    },
+    "245900428": {
+      "appartement": {
+        "ancien": {
+          "n": 1784,
+          "mediane": 2279,
+          "q1": 1676,
+          "q3": 3111
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 4366,
+          "mediane": 1931,
+          "q1": 1546,
+          "q3": 2421
+        },
+        "neuf": null
+      }
+    },
+    "245900758": {
+      "appartement": {
+        "ancien": {
+          "n": 53,
+          "mediane": 2268,
+          "q1": 1673,
+          "q3": 2521
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 1019,
+          "mediane": 1957,
+          "q1": 1495,
+          "q3": 2421
+        },
+        "neuf": null
+      }
+    },
+    "245901038": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 395,
+          "mediane": 1154,
+          "q1": 865,
+          "q3": 1605
+        },
+        "neuf": null
+      }
+    },
+    "245901152": {
+      "appartement": {
+        "ancien": {
+          "n": 67,
+          "mediane": 1351,
+          "q1": 1173,
+          "q3": 1614
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 1662,
+          "mediane": 1472,
+          "q1": 1113,
+          "q3": 1909
+        },
+        "neuf": null
+      }
+    },
+    "245901160": {
+      "appartement": {
+        "ancien": {
+          "n": 1341,
+          "mediane": 1923,
+          "q1": 1580,
+          "q3": 2342
+        },
+        "neuf": {
+          "n": 159,
+          "mediane": 3500,
+          "q1": 3160,
+          "q3": 4051
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 4159,
+          "mediane": 1498,
+          "q1": 1098,
+          "q3": 1942
+        },
+        "neuf": null
+      }
+    },
+    "246200299": {
+      "appartement": {
+        "ancien": {
+          "n": 232,
+          "mediane": 1426,
+          "q1": 1285,
+          "q3": 1605
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 2798,
+          "mediane": 1636,
+          "q1": 1245,
+          "q3": 2063
+        },
+        "neuf": null
+      }
+    },
+    "246200364": {
+      "appartement": {
+        "ancien": {
+          "n": 649,
+          "mediane": 1512,
+          "q1": 1333,
+          "q3": 1784
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 4726,
+          "mediane": 1568,
+          "q1": 1200,
+          "q3": 1964
+        },
+        "neuf": null
+      }
+    },
+    "246200380": {
+      "appartement": {
+        "ancien": {
+          "n": 62,
+          "mediane": 4909,
+          "q1": 3147,
+          "q3": 6277
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 604,
+          "mediane": 2171,
+          "q1": 1577,
+          "q3": 3119
+        },
+        "neuf": null
+      }
+    },
+    "246200729": {
+      "appartement": {
+        "ancien": {
+          "n": 1452,
+          "mediane": 2185,
+          "q1": 1549,
+          "q3": 4493
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 2444,
+          "mediane": 1940,
+          "q1": 1518,
+          "q3": 2462
+        },
+        "neuf": null
+      }
+    },
+    "246200844": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 584,
+          "mediane": 1934,
+          "q1": 1500,
+          "q3": 2258
+        },
+        "neuf": null
+      }
+    },
+    "246201016": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 430,
+          "mediane": 1527,
+          "q1": 1203,
+          "q3": 1886
+        },
+        "neuf": null
       }
     }
   },
   "communes": {
+    "59002": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 115,
+          "mediane": 1192,
+          "q1": 894,
+          "q3": 1585
+        },
+        "neuf": null
+      }
+    },
+    "59005": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 79,
+          "mediane": 2089,
+          "q1": 1810,
+          "q3": 2747
+        },
+        "neuf": null
+      }
+    },
+    "59008": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 272,
+          "mediane": 1186,
+          "q1": 967,
+          "q3": 1506
+        },
+        "neuf": null
+      }
+    },
     "59009": {
       "appartement": {
         "ancien": {
@@ -63,12 +817,107 @@
           "q1": 2531,
           "q3": 3689
         },
-        "neuf": {
-          "n": 2,
-          "mediane": 4357,
-          "q1": 4316,
-          "q3": 4398
-        }
+        "neuf": null
+      }
+    },
+    "59011": {
+      "appartement": {
+        "ancien": {
+          "n": 33,
+          "mediane": 2576,
+          "q1": 1592,
+          "q3": 2842
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 268,
+          "mediane": 2198,
+          "q1": 1734,
+          "q3": 2655
+        },
+        "neuf": null
+      }
+    },
+    "59012": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 61,
+          "mediane": 1261,
+          "q1": 933,
+          "q3": 1632
+        },
+        "neuf": null
+      }
+    },
+    "59013": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 3122,
+          "q1": 2526,
+          "q3": 3801
+        },
+        "neuf": null
+      }
+    },
+    "59014": {
+      "appartement": {
+        "ancien": {
+          "n": 85,
+          "mediane": 1525,
+          "q1": 1309,
+          "q3": 1797
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 303,
+          "mediane": 1154,
+          "q1": 876,
+          "q3": 1468
+        },
+        "neuf": null
+      }
+    },
+    "59015": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 90,
+          "mediane": 1585,
+          "q1": 1251,
+          "q3": 1993
+        },
+        "neuf": null
+      }
+    },
+    "59016": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 60,
+          "mediane": 1993,
+          "q1": 1658,
+          "q3": 2592
+        },
+        "neuf": null
       }
     },
     "59017": {
@@ -93,12 +942,1102 @@
           "q1": 1482,
           "q3": 2254
         },
-        "neuf": {
-          "n": 2,
-          "mediane": 1848,
-          "q1": 1845,
-          "q3": 1852
-        }
+        "neuf": null
+      }
+    },
+    "59018": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 38,
+          "mediane": 1904,
+          "q1": 1442,
+          "q3": 2349
+        },
+        "neuf": null
+      }
+    },
+    "59021": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 34,
+          "mediane": 1489,
+          "q1": 1199,
+          "q3": 1805
+        },
+        "neuf": null
+      }
+    },
+    "59022": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 73,
+          "mediane": 2649,
+          "q1": 2188,
+          "q3": 2940
+        },
+        "neuf": null
+      }
+    },
+    "59024": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 139,
+          "mediane": 1321,
+          "q1": 1037,
+          "q3": 1638
+        },
+        "neuf": null
+      }
+    },
+    "59025": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 2526,
+          "q1": 2116,
+          "q3": 3291
+        },
+        "neuf": null
+      }
+    },
+    "59027": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1923,
+          "q1": 1591,
+          "q3": 2257
+        },
+        "neuf": null
+      }
+    },
+    "59028": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 142,
+          "mediane": 1363,
+          "q1": 1112,
+          "q3": 1699
+        },
+        "neuf": null
+      }
+    },
+    "59029": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 57,
+          "mediane": 2314,
+          "q1": 2000,
+          "q3": 2846
+        },
+        "neuf": null
+      }
+    },
+    "59032": {
+      "appartement": {
+        "ancien": {
+          "n": 35,
+          "mediane": 2820,
+          "q1": 2725,
+          "q3": 2951
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 169,
+          "mediane": 1549,
+          "q1": 1304,
+          "q3": 1866
+        },
+        "neuf": null
+      }
+    },
+    "59033": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 209,
+          "mediane": 1223,
+          "q1": 926,
+          "q3": 1579
+        },
+        "neuf": null
+      }
+    },
+    "59034": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 57,
+          "mediane": 3000,
+          "q1": 2706,
+          "q3": 3440
+        },
+        "neuf": null
+      }
+    },
+    "59035": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 1149,
+          "q1": 914,
+          "q3": 1410
+        },
+        "neuf": null
+      }
+    },
+    "59036": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 88,
+          "mediane": 984,
+          "q1": 714,
+          "q3": 1348
+        },
+        "neuf": null
+      }
+    },
+    "59037": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 130,
+          "mediane": 1249,
+          "q1": 926,
+          "q3": 1597
+        },
+        "neuf": null
+      }
+    },
+    "59038": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 1347,
+          "q1": 1065,
+          "q3": 1707
+        },
+        "neuf": null
+      }
+    },
+    "59041": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 46,
+          "mediane": 1192,
+          "q1": 883,
+          "q3": 1526
+        },
+        "neuf": null
+      }
+    },
+    "59042": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 3044,
+          "q1": 2231,
+          "q3": 3471
+        },
+        "neuf": null
+      }
+    },
+    "59043": {
+      "appartement": {
+        "ancien": {
+          "n": 134,
+          "mediane": 2658,
+          "q1": 2201,
+          "q3": 2976
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 321,
+          "mediane": 2244,
+          "q1": 1816,
+          "q3": 2801
+        },
+        "neuf": null
+      }
+    },
+    "59044": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 156,
+          "mediane": 2865,
+          "q1": 2368,
+          "q3": 3327
+        },
+        "neuf": null
+      }
+    },
+    "59051": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 203,
+          "mediane": 1862,
+          "q1": 1527,
+          "q3": 2271
+        },
+        "neuf": null
+      }
+    },
+    "59052": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 153,
+          "mediane": 1972,
+          "q1": 1573,
+          "q3": 2322
+        },
+        "neuf": null
+      }
+    },
+    "59053": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 92,
+          "mediane": 1392,
+          "q1": 1099,
+          "q3": 1694
+        },
+        "neuf": null
+      }
+    },
+    "59054": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 40,
+          "mediane": 1892,
+          "q1": 1489,
+          "q3": 2326
+        },
+        "neuf": null
+      }
+    },
+    "59063": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 78,
+          "mediane": 1056,
+          "q1": 750,
+          "q3": 1323
+        },
+        "neuf": null
+      }
+    },
+    "59067": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 86,
+          "mediane": 2137,
+          "q1": 1725,
+          "q3": 2568
+        },
+        "neuf": null
+      }
+    },
+    "59068": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 77,
+          "mediane": 1215,
+          "q1": 863,
+          "q3": 1607
+        },
+        "neuf": null
+      }
+    },
+    "59071": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 60,
+          "mediane": 2396,
+          "q1": 1914,
+          "q3": 3034
+        },
+        "neuf": null
+      }
+    },
+    "59074": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 44,
+          "mediane": 1150,
+          "q1": 971,
+          "q3": 1306
+        },
+        "neuf": null
+      }
+    },
+    "59079": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 123,
+          "mediane": 1434,
+          "q1": 1128,
+          "q3": 1752
+        },
+        "neuf": null
+      }
+    },
+    "59080": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 67,
+          "mediane": 2150,
+          "q1": 1529,
+          "q3": 2709
+        },
+        "neuf": null
+      }
+    },
+    "59082": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 47,
+          "mediane": 2245,
+          "q1": 1880,
+          "q3": 2511
+        },
+        "neuf": null
+      }
+    },
+    "59084": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 38,
+          "mediane": 2070,
+          "q1": 1620,
+          "q3": 2426
+        },
+        "neuf": null
+      }
+    },
+    "59086": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 60,
+          "mediane": 2000,
+          "q1": 1450,
+          "q3": 2500
+        },
+        "neuf": null
+      }
+    },
+    "59088": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 3000,
+          "q1": 2446,
+          "q3": 3203
+        },
+        "neuf": null
+      }
+    },
+    "59090": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 227,
+          "mediane": 3980,
+          "q1": 3215,
+          "q3": 4577
+        },
+        "neuf": null
+      }
+    },
+    "59092": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 131,
+          "mediane": 1494,
+          "q1": 1196,
+          "q3": 1901
+        },
+        "neuf": null
+      }
+    },
+    "59094": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 213,
+          "mediane": 1643,
+          "q1": 1328,
+          "q3": 1980
+        },
+        "neuf": null
+      }
+    },
+    "59096": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 2886,
+          "q1": 2325,
+          "q3": 3356
+        },
+        "neuf": null
+      }
+    },
+    "59098": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 124,
+          "mediane": 2690,
+          "q1": 2161,
+          "q3": 3301
+        },
+        "neuf": null
+      }
+    },
+    "59099": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 43,
+          "mediane": 1197,
+          "q1": 1016,
+          "q3": 1407
+        },
+        "neuf": null
+      }
+    },
+    "59104": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 71,
+          "mediane": 1211,
+          "q1": 965,
+          "q3": 1381
+        },
+        "neuf": null
+      }
+    },
+    "59107": {
+      "appartement": {
+        "ancien": {
+          "n": 260,
+          "mediane": 3493,
+          "q1": 2792,
+          "q3": 4726
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 170,
+          "mediane": 2438,
+          "q1": 1871,
+          "q3": 2943
+        },
+        "neuf": null
+      }
+    },
+    "59112": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 247,
+          "mediane": 1350,
+          "q1": 1004,
+          "q3": 1686
+        },
+        "neuf": null
+      }
+    },
+    "59114": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 1833,
+          "q1": 1070,
+          "q3": 2709
+        },
+        "neuf": null
+      }
+    },
+    "59118": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 68,
+          "mediane": 979,
+          "q1": 693,
+          "q3": 1239
+        },
+        "neuf": null
+      }
+    },
+    "59120": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 49,
+          "mediane": 2053,
+          "q1": 1488,
+          "q3": 2542
+        },
+        "neuf": null
+      }
+    },
+    "59122": {
+      "appartement": {
+        "ancien": {
+          "n": 399,
+          "mediane": 1712,
+          "q1": 1367,
+          "q3": 2124
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 763,
+          "mediane": 1354,
+          "q1": 1025,
+          "q3": 1664
+        },
+        "neuf": null
+      }
+    },
+    "59123": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 49,
+          "mediane": 2403,
+          "q1": 1960,
+          "q3": 2743
+        },
+        "neuf": null
+      }
+    },
+    "59124": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 3425,
+          "q1": 2761,
+          "q3": 3915
+        },
+        "neuf": null
+      }
+    },
+    "59126": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 47,
+          "mediane": 1651,
+          "q1": 1287,
+          "q3": 2189
+        },
+        "neuf": null
+      }
+    },
+    "59128": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 51,
+          "mediane": 3333,
+          "q1": 2591,
+          "q3": 3699
+        },
+        "neuf": null
+      }
+    },
+    "59129": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 52,
+          "mediane": 2892,
+          "q1": 2274,
+          "q3": 3316
+        },
+        "neuf": null
+      }
+    },
+    "59131": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 240,
+          "mediane": 1865,
+          "q1": 1642,
+          "q3": 2128
+        },
+        "neuf": null
+      }
+    },
+    "59133": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 2696,
+          "q1": 2327,
+          "q3": 2938
+        },
+        "neuf": null
+      }
+    },
+    "59134": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 34,
+          "mediane": 1475,
+          "q1": 1154,
+          "q3": 1851
+        },
+        "neuf": null
+      }
+    },
+    "59135": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 60,
+          "mediane": 1635,
+          "q1": 1265,
+          "q3": 2233
+        },
+        "neuf": null
+      }
+    },
+    "59136": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 187,
+          "mediane": 874,
+          "q1": 701,
+          "q3": 1174
+        },
+        "neuf": null
+      }
+    },
+    "59138": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 1178,
+          "q1": 883,
+          "q3": 1669
+        },
+        "neuf": null
+      }
+    },
+    "59139": {
+      "appartement": {
+        "ancien": {
+          "n": 75,
+          "mediane": 1200,
+          "q1": 1115,
+          "q3": 1358
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 410,
+          "mediane": 1012,
+          "q1": 794,
+          "q3": 1325
+        },
+        "neuf": null
+      }
+    },
+    "59143": {
+      "appartement": {
+        "ancien": {
+          "n": 41,
+          "mediane": 2495,
+          "q1": 2361,
+          "q3": 3092
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 246,
+          "mediane": 2377,
+          "q1": 2063,
+          "q3": 2819
+        },
+        "neuf": null
+      }
+    },
+    "59146": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 97,
+          "mediane": 3510,
+          "q1": 2766,
+          "q3": 3991
+        },
+        "neuf": null
+      }
+    },
+    "59149": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 1195,
+          "q1": 786,
+          "q3": 1484
+        },
+        "neuf": null
+      }
+    },
+    "59151": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 1386,
+          "q1": 901,
+          "q3": 1743
+        },
+        "neuf": null
+      }
+    },
+    "59152": {
+      "appartement": {
+        "ancien": {
+          "n": 56,
+          "mediane": 2362,
+          "q1": 2166,
+          "q3": 2688
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 312,
+          "mediane": 2271,
+          "q1": 1803,
+          "q3": 2778
+        },
+        "neuf": null
+      }
+    },
+    "59153": {
+      "appartement": {
+        "ancien": {
+          "n": 43,
+          "mediane": 1298,
+          "q1": 1208,
+          "q3": 1383
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 144,
+          "mediane": 1301,
+          "q1": 1058,
+          "q3": 1633
+        },
+        "neuf": null
+      }
+    },
+    "59155": {
+      "appartement": {
+        "ancien": {
+          "n": 75,
+          "mediane": 1781,
+          "q1": 1516,
+          "q3": 2186
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 640,
+          "mediane": 1800,
+          "q1": 1458,
+          "q3": 2187
+        },
+        "neuf": null
+      }
+    },
+    "59156": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 58,
+          "mediane": 1541,
+          "q1": 1144,
+          "q3": 1947
+        },
+        "neuf": null
+      }
+    },
+    "59157": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 53,
+          "mediane": 1165,
+          "q1": 880,
+          "q3": 1595
+        },
+        "neuf": null
+      }
+    },
+    "59158": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 79,
+          "mediane": 2532,
+          "q1": 2029,
+          "q3": 3031
+        },
+        "neuf": null
+      }
+    },
+    "59160": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 118,
+          "mediane": 1207,
+          "q1": 909,
+          "q3": 1607
+        },
+        "neuf": null
       }
     },
     "59163": {
@@ -126,6 +2065,931 @@
         "neuf": null
       }
     },
+    "59165": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 193,
+          "mediane": 1790,
+          "q1": 1488,
+          "q3": 2067
+        },
+        "neuf": null
+      }
+    },
+    "59166": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 37,
+          "mediane": 2004,
+          "q1": 1541,
+          "q3": 2339
+        },
+        "neuf": null
+      }
+    },
+    "59168": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 150,
+          "mediane": 2766,
+          "q1": 2174,
+          "q3": 3378
+        },
+        "neuf": null
+      }
+    },
+    "59170": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 126,
+          "mediane": 1386,
+          "q1": 960,
+          "q3": 1647
+        },
+        "neuf": null
+      }
+    },
+    "59172": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 442,
+          "mediane": 925,
+          "q1": 692,
+          "q3": 1247
+        },
+        "neuf": null
+      }
+    },
+    "59173": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 34,
+          "mediane": 2954,
+          "q1": 2674,
+          "q3": 3239
+        },
+        "neuf": null
+      }
+    },
+    "59178": {
+      "appartement": {
+        "ancien": {
+          "n": 604,
+          "mediane": 1572,
+          "q1": 1280,
+          "q3": 2000
+        },
+        "neuf": {
+          "n": 40,
+          "mediane": 2262,
+          "q1": 2123,
+          "q3": 2388
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 663,
+          "mediane": 1557,
+          "q1": 1171,
+          "q3": 1989
+        },
+        "neuf": null
+      }
+    },
+    "59179": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 209,
+          "mediane": 1368,
+          "q1": 1087,
+          "q3": 1600
+        },
+        "neuf": null
+      }
+    },
+    "59183": {
+      "appartement": {
+        "ancien": {
+          "n": 1270,
+          "mediane": 2197,
+          "q1": 1664,
+          "q3": 2872
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 1751,
+          "mediane": 2000,
+          "q1": 1536,
+          "q3": 2513
+        },
+        "neuf": null
+      }
+    },
+    "59193": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 108,
+          "mediane": 2418,
+          "q1": 1975,
+          "q3": 3066
+        },
+        "neuf": null
+      }
+    },
+    "59194": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 38,
+          "mediane": 1247,
+          "q1": 1089,
+          "q3": 1552
+        },
+        "neuf": null
+      }
+    },
+    "59196": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 32,
+          "mediane": 3494,
+          "q1": 2510,
+          "q3": 4290
+        },
+        "neuf": null
+      }
+    },
+    "59197": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 54,
+          "mediane": 2850,
+          "q1": 2426,
+          "q3": 3378
+        },
+        "neuf": null
+      }
+    },
+    "59202": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 148,
+          "mediane": 2208,
+          "q1": 1815,
+          "q3": 2613
+        },
+        "neuf": null
+      }
+    },
+    "59203": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 37,
+          "mediane": 1818,
+          "q1": 1461,
+          "q3": 2119
+        },
+        "neuf": null
+      }
+    },
+    "59205": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 190,
+          "mediane": 1274,
+          "q1": 1030,
+          "q3": 1600
+        },
+        "neuf": null
+      }
+    },
+    "59206": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 98,
+          "mediane": 1319,
+          "q1": 951,
+          "q3": 1651
+        },
+        "neuf": null
+      }
+    },
+    "59207": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 89,
+          "mediane": 1176,
+          "q1": 909,
+          "q3": 1577
+        },
+        "neuf": null
+      }
+    },
+    "59210": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 50,
+          "mediane": 2017,
+          "q1": 1499,
+          "q3": 2445
+        },
+        "neuf": null
+      }
+    },
+    "59212": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 181,
+          "mediane": 1904,
+          "q1": 1521,
+          "q3": 2244
+        },
+        "neuf": null
+      }
+    },
+    "59220": {
+      "appartement": {
+        "ancien": {
+          "n": 149,
+          "mediane": 2689,
+          "q1": 2218,
+          "q3": 3101
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 535,
+          "mediane": 2474,
+          "q1": 2049,
+          "q3": 2860
+        },
+        "neuf": null
+      }
+    },
+    "59221": {
+      "appartement": {
+        "ancien": {
+          "n": 32,
+          "mediane": 2109,
+          "q1": 1902,
+          "q3": 2246
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 43,
+          "mediane": 1903,
+          "q1": 1223,
+          "q3": 2244
+        },
+        "neuf": null
+      }
+    },
+    "59222": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 56,
+          "mediane": 2515,
+          "q1": 1863,
+          "q3": 2831
+        },
+        "neuf": null
+      }
+    },
+    "59224": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 1412,
+          "q1": 1076,
+          "q3": 1850
+        },
+        "neuf": null
+      }
+    },
+    "59225": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 154,
+          "mediane": 1306,
+          "q1": 912,
+          "q3": 1754
+        },
+        "neuf": null
+      }
+    },
+    "59226": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1130,
+          "q1": 886,
+          "q3": 1299
+        },
+        "neuf": null
+      }
+    },
+    "59227": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 133,
+          "mediane": 1595,
+          "q1": 1121,
+          "q3": 2000
+        },
+        "neuf": null
+      }
+    },
+    "59228": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 32,
+          "mediane": 1719,
+          "q1": 1269,
+          "q3": 2133
+        },
+        "neuf": null
+      }
+    },
+    "59230": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 131,
+          "mediane": 1190,
+          "q1": 825,
+          "q3": 1596
+        },
+        "neuf": null
+      }
+    },
+    "59234": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 100,
+          "mediane": 1551,
+          "q1": 1242,
+          "q3": 1967
+        },
+        "neuf": null
+      }
+    },
+    "59238": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 34,
+          "mediane": 1439,
+          "q1": 1113,
+          "q3": 1975
+        },
+        "neuf": null
+      }
+    },
+    "59239": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 121,
+          "mediane": 1942,
+          "q1": 1455,
+          "q3": 2340
+        },
+        "neuf": null
+      }
+    },
+    "59243": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1177,
+          "q1": 810,
+          "q3": 1591
+        },
+        "neuf": null
+      }
+    },
+    "59244": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1325,
+          "q1": 954,
+          "q3": 1658
+        },
+        "neuf": null
+      }
+    },
+    "59247": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 53,
+          "mediane": 3142,
+          "q1": 2475,
+          "q3": 3636
+        },
+        "neuf": null
+      }
+    },
+    "59249": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 249,
+          "mediane": 1084,
+          "q1": 843,
+          "q3": 1355
+        },
+        "neuf": null
+      }
+    },
+    "59250": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 75,
+          "mediane": 2804,
+          "q1": 2232,
+          "q3": 3418
+        },
+        "neuf": null
+      }
+    },
+    "59252": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 79,
+          "mediane": 2746,
+          "q1": 2006,
+          "q3": 3315
+        },
+        "neuf": null
+      }
+    },
+    "59253": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 154,
+          "mediane": 1049,
+          "q1": 794,
+          "q3": 1559
+        },
+        "neuf": null
+      }
+    },
+    "59254": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 37,
+          "mediane": 1489,
+          "q1": 1174,
+          "q3": 1989
+        },
+        "neuf": null
+      }
+    },
+    "59256": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 118,
+          "mediane": 2881,
+          "q1": 2125,
+          "q3": 3269
+        },
+        "neuf": null
+      }
+    },
+    "59258": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 56,
+          "mediane": 2711,
+          "q1": 2155,
+          "q3": 3253
+        },
+        "neuf": null
+      }
+    },
+    "59260": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 113,
+          "mediane": 2102,
+          "q1": 1767,
+          "q3": 2608
+        },
+        "neuf": null
+      }
+    },
+    "59261": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 48,
+          "mediane": 1246,
+          "q1": 793,
+          "q3": 1519
+        },
+        "neuf": null
+      }
+    },
+    "59262": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 65,
+          "mediane": 2037,
+          "q1": 1500,
+          "q3": 2435
+        },
+        "neuf": null
+      }
+    },
+    "59263": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 32,
+          "mediane": 1755,
+          "q1": 1304,
+          "q3": 2276
+        },
+        "neuf": null
+      }
+    },
+    "59265": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 1567,
+          "q1": 1300,
+          "q3": 2011
+        },
+        "neuf": null
+      }
+    },
+    "59266": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 109,
+          "mediane": 2601,
+          "q1": 2234,
+          "q3": 3000
+        },
+        "neuf": null
+      }
+    },
+    "59268": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 152,
+          "mediane": 1746,
+          "q1": 1312,
+          "q3": 2170
+        },
+        "neuf": null
+      }
+    },
+    "59269": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 1247,
+          "q1": 917,
+          "q3": 1607
+        },
+        "neuf": null
+      }
+    },
+    "59271": {
+      "appartement": {
+        "ancien": {
+          "n": 55,
+          "mediane": 1273,
+          "q1": 1081,
+          "q3": 1836
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 228,
+          "mediane": 1659,
+          "q1": 1428,
+          "q3": 1866
+        },
+        "neuf": null
+      }
+    },
+    "59272": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 159,
+          "mediane": 1746,
+          "q1": 1398,
+          "q3": 2090
+        },
+        "neuf": null
+      }
+    },
+    "59273": {
+      "appartement": {
+        "ancien": {
+          "n": 50,
+          "mediane": 1799,
+          "q1": 1498,
+          "q3": 2570
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 269,
+          "mediane": 1964,
+          "q1": 1642,
+          "q3": 2385
+        },
+        "neuf": null
+      }
+    },
+    "59276": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 74,
+          "mediane": 1475,
+          "q1": 1216,
+          "q3": 1760
+        },
+        "neuf": null
+      }
+    },
+    "59278": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 137,
+          "mediane": 2654,
+          "q1": 2138,
+          "q3": 3059
+        },
+        "neuf": null
+      }
+    },
+    "59279": {
+      "appartement": {
+        "ancien": {
+          "n": 74,
+          "mediane": 2180,
+          "q1": 1722,
+          "q3": 2541
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 554,
+          "mediane": 2112,
+          "q1": 1575,
+          "q3": 2618
+        },
+        "neuf": null
+      }
+    },
+    "59281": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 2462,
+          "q1": 2071,
+          "q3": 2713
+        },
+        "neuf": null
+      }
+    },
+    "59284": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 115,
+          "mediane": 1895,
+          "q1": 1460,
+          "q3": 2241
+        },
+        "neuf": null
+      }
+    },
+    "59285": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 93,
+          "mediane": 1341,
+          "q1": 1000,
+          "q3": 1628
+        },
+        "neuf": null
+      }
+    },
     "59286": {
       "appartement": {
         "ancien": {
@@ -134,12 +2998,7 @@
           "q1": 1880,
           "q3": 2955
         },
-        "neuf": {
-          "n": 27,
-          "mediane": 3985,
-          "q1": 3610,
-          "q3": 4523
-        }
+        "neuf": null
       },
       "maison": {
         "ancien": {
@@ -147,6 +3006,356 @@
           "mediane": 2234,
           "q1": 1861,
           "q3": 2631
+        },
+        "neuf": null
+      }
+    },
+    "59288": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 63,
+          "mediane": 1337,
+          "q1": 1069,
+          "q3": 1672
+        },
+        "neuf": null
+      }
+    },
+    "59289": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 48,
+          "mediane": 1188,
+          "q1": 893,
+          "q3": 1703
+        },
+        "neuf": null
+      }
+    },
+    "59291": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 273,
+          "mediane": 1079,
+          "q1": 833,
+          "q3": 1441
+        },
+        "neuf": null
+      }
+    },
+    "59292": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 78,
+          "mediane": 1216,
+          "q1": 992,
+          "q3": 1582
+        },
+        "neuf": null
+      }
+    },
+    "59293": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1787,
+          "q1": 1086,
+          "q3": 2230
+        },
+        "neuf": null
+      }
+    },
+    "59295": {
+      "appartement": {
+        "ancien": {
+          "n": 131,
+          "mediane": 2411,
+          "q1": 1847,
+          "q3": 2904
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 625,
+          "mediane": 1868,
+          "q1": 1478,
+          "q3": 2326
+        },
+        "neuf": null
+      }
+    },
+    "59297": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 57,
+          "mediane": 1493,
+          "q1": 1158,
+          "q3": 1779
+        },
+        "neuf": null
+      }
+    },
+    "59299": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 434,
+          "mediane": 2691,
+          "q1": 2170,
+          "q3": 3388
+        },
+        "neuf": null
+      }
+    },
+    "59301": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 97,
+          "mediane": 1626,
+          "q1": 1222,
+          "q3": 2061
+        },
+        "neuf": null
+      }
+    },
+    "59302": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 101,
+          "mediane": 1418,
+          "q1": 1088,
+          "q3": 1750
+        },
+        "neuf": null
+      }
+    },
+    "59303": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 59,
+          "mediane": 2716,
+          "q1": 2429,
+          "q3": 3006
+        },
+        "neuf": null
+      }
+    },
+    "59305": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 1948,
+          "q1": 1478,
+          "q3": 2564
+        },
+        "neuf": null
+      }
+    },
+    "59309": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 116,
+          "mediane": 1701,
+          "q1": 1308,
+          "q3": 2085
+        },
+        "neuf": null
+      }
+    },
+    "59313": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 34,
+          "mediane": 1311,
+          "q1": 1003,
+          "q3": 1741
+        },
+        "neuf": null
+      }
+    },
+    "59314": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 69,
+          "mediane": 1647,
+          "q1": 1196,
+          "q3": 2059
+        },
+        "neuf": null
+      }
+    },
+    "59316": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 94,
+          "mediane": 2449,
+          "q1": 1932,
+          "q3": 3013
+        },
+        "neuf": null
+      }
+    },
+    "59317": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 266,
+          "mediane": 2208,
+          "q1": 1710,
+          "q3": 2609
+        },
+        "neuf": null
+      }
+    },
+    "59319": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 63,
+          "mediane": 2240,
+          "q1": 1842,
+          "q3": 2660
+        },
+        "neuf": null
+      }
+    },
+    "59320": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 2373,
+          "q1": 1809,
+          "q3": 2927
+        },
+        "neuf": null
+      }
+    },
+    "59322": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 98,
+          "mediane": 1296,
+          "q1": 919,
+          "q3": 1666
+        },
+        "neuf": null
+      }
+    },
+    "59324": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 206,
+          "mediane": 1150,
+          "q1": 864,
+          "q3": 1486
+        },
+        "neuf": null
+      }
+    },
+    "59326": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1500,
+          "q1": 1130,
+          "q3": 1777
+        },
+        "neuf": null
+      }
+    },
+    "59327": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 121,
+          "mediane": 1610,
+          "q1": 1292,
+          "q3": 1994
         },
         "neuf": null
       }
@@ -159,12 +3368,7 @@
           "q1": 2627,
           "q3": 3549
         },
-        "neuf": {
-          "n": 9,
-          "mediane": 5562,
-          "q1": 4239,
-          "q3": 5667
-        }
+        "neuf": null
       },
       "maison": {
         "ancien": {
@@ -172,6 +3376,241 @@
           "mediane": 3604,
           "q1": 3000,
           "q3": 4469
+        },
+        "neuf": null
+      }
+    },
+    "59329": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 145,
+          "mediane": 1627,
+          "q1": 1295,
+          "q3": 1942
+        },
+        "neuf": null
+      }
+    },
+    "59330": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 2544,
+          "q1": 2163,
+          "q3": 2911
+        },
+        "neuf": null
+      }
+    },
+    "59331": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 83,
+          "mediane": 1070,
+          "q1": 843,
+          "q3": 1226
+        },
+        "neuf": null
+      }
+    },
+    "59332": {
+      "appartement": {
+        "ancien": {
+          "n": 44,
+          "mediane": 2045,
+          "q1": 1810,
+          "q3": 2389
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1718,
+          "q1": 1520,
+          "q3": 2293
+        },
+        "neuf": null
+      }
+    },
+    "59334": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 1856,
+          "q1": 1461,
+          "q3": 2207
+        },
+        "neuf": null
+      }
+    },
+    "59335": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 43,
+          "mediane": 2232,
+          "q1": 1676,
+          "q3": 2619
+        },
+        "neuf": null
+      }
+    },
+    "59336": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 39,
+          "mediane": 1111,
+          "q1": 827,
+          "q3": 1618
+        },
+        "neuf": null
+      }
+    },
+    "59339": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 262,
+          "mediane": 2606,
+          "q1": 2193,
+          "q3": 3056
+        },
+        "neuf": null
+      }
+    },
+    "59340": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 97,
+          "mediane": 2408,
+          "q1": 1750,
+          "q3": 2927
+        },
+        "neuf": null
+      }
+    },
+    "59343": {
+      "appartement": {
+        "ancien": {
+          "n": 64,
+          "mediane": 3521,
+          "q1": 3224,
+          "q3": 3691
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 206,
+          "mediane": 2975,
+          "q1": 2391,
+          "q3": 3451
+        },
+        "neuf": null
+      }
+    },
+    "59344": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 57,
+          "mediane": 1186,
+          "q1": 838,
+          "q3": 1679
+        },
+        "neuf": null
+      }
+    },
+    "59345": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 56,
+          "mediane": 1478,
+          "q1": 1269,
+          "q3": 1703
+        },
+        "neuf": null
+      }
+    },
+    "59346": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 87,
+          "mediane": 2738,
+          "q1": 2170,
+          "q3": 3384
+        },
+        "neuf": null
+      }
+    },
+    "59348": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 1662,
+          "q1": 1229,
+          "q3": 1939
+        },
+        "neuf": null
+      }
+    },
+    "59349": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 50,
+          "mediane": 1134,
+          "q1": 885,
+          "q3": 1561
         },
         "neuf": null
       }
@@ -198,12 +3637,72 @@
           "q1": 2204,
           "q3": 3517
         },
-        "neuf": {
-          "n": 6,
-          "mediane": 2377,
-          "q1": 2071,
-          "q3": 2964
-        }
+        "neuf": null
+      }
+    },
+    "59352": {
+      "appartement": {
+        "ancien": {
+          "n": 45,
+          "mediane": 3448,
+          "q1": 3143,
+          "q3": 3783
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 235,
+          "mediane": 2778,
+          "q1": 2302,
+          "q3": 3239
+        },
+        "neuf": null
+      }
+    },
+    "59356": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 53,
+          "mediane": 3704,
+          "q1": 3038,
+          "q3": 4195
+        },
+        "neuf": null
+      }
+    },
+    "59357": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 43,
+          "mediane": 1506,
+          "q1": 1272,
+          "q3": 2089
+        },
+        "neuf": null
+      }
+    },
+    "59359": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 137,
+          "mediane": 1958,
+          "q1": 1631,
+          "q3": 2283
+        },
+        "neuf": null
       }
     },
     "59360": {
@@ -231,6 +3730,56 @@
         "neuf": null
       }
     },
+    "59361": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 86,
+          "mediane": 997,
+          "q1": 838,
+          "q3": 1269
+        },
+        "neuf": null
+      }
+    },
+    "59365": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 99,
+          "mediane": 1073,
+          "q1": 758,
+          "q3": 1353
+        },
+        "neuf": null
+      }
+    },
+    "59367": {
+      "appartement": {
+        "ancien": {
+          "n": 134,
+          "mediane": 2073,
+          "q1": 1613,
+          "q3": 2628
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 358,
+          "mediane": 2339,
+          "q1": 1791,
+          "q3": 2781
+        },
+        "neuf": null
+      }
+    },
     "59368": {
       "appartement": {
         "ancien": {
@@ -253,12 +3802,52 @@
           "q1": 2858,
           "q3": 4513
         },
-        "neuf": {
-          "n": 1,
-          "mediane": 4166,
-          "q1": 4166,
-          "q3": 4166
-        }
+        "neuf": null
+      }
+    },
+    "59369": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 107,
+          "mediane": 1456,
+          "q1": 1046,
+          "q3": 1857
+        },
+        "neuf": null
+      }
+    },
+    "59375": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 116,
+          "mediane": 1826,
+          "q1": 1385,
+          "q3": 2307
+        },
+        "neuf": null
+      }
+    },
+    "59377": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 60,
+          "mediane": 1425,
+          "q1": 1102,
+          "q3": 1734
+        },
+        "neuf": null
       }
     },
     "59378": {
@@ -286,6 +3875,231 @@
         "neuf": null
       }
     },
+    "59382": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 1000,
+          "q1": 692,
+          "q3": 1212
+        },
+        "neuf": null
+      }
+    },
+    "59383": {
+      "appartement": {
+        "ancien": {
+          "n": 54,
+          "mediane": 1585,
+          "q1": 1296,
+          "q3": 2116
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 324,
+          "mediane": 1505,
+          "q1": 1206,
+          "q3": 1893
+        },
+        "neuf": null
+      }
+    },
+    "59385": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 75,
+          "mediane": 1066,
+          "q1": 843,
+          "q3": 1353
+        },
+        "neuf": null
+      }
+    },
+    "59386": {
+      "appartement": {
+        "ancien": {
+          "n": 65,
+          "mediane": 3503,
+          "q1": 3151,
+          "q3": 3980
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 330,
+          "mediane": 3290,
+          "q1": 2599,
+          "q3": 3766
+        },
+        "neuf": null
+      }
+    },
+    "59387": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 64,
+          "mediane": 1301,
+          "q1": 981,
+          "q3": 1578
+        },
+        "neuf": null
+      }
+    },
+    "59388": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 66,
+          "mediane": 2518,
+          "q1": 1995,
+          "q3": 2845
+        },
+        "neuf": null
+      }
+    },
+    "59389": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 67,
+          "mediane": 1244,
+          "q1": 1002,
+          "q3": 1593
+        },
+        "neuf": null
+      }
+    },
+    "59390": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 69,
+          "mediane": 1417,
+          "q1": 1084,
+          "q3": 1798
+        },
+        "neuf": null
+      }
+    },
+    "59392": {
+      "appartement": {
+        "ancien": {
+          "n": 243,
+          "mediane": 955,
+          "q1": 795,
+          "q3": 1164
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 448,
+          "mediane": 1116,
+          "q1": 809,
+          "q3": 1464
+        },
+        "neuf": null
+      }
+    },
+    "59398": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 84,
+          "mediane": 3407,
+          "q1": 2810,
+          "q3": 4307
+        },
+        "neuf": null
+      }
+    },
+    "59400": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 256,
+          "mediane": 1712,
+          "q1": 1361,
+          "q3": 2103
+        },
+        "neuf": null
+      }
+    },
+    "59401": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 43,
+          "mediane": 2125,
+          "q1": 1535,
+          "q3": 2732
+        },
+        "neuf": null
+      }
+    },
+    "59408": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 40,
+          "mediane": 2176,
+          "q1": 1736,
+          "q3": 2630
+        },
+        "neuf": null
+      }
+    },
+    "59409": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 71,
+          "mediane": 1330,
+          "q1": 928,
+          "q3": 1709
+        },
+        "neuf": null
+      }
+    },
     "59410": {
       "appartement": {
         "ancien": {
@@ -294,12 +4108,7 @@
           "q1": 1489,
           "q3": 2132
         },
-        "neuf": {
-          "n": 5,
-          "mediane": 3930,
-          "q1": 3736,
-          "q3": 3980
-        }
+        "neuf": null
       },
       "maison": {
         "ancien": {
@@ -307,6 +4116,821 @@
           "mediane": 2938,
           "q1": 2312,
           "q3": 3550
+        },
+        "neuf": null
+      }
+    },
+    "59411": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 2590,
+          "q1": 1944,
+          "q3": 3147
+        },
+        "neuf": null
+      }
+    },
+    "59414": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 81,
+          "mediane": 1597,
+          "q1": 1300,
+          "q3": 2035
+        },
+        "neuf": null
+      }
+    },
+    "59416": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 78,
+          "mediane": 1715,
+          "q1": 1339,
+          "q3": 2369
+        },
+        "neuf": null
+      }
+    },
+    "59419": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 38,
+          "mediane": 2345,
+          "q1": 1791,
+          "q3": 3092
+        },
+        "neuf": null
+      }
+    },
+    "59421": {
+      "appartement": {
+        "ancien": {
+          "n": 130,
+          "mediane": 3633,
+          "q1": 3116,
+          "q3": 4195
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 404,
+          "mediane": 3294,
+          "q1": 2611,
+          "q3": 4116
+        },
+        "neuf": null
+      }
+    },
+    "59424": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1046,
+          "q1": 843,
+          "q3": 1524
+        },
+        "neuf": null
+      }
+    },
+    "59426": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 275,
+          "mediane": 2640,
+          "q1": 2156,
+          "q3": 2934
+        },
+        "neuf": null
+      }
+    },
+    "59428": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 127,
+          "mediane": 1315,
+          "q1": 985,
+          "q3": 1616
+        },
+        "neuf": null
+      }
+    },
+    "59429": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 81,
+          "mediane": 1389,
+          "q1": 1093,
+          "q3": 1662
+        },
+        "neuf": null
+      }
+    },
+    "59430": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 34,
+          "mediane": 986,
+          "q1": 759,
+          "q3": 1338
+        },
+        "neuf": null
+      }
+    },
+    "59431": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 203,
+          "mediane": 2358,
+          "q1": 1810,
+          "q3": 2843
+        },
+        "neuf": null
+      }
+    },
+    "59434": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 40,
+          "mediane": 2221,
+          "q1": 1728,
+          "q3": 2726
+        },
+        "neuf": null
+      }
+    },
+    "59435": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 52,
+          "mediane": 2574,
+          "q1": 2109,
+          "q3": 3068
+        },
+        "neuf": null
+      }
+    },
+    "59445": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1075,
+          "q1": 840,
+          "q3": 1398
+        },
+        "neuf": null
+      }
+    },
+    "59447": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 222,
+          "mediane": 1404,
+          "q1": 1096,
+          "q3": 1887
+        },
+        "neuf": null
+      }
+    },
+    "59449": {
+      "appartement": {
+        "ancien": {
+          "n": 55,
+          "mediane": 2113,
+          "q1": 1823,
+          "q3": 2652
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 221,
+          "mediane": 2276,
+          "q1": 1765,
+          "q3": 2690
+        },
+        "neuf": null
+      }
+    },
+    "59452": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 129,
+          "mediane": 1951,
+          "q1": 1480,
+          "q3": 2348
+        },
+        "neuf": null
+      }
+    },
+    "59455": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1720,
+          "q1": 1202,
+          "q3": 1989
+        },
+        "neuf": null
+      }
+    },
+    "59456": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 109,
+          "mediane": 1593,
+          "q1": 1269,
+          "q3": 2000
+        },
+        "neuf": null
+      }
+    },
+    "59457": {
+      "appartement": {
+        "ancien": {
+          "n": 57,
+          "mediane": 3198,
+          "q1": 2439,
+          "q3": 3357
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 248,
+          "mediane": 2585,
+          "q1": 2131,
+          "q3": 3148
+        },
+        "neuf": null
+      }
+    },
+    "59458": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 3664,
+          "q1": 2750,
+          "q3": 3838
+        },
+        "neuf": null
+      }
+    },
+    "59459": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 120,
+          "mediane": 1627,
+          "q1": 1114,
+          "q3": 2022
+        },
+        "neuf": null
+      }
+    },
+    "59462": {
+      "appartement": {
+        "ancien": {
+          "n": 64,
+          "mediane": 3162,
+          "q1": 2767,
+          "q3": 3464
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 135,
+          "mediane": 2526,
+          "q1": 2119,
+          "q3": 2942
+        },
+        "neuf": null
+      }
+    },
+    "59464": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 61,
+          "mediane": 1152,
+          "q1": 895,
+          "q3": 1386
+        },
+        "neuf": null
+      }
+    },
+    "59466": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 83,
+          "mediane": 2762,
+          "q1": 2337,
+          "q3": 3082
+        },
+        "neuf": null
+      }
+    },
+    "59467": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 66,
+          "mediane": 1201,
+          "q1": 877,
+          "q3": 1557
+        },
+        "neuf": null
+      }
+    },
+    "59470": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 57,
+          "mediane": 2965,
+          "q1": 2302,
+          "q3": 3393
+        },
+        "neuf": null
+      }
+    },
+    "59471": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 47,
+          "mediane": 1800,
+          "q1": 1246,
+          "q3": 2355
+        },
+        "neuf": null
+      }
+    },
+    "59474": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 970,
+          "q1": 793,
+          "q3": 1461
+        },
+        "neuf": null
+      }
+    },
+    "59475": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 57,
+          "mediane": 1541,
+          "q1": 1240,
+          "q3": 1910
+        },
+        "neuf": null
+      }
+    },
+    "59476": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 72,
+          "mediane": 1687,
+          "q1": 1267,
+          "q3": 2070
+        },
+        "neuf": null
+      }
+    },
+    "59477": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 131,
+          "mediane": 2227,
+          "q1": 1694,
+          "q3": 2588
+        },
+        "neuf": null
+      }
+    },
+    "59479": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 96,
+          "mediane": 1660,
+          "q1": 1243,
+          "q3": 2024
+        },
+        "neuf": null
+      }
+    },
+    "59481": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 105,
+          "mediane": 1538,
+          "q1": 1127,
+          "q3": 1916
+        },
+        "neuf": null
+      }
+    },
+    "59482": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 184,
+          "mediane": 2845,
+          "q1": 2348,
+          "q3": 3237
+        },
+        "neuf": null
+      }
+    },
+    "59484": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 112,
+          "mediane": 1125,
+          "q1": 879,
+          "q3": 1470
+        },
+        "neuf": null
+      }
+    },
+    "59485": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 1116,
+          "q1": 892,
+          "q3": 1464
+        },
+        "neuf": null
+      }
+    },
+    "59486": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 79,
+          "mediane": 1571,
+          "q1": 1247,
+          "q3": 1955
+        },
+        "neuf": null
+      }
+    },
+    "59487": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 3267,
+          "q1": 2901,
+          "q3": 4118
+        },
+        "neuf": null
+      }
+    },
+    "59488": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 65,
+          "mediane": 1370,
+          "q1": 1051,
+          "q3": 1831
+        },
+        "neuf": null
+      }
+    },
+    "59489": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 95,
+          "mediane": 1867,
+          "q1": 1279,
+          "q3": 2281
+        },
+        "neuf": null
+      }
+    },
+    "59491": {
+      "appartement": {
+        "ancien": {
+          "n": 35,
+          "mediane": 1458,
+          "q1": 1372,
+          "q3": 1685
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 256,
+          "mediane": 1349,
+          "q1": 1048,
+          "q3": 1703
+        },
+        "neuf": null
+      }
+    },
+    "59495": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 1279,
+          "q1": 859,
+          "q3": 1620
+        },
+        "neuf": null
+      }
+    },
+    "59497": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 38,
+          "mediane": 1532,
+          "q1": 1323,
+          "q3": 1966
+        },
+        "neuf": null
+      }
+    },
+    "59499": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 51,
+          "mediane": 1817,
+          "q1": 1498,
+          "q3": 2195
+        },
+        "neuf": null
+      }
+    },
+    "59501": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 40,
+          "mediane": 1892,
+          "q1": 1314,
+          "q3": 2120
+        },
+        "neuf": null
+      }
+    },
+    "59502": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 1348,
+          "q1": 1016,
+          "q3": 1676
+        },
+        "neuf": null
+      }
+    },
+    "59504": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 101,
+          "mediane": 1298,
+          "q1": 1038,
+          "q3": 1558
+        },
+        "neuf": null
+      }
+    },
+    "59507": {
+      "appartement": {
+        "ancien": {
+          "n": 194,
+          "mediane": 2476,
+          "q1": 2041,
+          "q3": 2989
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 448,
+          "mediane": 2351,
+          "q1": 1946,
+          "q3": 2776
+        },
+        "neuf": null
+      }
+    },
+    "59508": {
+      "appartement": {
+        "ancien": {
+          "n": 77,
+          "mediane": 3060,
+          "q1": 2750,
+          "q3": 3303
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 353,
+          "mediane": 2624,
+          "q1": 2214,
+          "q3": 3201
+        },
+        "neuf": null
+      }
+    },
+    "59509": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 143,
+          "mediane": 1739,
+          "q1": 1321,
+          "q3": 2106
+        },
+        "neuf": null
+      }
+    },
+    "59511": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 2157,
+          "q1": 1544,
+          "q3": 2847
         },
         "neuf": null
       }
@@ -319,12 +4943,7 @@
           "q1": 1483,
           "q3": 2387
         },
-        "neuf": {
-          "n": 18,
-          "mediane": 3669,
-          "q1": 3178,
-          "q3": 4795
-        }
+        "neuf": null
       },
       "maison": {
         "ancien": {
@@ -333,12 +4952,312 @@
           "q1": 1000,
           "q3": 1923
         },
+        "neuf": null
+      }
+    },
+    "59514": {
+      "appartement": {
+        "ancien": {
+          "n": 39,
+          "mediane": 800,
+          "q1": 636,
+          "q3": 1004
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 108,
+          "mediane": 1528,
+          "q1": 1040,
+          "q3": 1876
+        },
+        "neuf": null
+      }
+    },
+    "59519": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 2218,
+          "q1": 1727,
+          "q3": 2574
+        },
+        "neuf": null
+      }
+    },
+    "59520": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 51,
+          "mediane": 1438,
+          "q1": 955,
+          "q3": 1683
+        },
+        "neuf": null
+      }
+    },
+    "59522": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 66,
+          "mediane": 3341,
+          "q1": 2716,
+          "q3": 3840
+        },
+        "neuf": null
+      }
+    },
+    "59523": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 80,
+          "mediane": 3244,
+          "q1": 2595,
+          "q3": 3722
+        },
+        "neuf": null
+      }
+    },
+    "59524": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 189,
+          "mediane": 2518,
+          "q1": 2117,
+          "q3": 2945
+        },
+        "neuf": null
+      }
+    },
+    "59525": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 68,
+          "mediane": 945,
+          "q1": 711,
+          "q3": 1216
+        },
+        "neuf": null
+      }
+    },
+    "59526": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 396,
+          "mediane": 1643,
+          "q1": 1201,
+          "q3": 2067
+        },
+        "neuf": null
+      }
+    },
+    "59527": {
+      "appartement": {
+        "ancien": {
+          "n": 233,
+          "mediane": 3405,
+          "q1": 2909,
+          "q3": 3735
+        },
         "neuf": {
-          "n": 3,
-          "mediane": 2474,
-          "q1": 2473,
-          "q3": 2517
+          "n": 44,
+          "mediane": 4547,
+          "q1": 4246,
+          "q3": 5174
         }
+      },
+      "maison": {
+        "ancien": {
+          "n": 316,
+          "mediane": 3351,
+          "q1": 2773,
+          "q3": 4058
+        },
+        "neuf": null
+      }
+    },
+    "59528": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 1111,
+          "q1": 738,
+          "q3": 1609
+        },
+        "neuf": null
+      }
+    },
+    "59533": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 53,
+          "mediane": 1327,
+          "q1": 1013,
+          "q3": 1500
+        },
+        "neuf": null
+      }
+    },
+    "59541": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 1162,
+          "q1": 864,
+          "q3": 1442
+        },
+        "neuf": null
+      }
+    },
+    "59544": {
+      "appartement": {
+        "ancien": {
+          "n": 84,
+          "mediane": 2044,
+          "q1": 1776,
+          "q3": 2196
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 227,
+          "mediane": 1842,
+          "q1": 1456,
+          "q3": 2260
+        },
+        "neuf": null
+      }
+    },
+    "59546": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 1718,
+          "q1": 1530,
+          "q3": 1954
+        },
+        "neuf": null
+      }
+    },
+    "59550": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 114,
+          "mediane": 2068,
+          "q1": 1585,
+          "q3": 2574
+        },
+        "neuf": null
+      }
+    },
+    "59553": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 151,
+          "mediane": 2619,
+          "q1": 2088,
+          "q3": 3078
+        },
+        "neuf": null
+      }
+    },
+    "59557": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 58,
+          "mediane": 2051,
+          "q1": 1738,
+          "q3": 2394
+        },
+        "neuf": null
+      }
+    },
+    "59558": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 50,
+          "mediane": 1288,
+          "q1": 1000,
+          "q3": 1783
+        },
+        "neuf": null
+      }
+    },
+    "59559": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 2254,
+          "q1": 1622,
+          "q3": 2631
+        },
+        "neuf": null
       }
     },
     "59560": {
@@ -349,12 +5268,7 @@
           "q1": 2458,
           "q3": 3049
         },
-        "neuf": {
-          "n": 12,
-          "mediane": 3375,
-          "q1": 3150,
-          "q3": 3506
-        }
+        "neuf": null
       },
       "maison": {
         "ancien": {
@@ -362,6 +5276,271 @@
           "mediane": 2364,
           "q1": 1929,
           "q3": 2888
+        },
+        "neuf": null
+      }
+    },
+    "59564": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 63,
+          "mediane": 1481,
+          "q1": 1199,
+          "q3": 1770
+        },
+        "neuf": null
+      }
+    },
+    "59566": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 113,
+          "mediane": 2760,
+          "q1": 2308,
+          "q3": 3178
+        },
+        "neuf": null
+      }
+    },
+    "59569": {
+      "appartement": {
+        "ancien": {
+          "n": 49,
+          "mediane": 604,
+          "q1": 528,
+          "q3": 1054
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 389,
+          "mediane": 1431,
+          "q1": 1086,
+          "q3": 1783
+        },
+        "neuf": null
+      }
+    },
+    "59571": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 137,
+          "mediane": 992,
+          "q1": 790,
+          "q3": 1286
+        },
+        "neuf": null
+      }
+    },
+    "59572": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 54,
+          "mediane": 1148,
+          "q1": 870,
+          "q3": 1463
+        },
+        "neuf": null
+      }
+    },
+    "59574": {
+      "appartement": {
+        "ancien": {
+          "n": 41,
+          "mediane": 1265,
+          "q1": 1095,
+          "q3": 1489
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 295,
+          "mediane": 1417,
+          "q1": 1098,
+          "q3": 1779
+        },
+        "neuf": null
+      }
+    },
+    "59576": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 2189,
+          "q1": 1770,
+          "q3": 2783
+        },
+        "neuf": null
+      }
+    },
+    "59578": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 44,
+          "mediane": 1538,
+          "q1": 1234,
+          "q3": 2001
+        },
+        "neuf": null
+      }
+    },
+    "59579": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 40,
+          "mediane": 1880,
+          "q1": 1518,
+          "q3": 2325
+        },
+        "neuf": null
+      }
+    },
+    "59580": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 100,
+          "mediane": 1887,
+          "q1": 1562,
+          "q3": 2294
+        },
+        "neuf": null
+      }
+    },
+    "59581": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 70,
+          "mediane": 2182,
+          "q1": 1643,
+          "q3": 2693
+        },
+        "neuf": null
+      }
+    },
+    "59585": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 102,
+          "mediane": 2705,
+          "q1": 2136,
+          "q3": 3136
+        },
+        "neuf": null
+      }
+    },
+    "59586": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 196,
+          "mediane": 2711,
+          "q1": 2293,
+          "q3": 3226
+        },
+        "neuf": null
+      }
+    },
+    "59588": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 205,
+          "mediane": 2536,
+          "q1": 2141,
+          "q3": 2831
+        },
+        "neuf": null
+      }
+    },
+    "59589": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 69,
+          "mediane": 1525,
+          "q1": 1223,
+          "q3": 1881
+        },
+        "neuf": null
+      }
+    },
+    "59592": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 140,
+          "mediane": 2050,
+          "q1": 1630,
+          "q3": 2502
+        },
+        "neuf": null
+      }
+    },
+    "59598": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 128,
+          "mediane": 2677,
+          "q1": 2215,
+          "q3": 3039
         },
         "neuf": null
       }
@@ -388,12 +5567,337 @@
           "q1": 1411,
           "q3": 2275
         },
+        "neuf": null
+      }
+    },
+    "59601": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 56,
+          "mediane": 950,
+          "q1": 674,
+          "q3": 1353
+        },
+        "neuf": null
+      }
+    },
+    "59602": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 44,
+          "mediane": 3193,
+          "q1": 2855,
+          "q3": 3769
+        },
+        "neuf": null
+      }
+    },
+    "59603": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 147,
+          "mediane": 1342,
+          "q1": 1042,
+          "q3": 1652
+        },
+        "neuf": null
+      }
+    },
+    "59605": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 2484,
+          "q1": 2188,
+          "q3": 2973
+        },
+        "neuf": null
+      }
+    },
+    "59606": {
+      "appartement": {
+        "ancien": {
+          "n": 924,
+          "mediane": 1985,
+          "q1": 1685,
+          "q3": 2386
+        },
         "neuf": {
-          "n": 3,
-          "mediane": 3176,
-          "q1": 2965,
-          "q3": 3218
+          "n": 159,
+          "mediane": 3500,
+          "q1": 3160,
+          "q3": 4051
         }
+      },
+      "maison": {
+        "ancien": {
+          "n": 874,
+          "mediane": 1635,
+          "q1": 1222,
+          "q3": 2072
+        },
+        "neuf": null
+      }
+    },
+    "59609": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 49,
+          "mediane": 2977,
+          "q1": 2646,
+          "q3": 3287
+        },
+        "neuf": null
+      }
+    },
+    "59611": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 63,
+          "mediane": 3556,
+          "q1": 3092,
+          "q3": 3830
+        },
+        "neuf": null
+      }
+    },
+    "59613": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 1498,
+          "q1": 1178,
+          "q3": 1941
+        },
+        "neuf": null
+      }
+    },
+    "59614": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 38,
+          "mediane": 1009,
+          "q1": 789,
+          "q3": 1625
+        },
+        "neuf": null
+      }
+    },
+    "59615": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 65,
+          "mediane": 1780,
+          "q1": 1264,
+          "q3": 2534
+        },
+        "neuf": null
+      }
+    },
+    "59616": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 196,
+          "mediane": 1304,
+          "q1": 1019,
+          "q3": 1687
+        },
+        "neuf": null
+      }
+    },
+    "59622": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 1364,
+          "q1": 1013,
+          "q3": 1853
+        },
+        "neuf": null
+      }
+    },
+    "59624": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 49,
+          "mediane": 938,
+          "q1": 746,
+          "q3": 1311
+        },
+        "neuf": null
+      }
+    },
+    "59626": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 45,
+          "mediane": 1789,
+          "q1": 1308,
+          "q3": 2017
+        },
+        "neuf": null
+      }
+    },
+    "59629": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 52,
+          "mediane": 1844,
+          "q1": 1426,
+          "q3": 2174
+        },
+        "neuf": null
+      }
+    },
+    "59630": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 85,
+          "mediane": 2141,
+          "q1": 1728,
+          "q3": 2600
+        },
+        "neuf": null
+      }
+    },
+    "59631": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 67,
+          "mediane": 1041,
+          "q1": 802,
+          "q3": 1293
+        },
+        "neuf": null
+      }
+    },
+    "59632": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 121,
+          "mediane": 1696,
+          "q1": 1282,
+          "q3": 2158
+        },
+        "neuf": null
+      }
+    },
+    "59636": {
+      "appartement": {
+        "ancien": {
+          "n": 154,
+          "mediane": 3613,
+          "q1": 3144,
+          "q3": 3973
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 287,
+          "mediane": 3409,
+          "q1": 2928,
+          "q3": 4017
+        },
+        "neuf": null
+      }
+    },
+    "59637": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 37,
+          "mediane": 2014,
+          "q1": 1587,
+          "q3": 2333
+        },
+        "neuf": null
+      }
+    },
+    "59641": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 54,
+          "mediane": 1999,
+          "q1": 1636,
+          "q3": 2447
+        },
+        "neuf": null
       }
     },
     "59646": {
@@ -404,12 +5908,7 @@
           "q1": 2828,
           "q3": 3490
         },
-        "neuf": {
-          "n": 2,
-          "mediane": 4887,
-          "q1": 4655,
-          "q3": 5118
-        }
+        "neuf": null
       },
       "maison": {
         "ancien": {
@@ -417,6 +5916,41 @@
           "mediane": 3216,
           "q1": 2500,
           "q3": 3941
+        },
+        "neuf": null
+      }
+    },
+    "59647": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 84,
+          "mediane": 1444,
+          "q1": 1121,
+          "q3": 1737
+        },
+        "neuf": null
+      }
+    },
+    "59648": {
+      "appartement": {
+        "ancien": {
+          "n": 208,
+          "mediane": 2053,
+          "q1": 1394,
+          "q3": 2955
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 299,
+          "mediane": 2448,
+          "q1": 2030,
+          "q3": 2872
         },
         "neuf": null
       }
@@ -429,12 +5963,7 @@
           "q1": 1502,
           "q3": 2279
         },
-        "neuf": {
-          "n": 20,
-          "mediane": 3276,
-          "q1": 3067,
-          "q3": 3601
-        }
+        "neuf": null
       },
       "maison": {
         "ancien": {
@@ -443,13 +5972,3332 @@
           "q1": 1519,
           "q3": 2371
         },
-        "neuf": {
-          "n": 5,
-          "mediane": 2862,
-          "q1": 2827,
-          "q3": 2950
-        }
+        "neuf": null
       }
+    },
+    "59651": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 44,
+          "mediane": 1053,
+          "q1": 875,
+          "q3": 1361
+        },
+        "neuf": null
+      }
+    },
+    "59653": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 221,
+          "mediane": 2525,
+          "q1": 1968,
+          "q3": 2941
+        },
+        "neuf": null
+      }
+    },
+    "59654": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 141,
+          "mediane": 1200,
+          "q1": 1000,
+          "q3": 1490
+        },
+        "neuf": null
+      }
+    },
+    "59656": {
+      "appartement": {
+        "ancien": {
+          "n": 32,
+          "mediane": 2548,
+          "q1": 2498,
+          "q3": 2840
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 89,
+          "mediane": 2657,
+          "q1": 2076,
+          "q3": 3089
+        },
+        "neuf": null
+      }
+    },
+    "59659": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 82,
+          "mediane": 896,
+          "q1": 668,
+          "q3": 1229
+        },
+        "neuf": null
+      }
+    },
+    "59660": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 84,
+          "mediane": 2764,
+          "q1": 2213,
+          "q3": 3312
+        },
+        "neuf": null
+      }
+    },
+    "59663": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 136,
+          "mediane": 2022,
+          "q1": 1637,
+          "q3": 2427
+        },
+        "neuf": null
+      }
+    },
+    "59668": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 2515,
+          "q1": 1781,
+          "q3": 2861
+        },
+        "neuf": null
+      }
+    },
+    "59670": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 2285,
+          "q1": 1937,
+          "q3": 2730
+        },
+        "neuf": null
+      }
+    },
+    "62001": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 1824,
+          "q1": 1573,
+          "q3": 2262
+        },
+        "neuf": null
+      }
+    },
+    "62004": {
+      "appartement": {
+        "ancien": {
+          "n": 57,
+          "mediane": 2316,
+          "q1": 2071,
+          "q3": 2568
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 194,
+          "mediane": 1900,
+          "q1": 1582,
+          "q3": 2227
+        },
+        "neuf": null
+      }
+    },
+    "62013": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 40,
+          "mediane": 1935,
+          "q1": 1426,
+          "q3": 2279
+        },
+        "neuf": null
+      }
+    },
+    "62014": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 235,
+          "mediane": 1495,
+          "q1": 1126,
+          "q3": 1802
+        },
+        "neuf": null
+      }
+    },
+    "62019": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 101,
+          "mediane": 1711,
+          "q1": 1505,
+          "q3": 2022
+        },
+        "neuf": null
+      }
+    },
+    "62023": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 79,
+          "mediane": 1367,
+          "q1": 1062,
+          "q3": 1822
+        },
+        "neuf": null
+      }
+    },
+    "62025": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 84,
+          "mediane": 3330,
+          "q1": 2289,
+          "q3": 4500
+        },
+        "neuf": null
+      }
+    },
+    "62031": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 37,
+          "mediane": 1748,
+          "q1": 1405,
+          "q3": 2008
+        },
+        "neuf": null
+      }
+    },
+    "62032": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 85,
+          "mediane": 1690,
+          "q1": 1338,
+          "q3": 2241
+        },
+        "neuf": null
+      }
+    },
+    "62033": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 118,
+          "mediane": 1676,
+          "q1": 1213,
+          "q3": 2055
+        },
+        "neuf": null
+      }
+    },
+    "62034": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 49,
+          "mediane": 1467,
+          "q1": 1285,
+          "q3": 1903
+        },
+        "neuf": null
+      }
+    },
+    "62035": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 206,
+          "mediane": 1568,
+          "q1": 1127,
+          "q3": 1928
+        },
+        "neuf": null
+      }
+    },
+    "62037": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 68,
+          "mediane": 2432,
+          "q1": 2007,
+          "q3": 2787
+        },
+        "neuf": null
+      }
+    },
+    "62038": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 96,
+          "mediane": 1880,
+          "q1": 1419,
+          "q3": 2300
+        },
+        "neuf": null
+      }
+    },
+    "62040": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 266,
+          "mediane": 1626,
+          "q1": 1362,
+          "q3": 2014
+        },
+        "neuf": null
+      }
+    },
+    "62041": {
+      "appartement": {
+        "ancien": {
+          "n": 844,
+          "mediane": 2446,
+          "q1": 2058,
+          "q3": 2833
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 652,
+          "mediane": 1951,
+          "q1": 1559,
+          "q3": 2388
+        },
+        "neuf": null
+      }
+    },
+    "62043": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 53,
+          "mediane": 2105,
+          "q1": 1685,
+          "q3": 2632
+        },
+        "neuf": null
+      }
+    },
+    "62048": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 264,
+          "mediane": 1142,
+          "q1": 876,
+          "q3": 1508
+        },
+        "neuf": null
+      }
+    },
+    "62050": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 932,
+          "q1": 754,
+          "q3": 1164
+        },
+        "neuf": null
+      }
+    },
+    "62051": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 118,
+          "mediane": 1878,
+          "q1": 1446,
+          "q3": 2208
+        },
+        "neuf": null
+      }
+    },
+    "62054": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 3708,
+          "q1": 3122,
+          "q3": 4674
+        },
+        "neuf": null
+      }
+    },
+    "62057": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 111,
+          "mediane": 1957,
+          "q1": 1511,
+          "q3": 2270
+        },
+        "neuf": null
+      }
+    },
+    "62060": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 57,
+          "mediane": 1038,
+          "q1": 755,
+          "q3": 1516
+        },
+        "neuf": null
+      }
+    },
+    "62063": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 43,
+          "mediane": 1369,
+          "q1": 979,
+          "q3": 1657
+        },
+        "neuf": null
+      }
+    },
+    "62065": {
+      "appartement": {
+        "ancien": {
+          "n": 122,
+          "mediane": 1479,
+          "q1": 1334,
+          "q3": 1629
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 282,
+          "mediane": 1447,
+          "q1": 1144,
+          "q3": 1851
+        },
+        "neuf": null
+      }
+    },
+    "62073": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 34,
+          "mediane": 1990,
+          "q1": 1604,
+          "q3": 2125
+        },
+        "neuf": null
+      }
+    },
+    "62080": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 77,
+          "mediane": 1206,
+          "q1": 1000,
+          "q3": 1533
+        },
+        "neuf": null
+      }
+    },
+    "62083": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 139,
+          "mediane": 1346,
+          "q1": 1104,
+          "q3": 1702
+        },
+        "neuf": null
+      }
+    },
+    "62097": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 2024,
+          "q1": 1843,
+          "q3": 2130
+        },
+        "neuf": null
+      }
+    },
+    "62099": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 126,
+          "mediane": 1976,
+          "q1": 1674,
+          "q3": 2232
+        },
+        "neuf": null
+      }
+    },
+    "62100": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 1629,
+          "q1": 1327,
+          "q3": 1971
+        },
+        "neuf": null
+      }
+    },
+    "62108": {
+      "appartement": {
+        "ancien": {
+          "n": 647,
+          "mediane": 3224,
+          "q1": 2654,
+          "q3": 3800
+        },
+        "neuf": {
+          "n": 89,
+          "mediane": 4023,
+          "q1": 3727,
+          "q3": 4260
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 438,
+          "mediane": 2487,
+          "q1": 2000,
+          "q3": 3045
+        },
+        "neuf": null
+      }
+    },
+    "62119": {
+      "appartement": {
+        "ancien": {
+          "n": 355,
+          "mediane": 1691,
+          "q1": 1351,
+          "q3": 2009
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 616,
+          "mediane": 1542,
+          "q1": 1119,
+          "q3": 1937
+        },
+        "neuf": null
+      }
+    },
+    "62126": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 206,
+          "mediane": 1587,
+          "q1": 1137,
+          "q3": 1955
+        },
+        "neuf": null
+      }
+    },
+    "62128": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 133,
+          "mediane": 1638,
+          "q1": 1351,
+          "q3": 2170
+        },
+        "neuf": null
+      }
+    },
+    "62132": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 135,
+          "mediane": 1959,
+          "q1": 1574,
+          "q3": 2300
+        },
+        "neuf": null
+      }
+    },
+    "62133": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 137,
+          "mediane": 1325,
+          "q1": 1038,
+          "q3": 1685
+        },
+        "neuf": null
+      }
+    },
+    "62139": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 168,
+          "mediane": 1531,
+          "q1": 1169,
+          "q3": 1995
+        },
+        "neuf": null
+      }
+    },
+    "62160": {
+      "appartement": {
+        "ancien": {
+          "n": 737,
+          "mediane": 1663,
+          "q1": 1333,
+          "q3": 2083
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 563,
+          "mediane": 1639,
+          "q1": 1285,
+          "q3": 2069
+        },
+        "neuf": null
+      }
+    },
+    "62170": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 39,
+          "mediane": 1777,
+          "q1": 1342,
+          "q3": 1929
+        },
+        "neuf": null
+      }
+    },
+    "62173": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 165,
+          "mediane": 1799,
+          "q1": 1435,
+          "q3": 2178
+        },
+        "neuf": null
+      }
+    },
+    "62178": {
+      "appartement": {
+        "ancien": {
+          "n": 46,
+          "mediane": 1262,
+          "q1": 1169,
+          "q3": 1456
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 405,
+          "mediane": 1329,
+          "q1": 982,
+          "q3": 1723
+        },
+        "neuf": null
+      }
+    },
+    "62181": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 38,
+          "mediane": 1419,
+          "q1": 1160,
+          "q3": 1823
+        },
+        "neuf": null
+      }
+    },
+    "62186": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 252,
+          "mediane": 1593,
+          "q1": 1266,
+          "q3": 1917
+        },
+        "neuf": null
+      }
+    },
+    "62188": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 78,
+          "mediane": 1306,
+          "q1": 965,
+          "q3": 1696
+        },
+        "neuf": null
+      }
+    },
+    "62193": {
+      "appartement": {
+        "ancien": {
+          "n": 602,
+          "mediane": 1932,
+          "q1": 1607,
+          "q3": 2409
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 1730,
+          "mediane": 1548,
+          "q1": 1217,
+          "q3": 1875
+        },
+        "neuf": null
+      }
+    },
+    "62194": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 83,
+          "mediane": 1355,
+          "q1": 1053,
+          "q3": 1676
+        },
+        "neuf": null
+      }
+    },
+    "62195": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 1873,
+          "q1": 1424,
+          "q3": 2489
+        },
+        "neuf": null
+      }
+    },
+    "62197": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 46,
+          "mediane": 1288,
+          "q1": 971,
+          "q3": 1609
+        },
+        "neuf": null
+      }
+    },
+    "62201": {
+      "appartement": {
+        "ancien": {
+          "n": 174,
+          "mediane": 3979,
+          "q1": 3455,
+          "q3": 4606
+        },
+        "neuf": {
+          "n": 53,
+          "mediane": 5109,
+          "q1": 4833,
+          "q3": 5595
+        }
+      },
+      "maison": {
+        "ancien": {
+          "n": 201,
+          "mediane": 3372,
+          "q1": 2540,
+          "q3": 4057
+        },
+        "neuf": null
+      }
+    },
+    "62215": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 455,
+          "mediane": 1754,
+          "q1": 1297,
+          "q3": 2196
+        },
+        "neuf": null
+      }
+    },
+    "62217": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 69,
+          "mediane": 1244,
+          "q1": 851,
+          "q3": 1591
+        },
+        "neuf": null
+      }
+    },
+    "62224": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 71,
+          "mediane": 1247,
+          "q1": 948,
+          "q3": 1858
+        },
+        "neuf": null
+      }
+    },
+    "62235": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 82,
+          "mediane": 2860,
+          "q1": 2196,
+          "q3": 3323
+        },
+        "neuf": null
+      }
+    },
+    "62239": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 44,
+          "mediane": 2354,
+          "q1": 1956,
+          "q3": 2765
+        },
+        "neuf": null
+      }
+    },
+    "62240": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 74,
+          "mediane": 1697,
+          "q1": 1360,
+          "q3": 1959
+        },
+        "neuf": null
+      }
+    },
+    "62244": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 165,
+          "mediane": 1825,
+          "q1": 1494,
+          "q3": 2290
+        },
+        "neuf": null
+      }
+    },
+    "62249": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 181,
+          "mediane": 1706,
+          "q1": 1335,
+          "q3": 2066
+        },
+        "neuf": null
+      }
+    },
+    "62250": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 257,
+          "mediane": 1745,
+          "q1": 1420,
+          "q3": 2023
+        },
+        "neuf": null
+      }
+    },
+    "62252": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 1900,
+          "q1": 1551,
+          "q3": 2434
+        },
+        "neuf": null
+      }
+    },
+    "62259": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 1898,
+          "q1": 1701,
+          "q3": 2071
+        },
+        "neuf": null
+      }
+    },
+    "62261": {
+      "appartement": {
+        "ancien": {
+          "n": 242,
+          "mediane": 4603,
+          "q1": 3805,
+          "q3": 5128
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 282,
+          "mediane": 4165,
+          "q1": 3256,
+          "q3": 5206
+        },
+        "neuf": null
+      }
+    },
+    "62262": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 32,
+          "mediane": 1844,
+          "q1": 1440,
+          "q3": 2097
+        },
+        "neuf": null
+      }
+    },
+    "62263": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 140,
+          "mediane": 1991,
+          "q1": 1705,
+          "q3": 2346
+        },
+        "neuf": null
+      }
+    },
+    "62264": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 1933,
+          "q1": 1482,
+          "q3": 2235
+        },
+        "neuf": null
+      }
+    },
+    "62268": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 180,
+          "mediane": 1523,
+          "q1": 1112,
+          "q3": 1806
+        },
+        "neuf": null
+      }
+    },
+    "62270": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 103,
+          "mediane": 1316,
+          "q1": 988,
+          "q3": 1640
+        },
+        "neuf": null
+      }
+    },
+    "62274": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 146,
+          "mediane": 1780,
+          "q1": 1368,
+          "q3": 2183
+        },
+        "neuf": null
+      }
+    },
+    "62276": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 172,
+          "mediane": 1895,
+          "q1": 1409,
+          "q3": 2315
+        },
+        "neuf": null
+      }
+    },
+    "62277": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 66,
+          "mediane": 1654,
+          "q1": 1305,
+          "q3": 1973
+        },
+        "neuf": null
+      }
+    },
+    "62284": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 56,
+          "mediane": 1380,
+          "q1": 960,
+          "q3": 1918
+        },
+        "neuf": null
+      }
+    },
+    "62291": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 84,
+          "mediane": 1569,
+          "q1": 1175,
+          "q3": 1833
+        },
+        "neuf": null
+      }
+    },
+    "62295": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 49,
+          "mediane": 1250,
+          "q1": 942,
+          "q3": 1547
+        },
+        "neuf": null
+      }
+    },
+    "62297": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 71,
+          "mediane": 1719,
+          "q1": 1463,
+          "q3": 2123
+        },
+        "neuf": null
+      }
+    },
+    "62300": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 59,
+          "mediane": 2375,
+          "q1": 1974,
+          "q3": 3310
+        },
+        "neuf": null
+      }
+    },
+    "62309": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 1582,
+          "q1": 1224,
+          "q3": 1953
+        },
+        "neuf": null
+      }
+    },
+    "62310": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 1716,
+          "q1": 1572,
+          "q3": 2016
+        },
+        "neuf": null
+      }
+    },
+    "62311": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 45,
+          "mediane": 1731,
+          "q1": 1147,
+          "q3": 2204
+        },
+        "neuf": null
+      }
+    },
+    "62313": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 37,
+          "mediane": 1227,
+          "q1": 939,
+          "q3": 1573
+        },
+        "neuf": null
+      }
+    },
+    "62318": {
+      "appartement": {
+        "ancien": {
+          "n": 105,
+          "mediane": 2625,
+          "q1": 2072,
+          "q3": 3452
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 292,
+          "mediane": 2345,
+          "q1": 1849,
+          "q3": 2949
+        },
+        "neuf": null
+      }
+    },
+    "62321": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 104,
+          "mediane": 1825,
+          "q1": 1506,
+          "q3": 2173
+        },
+        "neuf": null
+      }
+    },
+    "62323": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 2343,
+          "q1": 1962,
+          "q3": 2732
+        },
+        "neuf": null
+      }
+    },
+    "62329": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 1649,
+          "q1": 1424,
+          "q3": 1912
+        },
+        "neuf": null
+      }
+    },
+    "62330": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 2118,
+          "q1": 1573,
+          "q3": 2535
+        },
+        "neuf": null
+      }
+    },
+    "62331": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1549,
+          "q1": 1266,
+          "q3": 1998
+        },
+        "neuf": null
+      }
+    },
+    "62338": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 74,
+          "mediane": 2920,
+          "q1": 2300,
+          "q3": 3268
+        },
+        "neuf": null
+      }
+    },
+    "62349": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 1623,
+          "q1": 1211,
+          "q3": 2182
+        },
+        "neuf": null
+      }
+    },
+    "62351": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 120,
+          "mediane": 1456,
+          "q1": 1056,
+          "q3": 1847
+        },
+        "neuf": null
+      }
+    },
+    "62361": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 79,
+          "mediane": 933,
+          "q1": 768,
+          "q3": 1107
+        },
+        "neuf": null
+      }
+    },
+    "62364": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 52,
+          "mediane": 977,
+          "q1": 792,
+          "q3": 1166
+        },
+        "neuf": null
+      }
+    },
+    "62371": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 1772,
+          "q1": 1390,
+          "q3": 2185
+        },
+        "neuf": null
+      }
+    },
+    "62376": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 1951,
+          "q1": 1373,
+          "q3": 2454
+        },
+        "neuf": null
+      }
+    },
+    "62386": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 73,
+          "mediane": 1422,
+          "q1": 1082,
+          "q3": 2028
+        },
+        "neuf": null
+      }
+    },
+    "62390": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 50,
+          "mediane": 2753,
+          "q1": 2307,
+          "q3": 3077
+        },
+        "neuf": null
+      }
+    },
+    "62391": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 32,
+          "mediane": 1650,
+          "q1": 1143,
+          "q3": 2159
+        },
+        "neuf": null
+      }
+    },
+    "62397": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 157,
+          "mediane": 1556,
+          "q1": 1235,
+          "q3": 2014
+        },
+        "neuf": null
+      }
+    },
+    "62400": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 75,
+          "mediane": 1417,
+          "q1": 1081,
+          "q3": 1918
+        },
+        "neuf": null
+      }
+    },
+    "62401": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 118,
+          "mediane": 1740,
+          "q1": 1406,
+          "q3": 2125
+        },
+        "neuf": null
+      }
+    },
+    "62412": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 1575,
+          "q1": 1316,
+          "q3": 1957
+        },
+        "neuf": null
+      }
+    },
+    "62413": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 292,
+          "mediane": 1499,
+          "q1": 1117,
+          "q3": 1889
+        },
+        "neuf": null
+      }
+    },
+    "62423": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 41,
+          "mediane": 1741,
+          "q1": 1415,
+          "q3": 2098
+        },
+        "neuf": null
+      }
+    },
+    "62427": {
+      "appartement": {
+        "ancien": {
+          "n": 114,
+          "mediane": 1436,
+          "q1": 1350,
+          "q3": 1531
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 660,
+          "mediane": 1408,
+          "q1": 1048,
+          "q3": 1845
+        },
+        "neuf": null
+      }
+    },
+    "62443": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 143,
+          "mediane": 1418,
+          "q1": 1081,
+          "q3": 1814
+        },
+        "neuf": null
+      }
+    },
+    "62446": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 32,
+          "mediane": 1963,
+          "q1": 1576,
+          "q3": 2354
+        },
+        "neuf": null
+      }
+    },
+    "62447": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 82,
+          "mediane": 1229,
+          "q1": 976,
+          "q3": 1562
+        },
+        "neuf": null
+      }
+    },
+    "62448": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 44,
+          "mediane": 2176,
+          "q1": 1625,
+          "q3": 2441
+        },
+        "neuf": null
+      }
+    },
+    "62454": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 2100,
+          "q1": 1660,
+          "q3": 2492
+        },
+        "neuf": null
+      }
+    },
+    "62457": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 139,
+          "mediane": 1433,
+          "q1": 1136,
+          "q3": 1797
+        },
+        "neuf": null
+      }
+    },
+    "62464": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 80,
+          "mediane": 1891,
+          "q1": 1537,
+          "q3": 2337
+        },
+        "neuf": null
+      }
+    },
+    "62473": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 288,
+          "mediane": 1299,
+          "q1": 1032,
+          "q3": 1628
+        },
+        "neuf": null
+      }
+    },
+    "62479": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 52,
+          "mediane": 1407,
+          "q1": 1095,
+          "q3": 1915
+        },
+        "neuf": null
+      }
+    },
+    "62480": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 76,
+          "mediane": 1695,
+          "q1": 1111,
+          "q3": 2308
+        },
+        "neuf": null
+      }
+    },
+    "62486": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 1398,
+          "q1": 1138,
+          "q3": 1605
+        },
+        "neuf": null
+      }
+    },
+    "62489": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 115,
+          "mediane": 1540,
+          "q1": 1172,
+          "q3": 1812
+        },
+        "neuf": null
+      }
+    },
+    "62491": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 140,
+          "mediane": 2226,
+          "q1": 1695,
+          "q3": 2595
+        },
+        "neuf": null
+      }
+    },
+    "62497": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 168,
+          "mediane": 1853,
+          "q1": 1399,
+          "q3": 2247
+        },
+        "neuf": null
+      }
+    },
+    "62498": {
+      "appartement": {
+        "ancien": {
+          "n": 268,
+          "mediane": 1604,
+          "q1": 1395,
+          "q3": 1953
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 457,
+          "mediane": 1429,
+          "q1": 1104,
+          "q3": 1803
+        },
+        "neuf": null
+      }
+    },
+    "62502": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 80,
+          "mediane": 2095,
+          "q1": 1626,
+          "q3": 2535
+        },
+        "neuf": null
+      }
+    },
+    "62510": {
+      "appartement": {
+        "ancien": {
+          "n": 66,
+          "mediane": 1338,
+          "q1": 1078,
+          "q3": 1592
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 544,
+          "mediane": 1533,
+          "q1": 1158,
+          "q3": 1886
+        },
+        "neuf": null
+      }
+    },
+    "62516": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 305,
+          "mediane": 1188,
+          "q1": 845,
+          "q3": 1510
+        },
+        "neuf": null
+      }
+    },
+    "62520": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 2050,
+          "q1": 1362,
+          "q3": 2399
+        },
+        "neuf": null
+      }
+    },
+    "62523": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 150,
+          "mediane": 1531,
+          "q1": 1158,
+          "q3": 1837
+        },
+        "neuf": null
+      }
+    },
+    "62524": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 1612,
+          "q1": 1257,
+          "q3": 2116
+        },
+        "neuf": null
+      }
+    },
+    "62525": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 237,
+          "mediane": 1692,
+          "q1": 1400,
+          "q3": 2000
+        },
+        "neuf": null
+      }
+    },
+    "62528": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 148,
+          "mediane": 1625,
+          "q1": 1366,
+          "q3": 1984
+        },
+        "neuf": null
+      }
+    },
+    "62534": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 102,
+          "mediane": 1426,
+          "q1": 1235,
+          "q3": 1690
+        },
+        "neuf": null
+      }
+    },
+    "62540": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 1842,
+          "q1": 1358,
+          "q3": 2200
+        },
+        "neuf": null
+      }
+    },
+    "62543": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 36,
+          "mediane": 1327,
+          "q1": 1075,
+          "q3": 1954
+        },
+        "neuf": null
+      }
+    },
+    "62548": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 289,
+          "mediane": 2030,
+          "q1": 1713,
+          "q3": 2308
+        },
+        "neuf": null
+      }
+    },
+    "62555": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 85,
+          "mediane": 1313,
+          "q1": 974,
+          "q3": 1711
+        },
+        "neuf": null
+      }
+    },
+    "62557": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 52,
+          "mediane": 2262,
+          "q1": 1717,
+          "q3": 2471
+        },
+        "neuf": null
+      }
+    },
+    "62560": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 141,
+          "mediane": 1811,
+          "q1": 1500,
+          "q3": 2222
+        },
+        "neuf": null
+      }
+    },
+    "62563": {
+      "appartement": {
+        "ancien": {
+          "n": 38,
+          "mediane": 1378,
+          "q1": 1239,
+          "q3": 1483
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 160,
+          "mediane": 1439,
+          "q1": 1118,
+          "q3": 1876
+        },
+        "neuf": null
+      }
+    },
+    "62570": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 217,
+          "mediane": 1557,
+          "q1": 1306,
+          "q3": 1915
+        },
+        "neuf": null
+      }
+    },
+    "62571": {
+      "appartement": {
+        "ancien": {
+          "n": 190,
+          "mediane": 4212,
+          "q1": 3486,
+          "q3": 4956
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 220,
+          "mediane": 3601,
+          "q1": 2804,
+          "q3": 4325
+        },
+        "neuf": null
+      }
+    },
+    "62573": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 115,
+          "mediane": 1754,
+          "q1": 1345,
+          "q3": 2296
+        },
+        "neuf": null
+      }
+    },
+    "62587": {
+      "appartement": {
+        "ancien": {
+          "n": 48,
+          "mediane": 1310,
+          "q1": 1211,
+          "q3": 1472
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 177,
+          "mediane": 1572,
+          "q1": 1227,
+          "q3": 1842
+        },
+        "neuf": null
+      }
+    },
+    "62588": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 64,
+          "mediane": 2400,
+          "q1": 2055,
+          "q3": 3120
+        },
+        "neuf": null
+      }
+    },
+    "62604": {
+      "appartement": {
+        "ancien": {
+          "n": 258,
+          "mediane": 6104,
+          "q1": 5096,
+          "q3": 7096
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 112,
+          "mediane": 3030,
+          "q1": 1974,
+          "q3": 5179
+        },
+        "neuf": null
+      }
+    },
+    "62609": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 32,
+          "mediane": 2517,
+          "q1": 2049,
+          "q3": 3178
+        },
+        "neuf": null
+      }
+    },
+    "62617": {
+      "appartement": {
+        "ancien": {
+          "n": 41,
+          "mediane": 1647,
+          "q1": 1436,
+          "q3": 2000
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 286,
+          "mediane": 1345,
+          "q1": 1055,
+          "q3": 1734
+        },
+        "neuf": null
+      }
+    },
+    "62624": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 90,
+          "mediane": 1616,
+          "q1": 1206,
+          "q3": 2045
+        },
+        "neuf": null
+      }
+    },
+    "62626": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 1788,
+          "q1": 1325,
+          "q3": 2136
+        },
+        "neuf": null
+      }
+    },
+    "62628": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 120,
+          "mediane": 1387,
+          "q1": 1067,
+          "q3": 1718
+        },
+        "neuf": null
+      }
+    },
+    "62637": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 184,
+          "mediane": 1819,
+          "q1": 1303,
+          "q3": 2262
+        },
+        "neuf": null
+      }
+    },
+    "62638": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 35,
+          "mediane": 1389,
+          "q1": 1147,
+          "q3": 1720
+        },
+        "neuf": null
+      }
+    },
+    "62643": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 349,
+          "mediane": 1741,
+          "q1": 1475,
+          "q3": 2022
+        },
+        "neuf": null
+      }
+    },
+    "62645": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 132,
+          "mediane": 1990,
+          "q1": 1660,
+          "q3": 2276
+        },
+        "neuf": null
+      }
+    },
+    "62652": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 39,
+          "mediane": 1273,
+          "q1": 1065,
+          "q3": 1680
+        },
+        "neuf": null
+      }
+    },
+    "62666": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 95,
+          "mediane": 1468,
+          "q1": 1073,
+          "q3": 1892
+        },
+        "neuf": null
+      }
+    },
+    "62667": {
+      "appartement": {
+        "ancien": {
+          "n": 106,
+          "mediane": 1984,
+          "q1": 1674,
+          "q3": 2735
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 204,
+          "mediane": 1827,
+          "q1": 1423,
+          "q3": 2140
+        },
+        "neuf": null
+      }
+    },
+    "62684": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 56,
+          "mediane": 1664,
+          "q1": 1381,
+          "q3": 2091
+        },
+        "neuf": null
+      }
+    },
+    "62688": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 161,
+          "mediane": 2271,
+          "q1": 1787,
+          "q3": 2822
+        },
+        "neuf": null
+      }
+    },
+    "62705": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 43,
+          "mediane": 1609,
+          "q1": 1388,
+          "q3": 2182
+        },
+        "neuf": null
+      }
+    },
+    "62706": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 49,
+          "mediane": 1972,
+          "q1": 1555,
+          "q3": 2646
+        },
+        "neuf": null
+      }
+    },
+    "62711": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 85,
+          "mediane": 1762,
+          "q1": 1391,
+          "q3": 2114
+        },
+        "neuf": null
+      }
+    },
+    "62718": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 34,
+          "mediane": 1718,
+          "q1": 1426,
+          "q3": 2094
+        },
+        "neuf": null
+      }
+    },
+    "62724": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 145,
+          "mediane": 1644,
+          "q1": 1310,
+          "q3": 2068
+        },
+        "neuf": null
+      }
+    },
+    "62727": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 1631,
+          "q1": 1264,
+          "q3": 1939
+        },
+        "neuf": null
+      }
+    },
+    "62730": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 40,
+          "mediane": 1912,
+          "q1": 1434,
+          "q3": 2281
+        },
+        "neuf": null
+      }
+    },
+    "62735": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 69,
+          "mediane": 1767,
+          "q1": 1345,
+          "q3": 2177
+        },
+        "neuf": null
+      }
+    },
+    "62736": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 105,
+          "mediane": 2208,
+          "q1": 1706,
+          "q3": 2608
+        },
+        "neuf": null
+      }
+    },
+    "62737": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 144,
+          "mediane": 1627,
+          "q1": 1210,
+          "q3": 2094
+        },
+        "neuf": null
+      }
+    },
+    "62744": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 100,
+          "mediane": 2219,
+          "q1": 1911,
+          "q3": 2448
+        },
+        "neuf": null
+      }
+    },
+    "62746": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 143,
+          "mediane": 2033,
+          "q1": 1522,
+          "q3": 2346
+        },
+        "neuf": null
+      }
+    },
+    "62748": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 55,
+          "mediane": 1983,
+          "q1": 1366,
+          "q3": 2358
+        },
+        "neuf": null
+      }
+    },
+    "62752": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 30,
+          "mediane": 3226,
+          "q1": 2230,
+          "q3": 4480
+        },
+        "neuf": null
+      }
+    },
+    "62753": {
+      "appartement": {
+        "ancien": {
+          "n": 46,
+          "mediane": 2454,
+          "q1": 2123,
+          "q3": 3014
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 164,
+          "mediane": 1937,
+          "q1": 1630,
+          "q3": 2218
+        },
+        "neuf": null
+      }
+    },
+    "62755": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 90,
+          "mediane": 1989,
+          "q1": 1690,
+          "q3": 2366
+        },
+        "neuf": null
+      }
+    },
+    "62756": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 42,
+          "mediane": 1574,
+          "q1": 1039,
+          "q3": 2050
+        },
+        "neuf": null
+      }
+    },
+    "62757": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 143,
+          "mediane": 1750,
+          "q1": 1500,
+          "q3": 2005
+        },
+        "neuf": null
+      }
+    },
+    "62758": {
+      "appartement": {
+        "ancien": {
+          "n": 115,
+          "mediane": 2300,
+          "q1": 2024,
+          "q3": 2615
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 325,
+          "mediane": 1914,
+          "q1": 1520,
+          "q3": 2249
+        },
+        "neuf": null
+      }
+    },
+    "62764": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 114,
+          "mediane": 1818,
+          "q1": 1527,
+          "q3": 2063
+        },
+        "neuf": null
+      }
+    },
+    "62765": {
+      "appartement": {
+        "ancien": {
+          "n": 163,
+          "mediane": 1744,
+          "q1": 1376,
+          "q3": 2104
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 301,
+          "mediane": 1537,
+          "q1": 1213,
+          "q3": 1919
+        },
+        "neuf": null
+      }
+    },
+    "62767": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 147,
+          "mediane": 1071,
+          "q1": 818,
+          "q3": 1361
+        },
+        "neuf": null
+      }
+    },
+    "62770": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 67,
+          "mediane": 1500,
+          "q1": 1097,
+          "q3": 1889
+        },
+        "neuf": null
+      }
+    },
+    "62771": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 128,
+          "mediane": 1455,
+          "q1": 1069,
+          "q3": 1737
+        },
+        "neuf": null
+      }
+    },
+    "62773": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 118,
+          "mediane": 1975,
+          "q1": 1458,
+          "q3": 2148
+        },
+        "neuf": null
+      }
+    },
+    "62774": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 93,
+          "mediane": 2432,
+          "q1": 1979,
+          "q3": 2952
+        },
+        "neuf": null
+      }
+    },
+    "62801": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 78,
+          "mediane": 1919,
+          "q1": 1467,
+          "q3": 2212
+        },
+        "neuf": null
+      }
+    },
+    "62810": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 39,
+          "mediane": 1966,
+          "q1": 1629,
+          "q3": 2079
+        },
+        "neuf": null
+      }
+    },
+    "62826": {
+      "appartement": {
+        "ancien": {
+          "n": 701,
+          "mediane": 8650,
+          "q1": 7300,
+          "q3": 10000
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 233,
+          "mediane": 9205,
+          "q1": 7333,
+          "q3": 11047
+        },
+        "neuf": null
+      }
+    },
+    "62836": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 33,
+          "mediane": 2035,
+          "q1": 1634,
+          "q3": 2534
+        },
+        "neuf": null
+      }
+    },
+    "62841": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 61,
+          "mediane": 1545,
+          "q1": 1163,
+          "q3": 1829
+        },
+        "neuf": null
+      }
+    },
+    "62842": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 178,
+          "mediane": 1767,
+          "q1": 1322,
+          "q3": 2137
+        },
+        "neuf": null
+      }
+    },
+    "62846": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 121,
+          "mediane": 1544,
+          "q1": 1273,
+          "q3": 1988
+        },
+        "neuf": null
+      }
+    },
+    "62847": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 44,
+          "mediane": 1658,
+          "q1": 1132,
+          "q3": 2035
+        },
+        "neuf": null
+      }
+    },
+    "62848": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 88,
+          "mediane": 1544,
+          "q1": 1273,
+          "q3": 1834
+        },
+        "neuf": null
+      }
+    },
+    "62849": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 60,
+          "mediane": 2457,
+          "q1": 2198,
+          "q3": 2844
+        },
+        "neuf": null
+      }
+    },
+    "62861": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 127,
+          "mediane": 1928,
+          "q1": 1555,
+          "q3": 2348
+        },
+        "neuf": null
+      }
+    },
+    "62863": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 87,
+          "mediane": 1945,
+          "q1": 1494,
+          "q3": 2411
+        },
+        "neuf": null
+      }
+    },
+    "62865": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 100,
+          "mediane": 1627,
+          "q1": 1217,
+          "q3": 2010
+        },
+        "neuf": null
+      }
+    },
+    "62882": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 31,
+          "mediane": 1483,
+          "q1": 1020,
+          "q3": 1650
+        },
+        "neuf": null
+      }
+    },
+    "62893": {
+      "appartement": {
+        "ancien": {
+          "n": 177,
+          "mediane": 5246,
+          "q1": 4369,
+          "q3": 6409
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 167,
+          "mediane": 3789,
+          "q1": 2964,
+          "q3": 4539
+        },
+        "neuf": null
+      }
+    },
+    "62894": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 122,
+          "mediane": 2164,
+          "q1": 1868,
+          "q3": 2809
+        },
+        "neuf": null
+      }
+    },
+    "62895": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 205,
+          "mediane": 1606,
+          "q1": 1343,
+          "q3": 2023
+        },
+        "neuf": null
+      }
+    },
+    "62899": {
+      "appartement": {
+        "ancien": {
+          "n": 34,
+          "mediane": 6033,
+          "q1": 5281,
+          "q3": 7684
+        },
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 47,
+          "mediane": 4219,
+          "q1": 3526,
+          "q3": 6316
+        },
+        "neuf": null
+      }
+    },
+    "62902": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 80,
+          "mediane": 1710,
+          "q1": 1406,
+          "q3": 2006
+        },
+        "neuf": null
+      }
+    },
+    "62906": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 37,
+          "mediane": 1998,
+          "q1": 1571,
+          "q3": 2489
+        },
+        "neuf": null
+      }
+    },
+    "62907": {
+      "appartement": {
+        "ancien": null,
+        "neuf": null
+      },
+      "maison": {
+        "ancien": {
+          "n": 147,
+          "mediane": 1622,
+          "q1": 1244,
+          "q3": 2131
+        },
+        "neuf": null
+      }
+    }
+  },
+  "noms": {
+    "departements": {
+      "59": "Nord",
+      "62": "Pas-de-Calais"
+    },
+    "epci": {
+      "200018083": "CC de Desvres-Samer",
+      "200030633": "CA du Caudrésis et du Catésis",
+      "200033579": "CU d'Arras",
+      "200035442": "CC du Sud Artois",
+      "200040947": "CA Coeur de Flandre",
+      "200040954": "CC des Hauts de Flandre",
+      "200041960": "CC Pévèle-Carembault",
+      "200042190": "CA de la Porte du Hainaut",
+      "200043263": "CC Coeur de l'Avesnois",
+      "200043321": "CC du Pays de Mormal",
+      "200043396": "CA Maubeuge Val de Sambre",
+      "200043404": "CC du Sud Avesnois",
+      "200044030": "CC des 7 Vallées",
+      "200044048": "CC Osartis Marquion",
+      "200044618": "CA Douaisis Agglo",
+      "200068500": "CA de Cambrai",
+      "200069029": "CA des Deux Baies en Montreuillois",
+      "200069037": "CA du Pays de Saint-Omer",
+      "200069235": "CC du Haut Pays du Montreuillois",
+      "200069482": "CC des Campagnes de l'Artois",
+      "200069672": "CC du Ternois",
+      "200072460": "CA de Béthune-Bruay, Artois-Lys Romane",
+      "200072478": "CC Pays d'Opale",
+      "200090751": "CA Grand Calais Terres et Mers",
+      "200093201": "Métropole Européenne de Lille",
+      "245900428": "CU de Dunkerque",
+      "245900758": "CC Flandre Lys",
+      "245901038": "CC du Pays Solesmois",
+      "245901152": "CA Coeur d'Ostrevent",
+      "245901160": "CA Valenciennes Métropole",
+      "246200299": "CA d'Hénin-Carvin",
+      "246200364": "CA de Lens - Liévin",
+      "246200380": "CC de la Terre des Deux Caps",
+      "246200729": "CA du Boulonnais",
+      "246200844": "CC de la Région d'Audruicq",
+      "246201016": "CC du Pays de Lumbres"
     }
   }
 }

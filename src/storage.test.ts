@@ -63,6 +63,7 @@ describe("sauvegarde locale", () => {
     expect(charge({ ...s, profile: { ...s.profile, finances: { ...s.profile.finances, apport: -1 } } })).toBeNull();
     expect(charge({ ...s, profile: { ...s.profile, foyer: { adultes: 0, enfants: 0 } } })).toBeNull();
     expect(charge({ ...s, criteria: { ...s.criteria, rayonKm: 1000 } })).toBeNull();
+    expect(charge({ ...s, criteria: { ...s.criteria, rayonKm: 150 } })).not.toBeNull();
     expect(charge({ ...s, credit: { ...s.credit, ajustementTaux: 5 } })).toBeNull();
     expect(charge({ ...s, years: 0 })).toBeNull();
     expect(charge({ ...s, comparaison: bienIds.slice(0, 4) })).toBeNull();

@@ -134,15 +134,18 @@ export function computeAides(
       detail: mprOk && cat ? `Profil « ${cat} » : ${Math.round(r.maPrimeRenov.taux[cat] * 100)} % des travaux (plafonnés).` : cat === null ? "Revenus au-dessus des plafonds." : "DPE ou travaux non éligibles.",
     });
 
-    const localOk = r.aideLocale.dpeEligibles.includes(b.dpe) && travaux > 0;
-    aides.push({
-      id: "aideLocale",
-      libelle: r.aideLocale.libelle,
-      eligible: localOk,
-      montant: localOk ? r.aideLocale.montant : 0,
-      nature: "subvention",
-      detail: localOk ? "Forfait local pour la rénovation énergétique." : "DPE non éligible.",
-    });
+    // Dispositif propre à une intercommunalité : absent (et non « refusé ») ailleurs.
+    if (r.aideLocale.epci.includes(c.epci)) {
+      const localOk = r.aideLocale.dpeEligibles.includes(b.dpe) && travaux > 0;
+      aides.push({
+        id: "aideLocale",
+        libelle: r.aideLocale.libelle,
+        eligible: localOk,
+        montant: localOk ? r.aideLocale.montant : 0,
+        nature: "subvention",
+        detail: localOk ? "Forfait local pour la rénovation énergétique." : "DPE non éligible.",
+      });
+    }
   }
 
   return aides;

@@ -139,7 +139,7 @@ export function App() {
     <div className="app">
       <header className="top">
         <h1>ImmoNow</h1>
-        <p className="muted">L'achat immobilier réaliste : biens × profil financier × aides (démo Métropole Européenne de Lille, règles {aidRules.millesime})</p>
+        <p className="muted">L'achat immobilier réaliste : biens × profil financier × aides (démo Nord et Pas-de-Calais, règles {aidRules.millesime})</p>
         <p className="muted small privacy">
           {sauvegardeOk
             ? "Vos données sont enregistrées uniquement dans ce navigateur (aucun envoi à un serveur)."

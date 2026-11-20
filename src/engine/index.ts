@@ -9,23 +9,20 @@ import type {
   ZonageData,
 } from "../types";
 import { aidRules } from "../config";
-import communesData from "../data/communes.mel.json";
+import communesData from "../data/communes.json";
 import biensData from "../data/biens.demo.json";
 import zonageData from "../data/zonage.abc.json";
 import marcheData from "../data/marche.dvf.json";
 import { estimateTravaux, evaluate } from "./evaluate";
 import { defaultCreditOptions } from "./finance";
 import { matchesCriteria, sortEvaluations } from "./search";
-export { sortBy, TRI_LABELS } from "./search";
+export { RAYON_MAX_KM, sortBy, TRI_LABELS } from "./search";
 import { parseCommunes, parseMarket, parseProperties, parseZonage } from "../schemas";
 
 /** Sources de données ouvertes (zonage ABC : ministère ; DVF : DGFiP/Etalab), validées au chargement. */
 export const zonage: ZonageData = parseZonage(zonageData);
 export const communes: Commune[] = parseCommunes(communesData, zonage);
-export const marche: MarketData = parseMarket(
-  marcheData,
-  communes.map((c) => c.insee),
-);
+export const marche: MarketData = parseMarket(marcheData, communes);
 export const biens: Property[] = parseProperties(biensData, communes);
 
 export const defaultProfile: UserProfile = {

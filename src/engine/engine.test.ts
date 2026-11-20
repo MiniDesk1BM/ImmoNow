@@ -4,7 +4,7 @@ import { borrowingCapacity, maxMonthlyPayment, pmt, summarizeBudget } from "./fi
 import { computeAides } from "./aides";
 import { estimateTravaux, evaluate } from "./evaluate";
 import { biens, communes, defaultCriteria, defaultProfile, runSearch } from "./index";
-import { distanceKm } from "./search";
+import { distanceKm, RAYON_MAX_KM } from "./search";
 import type { Property, UserProfile } from "../types";
 
 const commune = (id: string) => {
@@ -127,10 +127,36 @@ describe("evaluate", () => {
   });
 });
 
+describe("aide locale (propre à une intercommunalité)", () => {
+  const travaux = 10000;
+  it("proposée dans la MEL pour un DPE éligible", () => {
+    const a = computeAides(bien("b02"), commune("lille"), profile(), r, travaux).find((x) => x.id === "aideLocale");
+    expect(a?.eligible).toBe(true);
+    expect(a?.montant).toBe(r.aideLocale.montant);
+  });
+  it("absente (pas simplement refusée) hors de la MEL, même pour un DPE éligible", () => {
+    const hors = commune("arras");
+    expect(r.aideLocale.epci).not.toContain(hors.epci);
+    const a = computeAides({ ...bien("b02"), communeId: hors.id }, hors, profile(), r, travaux);
+    expect(a.some((x) => x.id === "aideLocale")).toBe(false);
+  });
+});
+
 describe("search", () => {
   it("distance Lille–Roubaix ≈ 10 km", () => {
     expect(distanceKm(commune("lille"), commune("roubaix"))).toBeGreaterThan(8);
     expect(distanceKm(commune("lille"), commune("roubaix"))).toBeLessThan(13);
+  });
+  it("la ville de référence peut être n'importe quelle commune du Nord ou du Pas-de-Calais", () => {
+    const depuisCalais = runSearch(defaultProfile, { ...defaultCriteria, communeCentreId: "calais", rayonKm: 30 }, 25);
+    expect(depuisCalais.length).toBeGreaterThan(0);
+    expect(depuisCalais.every((e) => distanceKm(commune("calais"), e.commune) <= 30)).toBe(true);
+    expect(depuisCalais.some((e) => e.commune.id === "lille")).toBe(false);
+  });
+  it("RAYON_MAX_KM suffit à couvrir les deux départements depuis n'importe quelle commune de référence", () => {
+    const lens = commune("lens");
+    const loin = runSearch(defaultProfile, { ...defaultCriteria, communeCentreId: lens.id, rayonKm: RAYON_MAX_KM, surfaceMin: 0, chambresMin: 0 }, 25);
+    expect(loin.length).toBe(biens.length);
   });
   it("le rayon filtre les biens", () => {
     const petit = runSearch(defaultProfile, { ...defaultCriteria, rayonKm: 2 }, 25);

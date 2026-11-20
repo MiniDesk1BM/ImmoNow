@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { csvRows } from "./lib/csv.ts";
-import { buildEntry, extractSales, quantile, summarize } from "./lib/dvf.ts";
+import { buildEntry, buildGroups, extractSales, pruneEntry, quantile, summarize } from "./lib/dvf.ts";
+import { assignIds, parseGeoCommunes, slug } from "./lib/geo.ts";
 import { parseZonageCsv } from "./lib/zonage.ts";
 
 const HEAD =
@@ -99,6 +100,70 @@ describe("extractSales (DVF)", () => {
     expect(e.appartement.neuf?.mediane).toBe(5000);
     expect(e.maison.ancien?.mediane).toBe(2000);
     expect(e.maison.neuf).toBeNull();
+  });
+});
+
+describe("buildGroups / pruneEntry (agrégats par maille)", () => {
+  const vente = (insee: string, prixM2: number, type: "appartement" | "maison" = "appartement", regime: "ancien" | "neuf" = "ancien") => ({ insee, type, regime, prixM2 });
+  const ventes = [
+    ...Array.from({ length: 5 }, (_, i) => vente("59350", 3000 + i * 100)),
+    ...Array.from({ length: 2 }, (_, i) => vente("59512", 1500 + i)),
+  ];
+  it("regroupe par clé et écarte les statistiques sous le seuil", () => {
+    const g = buildGroups(ventes, (s) => s.insee, 5);
+    expect(Object.keys(g)).toEqual(["59350"]);
+    expect(g["59350"]?.appartement.ancien?.n).toBe(5);
+    expect(g["59350"]?.maison.ancien).toBeNull();
+  });
+  it("ignore les ventes sans clé (commune hors périmètre) et trie les clés", () => {
+    const g = buildGroups(ventes, (s) => (s.insee === "59350" ? "b" : s.insee === "59512" ? "a" : undefined), 1);
+    expect(Object.keys(g)).toEqual(["a", "b"]);
+  });
+  it("pruneEntry : null si plus aucune statistique n'est exploitable", () => {
+    expect(pruneEntry(buildEntry(ventes.slice(5)), 5)).toBeNull();
+    expect(pruneEntry(buildEntry(ventes.slice(5)), 2)?.appartement.ancien?.n).toBe(2);
+  });
+});
+
+describe("geo.api.gouv.fr", () => {
+  const brut = (over: Record<string, unknown> = {}) => ({
+    code: "62041",
+    nom: "Arras",
+    codesPostaux: ["62000"],
+    centre: { type: "Point", coordinates: [2.78123456, 50.29123456] },
+    codeEpci: "246200364",
+    epci: { code: "246200364", nom: "CU d'Arras" },
+    ...over,
+  });
+  it("normalise une commune (lat/lng arrondis, 1er code postal, EPCI)", () => {
+    expect(parseGeoCommunes([brut()])).toEqual([
+      { insee: "62041", nom: "Arras", codePostal: "62000", lat: 50.2912, lng: 2.7812, epci: "246200364", epciNom: "CU d'Arras" },
+    ]);
+  });
+  it("refuse une réponse incomplète ou incohérente plutôt que de produire des données partielles", () => {
+    expect(() => parseGeoCommunes([brut({ codesPostaux: [] })])).toThrow(/invalide/);
+    expect(() => parseGeoCommunes([brut({ centre: undefined })])).toThrow(/invalide/);
+    expect(() => parseGeoCommunes([brut({ code: "6204" })])).toThrow(/invalide/);
+    expect(() => parseGeoCommunes([brut({ codeEpci: "111111111" })])).toThrow(/incohérent/);
+  });
+  const com = (insee: string, nom: string) => ({ insee, nom, codePostal: "59000", lat: 0, lng: 0, epci: "200000000", epciNom: "X" });
+  it("slug : sans accents ni ligatures, séparé par des tirets", () => {
+    expect(slug("Marcq-en-Barœul")).toBe("marcq-en-baroeul");
+    expect(slug("Saint-Omer")).toBe("saint-omer");
+    expect(slug("L'Écluse")).toBe("l-ecluse");
+  });
+  it("assignIds : conserve les identifiants connus et suffixe les homonymes par le code INSEE", () => {
+    const cs = [com("59350", "Lille"), com("59529", "Saint-Aubin"), com("62742", "Saint-Aubin"), com("59999", "Roubaix")];
+    const ids = assignIds(cs, new Map([["59350", "lille"], ["59999", "roubaix-historique"]]));
+    expect(ids.get("59350")).toBe("lille");
+    expect(ids.get("59999")).toBe("roubaix-historique");
+    expect(ids.get("59529")).toBe("saint-aubin-59529");
+    expect(ids.get("62742")).toBe("saint-aubin-62742");
+    expect(new Set(ids.values()).size).toBe(4);
+  });
+  it("assignIds : un slug déjà pris par un identifiant connu est suffixé (pas de collision)", () => {
+    const ids = assignIds([com("59350", "Lille"), com("62000", "Lille")], new Map([["59350", "lille"]]));
+    expect(ids.get("62000")).toBe("lille-62000");
   });
 });
 

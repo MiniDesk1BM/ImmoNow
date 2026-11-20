@@ -9,6 +9,12 @@ const VERDICT_LABEL: Record<MarcheVerdict, string> = {
   "au-dessus": "Au-dessus du marché",
 };
 
+const NIVEAU_LABEL: Record<MarcheComparaison["niveau"], string> = {
+  commune: "commune de",
+  epci: "intercommunalité",
+  departement: "département",
+};
+
 const signed = (x: number, digits = 0): string => `${x >= 0 ? "+" : "−"}${Math.abs(x * 100).toFixed(digits)} %`;
 
 /**
@@ -45,7 +51,7 @@ export function MarketDetail({ m, zone, commune }: { m: MarcheComparaison | null
               </tr>
               <tr className="muted">
                 <td>Échantillon</td>
-                <td>{m.reference.n.toLocaleString("fr-FR")} ventes {m.annees[0]}–{m.annees[m.annees.length - 1]} ({m.niveau === "commune" ? "commune" : "agglomération"})</td>
+                <td>{m.reference.n.toLocaleString("fr-FR")} ventes {m.annees[0]}–{m.annees[m.annees.length - 1]} · {NIVEAU_LABEL[m.niveau]} {m.referenceNom}</td>
               </tr>
             </tbody>
           </table>
