@@ -12,6 +12,7 @@ const SEGMENTS: { key: string; label: string; color: string; value: (e: Evaluati
   { key: "prix", label: "Prix du bien", color: "#3b82d4", value: (e) => e.bien.prix },
   { key: "notaire", label: "Frais de notaire", color: "#7c5cd8", value: (e) => e.fraisNotaire },
   { key: "travaux", label: "Travaux", color: "#d98b2b", value: (e) => e.travaux },
+  { key: "credit", label: "Frais de crédit", color: "#57606a", value: (e) => e.fraisCredit.total },
 ];
 
 /** Barre de répartition du coût total, avec les aides déduites. */

@@ -1,3 +1,4 @@
+export type Garantie = "caution" | "hypotheque";
 export type Zone = "Abis" | "A" | "B1" | "B2" | "C";
 export type Dpe = "A" | "B" | "C" | "D" | "E" | "F" | "G";
 export type Categorie = "neuf" | "ancien" | "brs" | "hlm";
@@ -59,6 +60,13 @@ export interface AidRules {
     tauxParDuree: Record<string, number>;
     dureeMinAns: number;
     dureeMaxAns: number;
+    /** Frais de dossier bancaires : pourcentage du prêt, borné [min, max] en euros */
+    fraisDossier: { pct: number; min: number; max: number };
+    /** Garantie : pourcentage du prêt par type, avec un type retenu par défaut */
+    garantie: { defaut: Garantie; pct: Record<Garantie, number> };
+    /** Bornes (en points de taux) du curseur « Et si » appliqué à la grille */
+    ajustementTauxMin: number;
+    ajustementTauxMax: number;
   };
   fraisNotaire: Record<Categorie, number>;
   travauxParM2Dpe: Record<Dpe, number>;
@@ -67,6 +75,17 @@ export interface AidRules {
     taxeFonciereAlerteAnnuelle: number;
     chargesAlerteParM2Mensuel: number;
     ecartOrange: number;
+  };
+  /** Score de faisabilité 0-100 : moyenne pondérée de 4 composantes notées de 0 à 1 */
+  score: {
+    /** Poids des composantes, somme = 1 */
+    poids: { financement: number; endettement: number; resteAVivre: number; apport: number };
+    /** Endettement : note maximale si le taux est ≤ (1 − marge) × taux max ; nulle au taux max */
+    margeEndettementCible: number;
+    /** Reste à vivre : note maximale à partir de ce multiple du seuil de confort */
+    resteAVivreCibleRatio: number;
+    /** Apport personnel visé, en part du coût total, pour la note maximale */
+    apportCiblePct: number;
   };
   ptz: {
     plafondsRessources: Record<Zone, number[]>;
@@ -114,6 +133,12 @@ export interface Alerte {
   message: string;
 }
 
+export interface CreditOptions {
+  /** Écart (en points, ex. 0.005 = +0,5 pt) appliqué à la grille de taux */
+  ajustementTaux: number;
+  garantie: Garantie;
+}
+
 export interface LignePret {
   libelle: string;
   montant: number;
@@ -125,12 +150,25 @@ export interface LignePret {
 
 export type Statut = "vert" | "orange" | "rouge";
 
+export interface ScoreDetail {
+  financement: number;
+  endettement: number;
+  resteAVivre: number;
+  apport: number;
+}
+
 export interface Evaluation {
   bien: Property;
   commune: Commune;
   travaux: number;
   fraisNotaire: number;
+  /** Frais de dossier + garantie : calculés sur le prêt bancaire (itération à point fixe) */
+  fraisCredit: { dossier: number; garantie: number; total: number };
+  /** Taux nominal appliqué au prêt bancaire (grille + ajustement) */
+  tauxCredit: number;
+  /** Prix + notaire + travaux + frais de crédit */
   coutTotal: number;
+  scoreDetail: ScoreDetail;
   aides: Aide[];
   financement: {
     apport: number;

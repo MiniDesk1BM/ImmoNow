@@ -85,9 +85,9 @@ describe("aides", () => {
 });
 
 describe("evaluate", () => {
-  it("le coût total = prix + notaire + travaux", () => {
+  it("le coût total = prix + notaire + travaux + frais de crédit", () => {
     const e = evaluate(bien("b08"), commune("roubaix"), profile(), r, 25);
-    expect(e.coutTotal).toBe(e.bien.prix + e.fraisNotaire + e.travaux);
+    expect(e.coutTotal).toBe(e.bien.prix + e.fraisNotaire + e.travaux + e.fraisCredit.total);
     expect(e.fraisNotaire).toBe(Math.round(145000 * 0.08));
   });
   it("le financement couvre le besoin ou signale le manque", () => {

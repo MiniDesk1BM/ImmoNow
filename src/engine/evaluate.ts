@@ -1,6 +1,27 @@
-import type { Alerte, Evaluation, LignePret, Commune, Property, UserProfile, AidRules, Statut } from "../types";
+import type {
+  Alerte,
+  AidRules,
+  Commune,
+  CreditOptions,
+  Evaluation,
+  LignePret,
+  Property,
+  Statut,
+  UserProfile,
+} from "../types";
 import { computeAides } from "./aides";
-import { bankPaymentFactor, maxMonthlyPayment, monthlyAt, peakMonthly, pmt } from "./finance";
+import {
+  bankPaymentFactor,
+  creditFees,
+  creditRate,
+  defaultCreditOptions,
+  loanForNeed,
+  maxMonthlyPayment,
+  monthlyAt,
+  peakMonthly,
+  pmt,
+} from "./finance";
+import { computeScore } from "./score";
 
 const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
 const eur = (n: number) => `${Math.round(n).toLocaleString("fr-FR")} €`;
@@ -17,8 +38,12 @@ export function minResteAVivre(p: UserProfile, r: AidRules): number {
 
 /**
  * Évalue la faisabilité d'un bien pour un profil.
- * Hypothèses : le prêt bancaire est dimensionné sur la mensualité PIC (PTZ remboursé inclus
- * s'il chevauche le prêt principal) afin que le taux d'endettement max soit respecté à tout moment.
+ * Hypothèses :
+ * - le prêt bancaire est dimensionné sur la mensualité PIC (PTZ remboursé inclus s'il chevauche
+ *   le prêt principal) afin que le taux d'endettement max soit respecté à tout moment ;
+ * - les frais de dossier et de garantie sont financés par le prêt bancaire (point fixe) et
+ *   s'ajoutent au coût total ;
+ * - `opts.ajustementTaux` décale la grille de taux (curseur « Et si… »).
  */
 export function evaluate(
   bien: Property,
@@ -26,16 +51,17 @@ export function evaluate(
   profile: UserProfile,
   rules: AidRules,
   years: number,
+  opts: CreditOptions = defaultCreditOptions(rules),
 ): Evaluation {
   const travaux = estimateTravaux(bien, rules);
   const fraisNotaire = Math.round(bien.prix * rules.fraisNotaire[bien.categorie]);
-  const coutTotal = bien.prix + fraisNotaire + travaux;
+  const coutBien = bien.prix + fraisNotaire + travaux;
   const aides = computeAides(bien, commune, profile, rules, travaux);
   const byId = (id: string) => aides.find((a) => a.id === id);
 
   const subventions = sum(aides.filter((a) => a.eligible && a.nature === "subvention").map((a) => a.montant));
   const apport = profile.finances.apport;
-  let besoin = Math.max(0, coutTotal - apport - subventions);
+  let besoin = Math.max(0, coutBien - apport - subventions);
 
   const ptzAide = byId("ptz");
   const alAide = byId("actionLogement");
@@ -82,12 +108,17 @@ export function evaluate(
 
   // Capacité bancaire résiduelle, calculée sur la mensualité maximale cumulée (pic)
   const mensualiteMax = maxMonthlyPayment(profile, rules);
-  const factor = bankPaymentFactor(years, rules);
+  const factor = bankPaymentFactor(years, rules, opts.ajustementTaux);
   const pointsPic = [0, ...prets.map((p) => p.debutAns)].filter((t) => t < years);
   const pic = pointsPic.reduce((m, t) => Math.max(m, monthlyAt(prets, t)), 0);
   const capaciteBancaire = Math.max(0, Math.floor((mensualiteMax - redevanceBrs - pic) / factor));
-  const pretBancaire = Math.min(besoin, capaciteBancaire);
-  const manque = Math.max(0, besoin - pretBancaire);
+
+  // Le prêt couvre le besoin ET ses propres frais (dossier + garantie).
+  const pretNecessaire = loanForNeed(besoin, rules, opts.garantie);
+  const pretBancaire = Math.min(pretNecessaire, capaciteBancaire);
+  const frais = creditFees(pretBancaire, rules, opts.garantie);
+  const manque = Math.max(0, besoin - Math.max(0, pretBancaire - frais.total));
+  const coutTotal = coutBien + frais.total;
 
   if (pretBancaire > 0) {
     prets.push({
@@ -108,7 +139,10 @@ export function evaluate(
   const taux = (m: number) => (revenusNetsMensuels > 0 ? (mensualitesCredits + m) / revenusNetsMensuels : 1);
 
   const ressources = apport + subventions + ptz + al + eco + pretBancaire;
-  const scorePct = Math.max(0, Math.min(100, Math.round((ressources / coutTotal) * 100)));
+  const score = computeScore(
+    { ressources, coutTotal, apport, tauxEndettement: taux(mensualitePic), resteAVivre, resteAVivreMin },
+    rules,
+  );
 
   const alertes: Alerte[] = [];
   const brs = byId("brs");
@@ -155,7 +189,10 @@ export function evaluate(
     commune,
     travaux,
     fraisNotaire,
+    fraisCredit: frais,
+    tauxCredit: creditRate(years, rules, opts.ajustementTaux),
     coutTotal,
+    scoreDetail: score.detail,
     aides,
     financement: { apport, subventions, ptz, actionLogement: al, ecoPtz: eco, pretBancaire, capaciteBancaire, manque },
     prets,
@@ -168,7 +205,7 @@ export function evaluate(
     chargesMensuellesBien,
     resteAVivre,
     resteAVivreMin,
-    scorePct: brsBloque ? 0 : scorePct,
+    scorePct: brsBloque ? 0 : score.pct,
     statut,
     alertes,
   };

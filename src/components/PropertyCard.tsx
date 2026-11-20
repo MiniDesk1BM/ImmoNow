@@ -3,6 +3,13 @@ import type { Evaluation } from "../types";
 import { eur, pct } from "../format";
 import { BudgetBar, PaymentChart, STATUT_LABEL } from "./Charts";
 
+const SCORE_LABELS: [keyof Evaluation["scoreDetail"], string][] = [
+  ["financement", "Financement"],
+  ["endettement", "Marge d'endettement"],
+  ["resteAVivre", "Reste à vivre"],
+  ["apport", "Apport"],
+];
+
 export function PropertyCard({ e, years }: { e: Evaluation; years: number }) {
   const [open, setOpen] = useState(false);
   const f = e.financement;
@@ -51,7 +58,10 @@ export function PropertyCard({ e, years }: { e: Evaluation; years: number }) {
               <tr><td>PTZ</td><td>{eur(f.ptz)}</td></tr>
               <tr><td>Action Logement</td><td>{eur(f.actionLogement)}</td></tr>
               <tr><td>Éco-PTZ</td><td>{eur(f.ecoPtz)}</td></tr>
-              <tr><td>Prêt bancaire ({years} ans)</td><td>{eur(f.pretBancaire)}</td></tr>
+              <tr><td>Prêt bancaire ({years} ans à {pct(e.tauxCredit, 2)})</td><td>{eur(f.pretBancaire)}</td></tr>
+              {e.fraisCredit.total > 0 && (
+                <tr className="muted"><td>dont frais de dossier + garantie</td><td>{eur(e.fraisCredit.dossier)} + {eur(e.fraisCredit.garantie)}</td></tr>
+              )}
               {f.manque > 0 && <tr className="neg"><td>Manque</td><td>{eur(f.manque)}</td></tr>}
               {e.redevanceBrs > 0 && <tr><td>Redevance BRS</td><td>{eur(e.redevanceBrs)}/mois</td></tr>}
               <tr><td>Mensualité maximale (pic)</td><td>{eur(e.mensualitePic)}</td></tr>
@@ -60,6 +70,16 @@ export function PropertyCard({ e, years }: { e: Evaluation; years: number }) {
             </tbody>
           </table>
           <PaymentChart e={e} years={years} />
+          <h4>Détail du score</h4>
+          <ul className="score-detail">
+            {SCORE_LABELS.map(([key, label]) => (
+              <li key={key}>
+                <span>{label}</span>
+                <meter min={0} max={1} value={e.scoreDetail[key]} aria-label={`${label} : ${Math.round(e.scoreDetail[key] * 100)} %`} />
+                <span>{Math.round(e.scoreDetail[key] * 100)} %</span>
+              </li>
+            ))}
+          </ul>
           <ul className="aides">
             {e.aides.map((a) => (
               <li key={a.id} className={a.eligible ? "ok" : "ko"}>

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import type { SearchCriteria, Statut, UserProfile } from "./types";
-import { defaultCriteria, defaultProfile, runSearch } from "./engine";
+import type { CreditOptions, SearchCriteria, Statut, UserProfile } from "./types";
+import { defaultCredit, defaultCriteria, defaultProfile, runSearch } from "./engine";
 import { aidRules } from "./config";
 import { ProfileForm } from "./components/ProfileForm";
 import { PropertyCard } from "./components/PropertyCard";
@@ -17,16 +17,26 @@ export function App() {
   const [profile, setProfile] = useState<UserProfile>(defaultProfile);
   const [criteria, setCriteria] = useState<SearchCriteria>(defaultCriteria);
   const [years, setYears] = useState(25);
+  const [credit, setCredit] = useState<CreditOptions>(defaultCredit);
   const [tab, setTab] = useState<Tab>("biens");
   const [filtre, setFiltre] = useState<Statut | "tous">("tous");
 
-  const results = useMemo(() => runSearch(profile, criteria, years), [profile, criteria, years]);
+  const results = useMemo(() => runSearch(profile, criteria, years, credit), [profile, criteria, years, credit]);
   const shown = filtre === "tous" ? results : results.filter((r) => r.statut === filtre);
   const count = (s: Statut) => results.filter((r) => r.statut === s).length;
 
   const profileForm = <ProfileForm profile={profile} criteria={criteria} onProfile={setProfile} onCriteria={setCriteria} />;
   const simulator = (
-    <Simulator profile={profile} criteria={criteria} years={years} onYears={setYears} onProfile={setProfile} onCriteria={setCriteria} />
+    <Simulator
+      profile={profile}
+      criteria={criteria}
+      years={years}
+      credit={credit}
+      onYears={setYears}
+      onProfile={setProfile}
+      onCriteria={setCriteria}
+      onCredit={setCredit}
+    />
   );
   const list = (
     <section>

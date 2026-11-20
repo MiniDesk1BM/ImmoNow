@@ -6,7 +6,11 @@
     "assuranceAnnuelle": 0.0034,
     "tauxParDuree": { "10": 0.0290, "15": 0.0300, "20": 0.0315, "25": 0.0335 },
     "dureeMinAns": 10,
-    "dureeMaxAns": 25
+    "dureeMaxAns": 25,
+    "fraisDossier": { "pct": 0.01, "min": 500, "max": 1500 },
+    "garantie": { "defaut": "caution", "pct": { "caution": 0.011, "hypotheque": 0.016 } },
+    "ajustementTauxMin": -0.01,
+    "ajustementTauxMax": 0.02
   },
   "fraisNotaire": { "neuf": 0.025, "brs": 0.025, "ancien": 0.08, "hlm": 0.08 },
   "travauxParM2Dpe": { "A": 0, "B": 0, "C": 50, "D": 150, "E": 450, "F": 800, "G": 1100 },
@@ -15,6 +19,12 @@
     "taxeFonciereAlerteAnnuelle": 2000,
     "chargesAlerteParM2Mensuel": 3.5,
     "ecartOrange": 0.1
+  },
+  "score": {
+    "poids": { "financement": 0.4, "endettement": 0.25, "resteAVivre": 0.25, "apport": 0.1 },
+    "margeEndettementCible": 0.3,
+    "resteAVivreCibleRatio": 2,
+    "apportCiblePct": 0.1
   },
   "ptz": {
     "plafondsRessources": {

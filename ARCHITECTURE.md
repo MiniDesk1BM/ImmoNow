@@ -58,10 +58,12 @@ Extrait des règles (PTZ) : plafonds par zone et taille du foyer, 4 tranches de 
 
 ## Hypothèses du moteur
 
-- Capacité d'emprunt = (35 % × revenus − crédits en cours) / facteur de mensualité (taux de la grille + assurance 0,34 %/an).
+- Capacité d'emprunt = (35 % × revenus − crédits en cours) / facteur de mensualité (taux de la grille + curseur « Et si » + assurance 0,34 %/an).
+- Frais de crédit : frais de dossier (1 % du prêt, bornés 500–1 500 €) + garantie (caution 1,1 % ou hypothèque 1,6 %), **financés dans le prêt** (point fixe) et ajoutés au coût total.
 - Le prêt bancaire est dimensionné sur la **mensualité pic** (PTZ remboursé inclus) pour ne jamais dépasser 35 % à aucun moment.
 - Ordre de mobilisation : apport → subventions → PTZ → Action Logement → Éco-PTZ → prêt bancaire ; le reste est le « manque ».
-- Score = ressources mobilisées / coût total. Vert = financé et reste à vivre ≥ seuil ; Orange = écart ≤ 10 % ou reste à vivre sous le seuil ; Rouge sinon (ou BRS hors plafond).
+- Score 0-100 = moyenne pondérée de 4 notes (`score` dans le JSON) : financement 40 %, marge d'endettement 25 %, reste à vivre 25 %, apport 10 %. Deux biens entièrement financés n'ont donc plus le même score.
+- Statut (indépendant du score) : Vert = financé et reste à vivre ≥ seuil ; Orange = écart ≤ 10 % ou reste à vivre sous le seuil ; Rouge sinon (ou BRS hors plafond).
 - Frais de notaire : 2,5 % neuf/BRS, 8 % ancien/HLM. Travaux = surface × forfait €/m² par DPE (ancien/HLM uniquement).
 
 ## Limites connues
