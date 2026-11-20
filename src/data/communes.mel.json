@@ -1,0 +1,17 @@
+[
+  { "id": "lille", "nom": "Lille", "codePostal": "59000", "zone": "B1", "lat": 50.6292, "lng": 3.0573 },
+  { "id": "marcq", "nom": "Marcq-en-Barœul", "codePostal": "59700", "zone": "B1", "lat": 50.67, "lng": 3.09 },
+  { "id": "madeleine", "nom": "La Madeleine", "codePostal": "59110", "zone": "B1", "lat": 50.65, "lng": 3.07 },
+  { "id": "lambersart", "nom": "Lambersart", "codePostal": "59130", "zone": "B1", "lat": 50.65, "lng": 3.025 },
+  { "id": "villeneuve", "nom": "Villeneuve-d'Ascq", "codePostal": "59650", "zone": "B1", "lat": 50.623, "lng": 3.145 },
+  { "id": "mons", "nom": "Mons-en-Barœul", "codePostal": "59370", "zone": "B1", "lat": 50.642, "lng": 3.11 },
+  { "id": "wasquehal", "nom": "Wasquehal", "codePostal": "59290", "zone": "B1", "lat": 50.67, "lng": 3.13 },
+  { "id": "croix", "nom": "Croix", "codePostal": "59170", "zone": "B1", "lat": 50.677, "lng": 3.15 },
+  { "id": "roubaix", "nom": "Roubaix", "codePostal": "59100", "zone": "B1", "lat": 50.6927, "lng": 3.1746 },
+  { "id": "tourcoing", "nom": "Tourcoing", "codePostal": "59200", "zone": "B1", "lat": 50.7236, "lng": 3.1611 },
+  { "id": "loos", "nom": "Loos", "codePostal": "59120", "zone": "B1", "lat": 50.61, "lng": 3.015 },
+  { "id": "wattrelos", "nom": "Wattrelos", "codePostal": "59150", "zone": "B2", "lat": 50.7, "lng": 3.217 },
+  { "id": "haubourdin", "nom": "Haubourdin", "codePostal": "59320", "zone": "B2", "lat": 50.611, "lng": 2.989 },
+  { "id": "armentieres", "nom": "Armentières", "codePostal": "59280", "zone": "B2", "lat": 50.685, "lng": 2.88 },
+  { "id": "seclin", "nom": "Seclin", "codePostal": "59113", "zone": "B2", "lat": 50.549, "lng": 3.027 }
+]
